@@ -1,0 +1,44 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Forum d'orientation</title>
+  <desc id="desc">Illustration sobre d'etudiants discutant dans un forum d'orientation.</desc>
+  <rect width="1440" height="900" fill="#f7fbff"/>
+  <path d="M0 724C153 649 294 631 423 671C564 714 684 717 815 666C966 607 1113 626 1440 738V900H0V724Z" fill="#dcecff"/>
+  <path d="M97 176C263 83 425 81 583 170C744 262 895 252 1036 142C1159 47 1279 49 1440 139" stroke="#1b5fbd" stroke-width="2" stroke-linecap="round" opacity=".22"/>
+  <path d="M-8 317C143 234 286 236 421 324C570 421 716 425 861 337C1009 248 1196 254 1448 354" stroke="#1b5fbd" stroke-width="2" stroke-linecap="round" opacity=".16"/>
+  <rect x="758" y="148" width="416" height="410" rx="34" fill="#ffffff" stroke="#b7d3f8" stroke-width="3"/>
+  <rect x="804" y="196" width="110" height="18" rx="9" fill="#123b7a"/>
+  <rect x="804" y="244" width="292" height="12" rx="6" fill="#c4dcfb"/>
+  <rect x="804" y="280" width="238" height="12" rx="6" fill="#c4dcfb"/>
+  <rect x="804" y="316" width="268" height="12" rx="6" fill="#c4dcfb"/>
+  <rect x="804" y="382" width="118" height="84" rx="16" fill="#edf5ff" stroke="#b7d3f8" stroke-width="2"/>
+  <rect x="946" y="382" width="118" height="84" rx="16" fill="#edf5ff" stroke="#b7d3f8" stroke-width="2"/>
+  <path d="M838 430H888" stroke="#1b5fbd" stroke-width="8" stroke-linecap="round"/>
+  <path d="M980 417H1030M980 442H1012" stroke="#1b5fbd" stroke-width="8" stroke-linecap="round"/>
+  <rect x="212" y="220" width="418" height="326" rx="34" fill="#ffffff" stroke="#b7d3f8" stroke-width="3"/>
+  <rect x="260" y="268" width="128" height="18" rx="9" fill="#123b7a"/>
+  <rect x="260" y="320" width="290" height="12" rx="6" fill="#c4dcfb"/>
+  <rect x="260" y="356" width="226" height="12" rx="6" fill="#c4dcfb"/>
+  <rect x="260" y="392" width="268" height="12" rx="6" fill="#c4dcfb"/>
+  <circle cx="356" cy="664" r="53" fill="#f4c7a1"/>
+  <path d="M303 650C308 592 344 572 391 598C410 609 422 627 428 650C398 632 355 631 303 650Z" fill="#18345f"/>
+  <path d="M291 745C301 701 324 679 360 679C397 679 423 702 436 745L452 848H274L291 745Z" fill="#1b5fbd"/>
+  <path d="M319 738L286 812" stroke="#123b7a" stroke-width="18" stroke-linecap="round"/>
+  <path d="M407 739L461 796" stroke="#123b7a" stroke-width="18" stroke-linecap="round"/>
+  <rect x="462" y="610" width="198" height="138" rx="20" fill="#ffffff" stroke="#b7d3f8" stroke-width="3"/>
+  <path d="M493 653H626M493 690H596" stroke="#1b5fbd" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="724" cy="638" r="51" fill="#8fb8f2"/>
+  <path d="M676 632C681 586 713 563 751 584C775 597 786 617 789 642C753 624 715 621 676 632Z" fill="#10294d"/>
+  <path d="M660 734C669 692 692 671 727 671C762 671 789 693 805 734L830 848H640L660 734Z" fill="#ffffff" stroke="#b7d3f8" stroke-width="3"/>
+  <path d="M691 734L646 801" stroke="#c4dcfb" stroke-width="18" stroke-linecap="round"/>
+  <path d="M768 734L824 790" stroke="#c4dcfb" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="1004" cy="644" r="55" fill="#f1b989"/>
+  <path d="M948 638C956 584 995 562 1037 589C1059 603 1071 624 1074 650C1035 626 993 623 948 638Z" fill="#2f3d54"/>
+  <path d="M933 744C945 700 970 678 1008 678C1045 678 1073 701 1088 744L1111 848H916L933 744Z" fill="#123b7a"/>
+  <path d="M969 743L921 806" stroke="#1b5fbd" stroke-width="18" stroke-linecap="round"/>
+  <path d="M1049 743L1111 796" stroke="#1b5fbd" stroke-width="18" stroke-linecap="round"/>
+  <rect x="892" y="792" width="294" height="42" rx="21" fill="#ffffff" stroke="#b7d3f8" stroke-width="3"/>
+  <rect x="224" y="814" width="980" height="28" rx="14" fill="#123b7a" opacity=".14"/>
+  <circle cx="1240" cy="250" r="16" fill="#1b5fbd" opacity=".18"/>
+  <circle cx="164" cy="563" r="12" fill="#1b5fbd" opacity=".2"/>
+  <circle cx="1284" cy="556" r="10" fill="#1b5fbd" opacity=".25"/>
+</svg>

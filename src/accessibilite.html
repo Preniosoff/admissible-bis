@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#123b7a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Engagements d'accessibilité numérique du service Admiscible.">
+  <title>Accessibilité — Admiscible</title>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li class="has-dd"><a href="cours.html">Filière <span class="filiere-label"></span><span class="caret">&#9662;</span></a><div class="dd"><a href="cours.html">Cours</a></div></li>
+      <li class="has-dd"><a href="concours.html">Ressources <span class="caret">&#9662;</span></a><div class="dd"><a href="methodes.html">Méthodes</a><a href="ressources.html">Sujets et exercices</a><a href="concours.html">Concours</a></div></li>
+    </ul>
+    <div class="nav-right"><div class="nav-espace"><button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button><div class="dd-espace" id="espace-dd"><a href="parcours.html"><span class="dd-icon" aria-hidden="true">P</span> Mon parcours</a><a href="dashboard.html"><span class="dd-icon" aria-hidden="true">S</span> Tableau de bord</a><a href="notes.html"><span class="dd-icon" aria-hidden="true">N</span> Notes</a><a href="focus.html"><span class="dd-icon" aria-hidden="true">T</span> Timer de travail</a><a href="schedule.html"><span class="dd-icon" aria-hidden="true">E</span> Emploi du temps</a><a href="todos.html"><span class="dd-icon" aria-hidden="true">A</span> Actions</a><a href="erreurs.html"><span class="dd-icon" aria-hidden="true">C</span> Cahier d'erreurs</a><div style="height:1px;background:var(--border-1);margin:4px 0"></div><a href="profil.html"><span class="dd-icon" aria-hidden="true">I</span> Mon profil</a></div></div><button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button><button class="login-btn" id="login-btn">Se connecter</button></div>
+  </nav>
+
+  <main class="info-page">
+    <header class="info-hero">
+      <div class="info-kicker">Accessibilité</div>
+      <h1>Rendre le service utilisable par le plus grand nombre</h1>
+      <p>Admiscible vise une interface lisible, navigable au clavier, compatible avec le mode sombre et attentive aux contrastes.</p>
+    </header>
+
+    <div class="info-layout">
+      <div class="info-content">
+        <section class="info-card">
+          <h2>Engagements de conception</h2>
+          <ul>
+            <li>Contrastes suffisants entre le texte et les fonds.</li>
+            <li>Lien d'évitement permettant d'aller directement au contenu principal.</li>
+            <li>Navigation possible au clavier sur les principaux composants.</li>
+            <li>Structure de titres explicite et pages organisées par sections.</li>
+            <li>Textes de liens compréhensibles hors contexte lorsque c'est possible.</li>
+            <li>Mode sombre cohérent avec les mêmes règles de contraste.</li>
+          </ul>
+        </section>
+
+        <section class="info-card">
+          <h2>Déclaration d'accessibilité</h2>
+          <p>Admiscible n'a pas encore fait l'objet d'un audit RGAA complet par un tiers. Le service est donc déclaré en <strong>conformité non évaluée</strong> à ce stade.</p>
+          <table class="audit-table">
+            <tbody>
+              <tr><th>Référentiel</th><td>RGAA, version publique en vigueur.</td></tr>
+              <tr><th>État déclaré</th><td>Conformité non évaluée.</td></tr>
+              <tr><th>Date de déclaration</th><td>Juin 2026.</td></tr>
+              <tr><th>Périmètre</th><td>Pages publiques, espace personnel, cours, méthodes, exercices, recherche et outils de suivi.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="info-card">
+          <h2>Schéma d'amélioration</h2>
+          <ul>
+            <li>Planifier un audit RGAA complet sur les parcours critiques : accueil, recherche, cours, connexion, dashboard.</li>
+            <li>Prioriser les corrections bloquantes pour clavier, lecteur d'écran et contraste.</li>
+            <li>Documenter les composants à risque : modales, menus, MathJax, formulaires dynamiques.</li>
+            <li>Publier un bilan de correction après audit.</li>
+          </ul>
+        </section>
+
+        <section class="info-card">
+          <h2>Points à vérifier lors d'un audit</h2>
+          <ul>
+            <li>Restitution complète des composants interactifs par les technologies d'assistance.</li>
+            <li>Ordre de tabulation et visibilité permanente du focus.</li>
+            <li>Compréhension des formulaires, messages d'erreur et états dynamiques.</li>
+            <li>Alternatives textuelles des éléments non textuels.</li>
+            <li>Compatibilité des contenus mathématiques affichés avec MathJax.</li>
+          </ul>
+        </section>
+
+        <section class="info-card">
+          <h2>Contact et recours</h2>
+          <p>Si une page, un bouton, un formulaire ou un contenu n'est pas accessible dans de bonnes conditions, vous pouvez écrire à <a href="mailto:contact@admiscible.fr">contact@admiscible.fr</a> en indiquant la page concernée et le problème rencontré.</p>
+          <p>En cas de déploiement institutionnel, la voie de recours officielle devra être précisée avec l'organisme responsable du service.</p>
+        </section>
+      </div>
+
+      <aside class="info-side" aria-label="Documents associés">
+        <div class="info-side-card"><h2>Documents</h2><a href="politique-confidentialite.html">Confidentialité</a><a href="mentions-legales.html">Mentions légales</a><a href="cgu.html">Conditions d'utilisation</a></div>
+        <div class="info-side-card"><h2>Référence</h2><a href="https://accessibilite.numerique.gouv.fr/" target="_blank" rel="noopener">RGAA</a><a href="conformite-dsfr.html">Alignement DSFR</a></div>
+      </aside>
+    </div>
+  </main>
+
+  <div id="login-modal" class="modal"><div class="modal-content"></div></div>
+</body>
+</html>

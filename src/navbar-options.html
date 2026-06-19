@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Options de navbar - Admiscible</title>
+  <style>
+    :root {
+      --bg: #eef6ff;
+      --bg-soft: #f8fbff;
+      --card: rgba(255,255,255,0.86);
+      --line: #d6e4f4;
+      --text: #142033;
+      --muted: #607089;
+      --accent: #123f82;
+      --accent-2: #1b5fbd;
+      --accent-soft: #e7f1ff;
+      --shadow: 0 22px 60px rgba(18,63,130,0.11);
+      --radius: 10px;
+      --font: "Marianne", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        linear-gradient(180deg, #edf6ff 0%, #fbfdff 46%, #f0f6fd 100%),
+        url("data:image/svg+xml,%3Csvg width='1280' height='720' viewBox='0 0 1280 720' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%231b5fbd' stroke-width='1' stroke-linecap='round' opacity='.22'%3E%3Cpath d='M-150 166C18 72 147 56 309 126c178 77 323 66 468-33 137-94 286-88 451 18 84 54 157 82 242 86'/%3E%3Cpath d='M-120 312c152-86 302-83 449 8 135 84 268 91 399 21 154-82 301-81 443 8 95 59 191 88 286 82'/%3E%3Cpath d='M-180 520c151-120 334-143 520-48 167 86 320 90 459 13 132-73 284-58 456 45 74 45 146 70 216 75'/%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed;
+      background-size: cover, 1280px auto;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 64px;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .intro small {
+      color: var(--accent);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .intro h1 {
+      margin: 8px 0 8px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+    }
+
+    .intro p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 1.04rem;
+    }
+
+    .variant {
+      margin-top: 22px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.68);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .variant-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .variant-title {
+      margin: 0;
+      font-size: 1.06rem;
+      line-height: 1.25;
+    }
+
+    .variant-title span {
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .variant-desc {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .badge {
+      flex-shrink: 0;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--bg-soft);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 900;
+      padding: 5px 10px;
+    }
+
+    .mock {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .nav {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 0 18px;
+      background: rgba(255,255,255,0.9);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      font-weight: 900;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: #071f4f url("favicon.svg") center / contain no-repeat;
+      box-shadow: 0 10px 22px rgba(18,63,130,0.18);
+      flex: 0 0 auto;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .links.center { margin: 0 auto; }
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.91rem;
+      font-weight: 750;
+      padding: 8px 10px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    .links a.active,
+    .links a:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .actions {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex: 0 0 auto;
+    }
+
+    .icon-btn,
+    .link-btn,
+    .primary-btn,
+    .ghost-btn {
+      min-height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+      font-size: 0.86rem;
+      font-weight: 850;
+      padding: 0 11px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .icon-btn {
+      width: 36px;
+      padding: 0;
+    }
+
+    .link-btn {
+      border-color: transparent;
+      background: transparent;
+      color: var(--muted);
+    }
+
+    .primary-btn {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(18,63,130,0.16);
+    }
+
+    .ghost-btn {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: #bfd4f3;
+    }
+
+    .search-pill {
+      min-width: 158px;
+      justify-content: flex-start;
+      color: var(--muted);
+      background: var(--bg-soft);
+    }
+
+    .kbd {
+      margin-left: auto;
+      color: #7b8aa1;
+      font-size: 0.72rem;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 1px 5px;
+      background: #fff;
+    }
+
+    .topline {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      border-bottom: 1px solid var(--line);
+      background: #f7fbff;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .topline .right {
+      margin-left: auto;
+      display: flex;
+      gap: 14px;
+    }
+
+    .nav.two-line {
+      height: 54px;
+    }
+
+    .segmented {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0 auto;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--bg-soft);
+    }
+
+    .segmented a {
+      padding: 8px 14px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .segmented a.active {
+      background: #fff;
+      color: var(--accent);
+      box-shadow: 0 4px 14px rgba(18,63,130,0.09);
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+
+    .dark-mock {
+      background: #0b1020;
+      border-color: #24324c;
+    }
+
+    .dark-mock .nav,
+    .dark-mock .topline {
+      background: rgba(11,16,32,0.92);
+      border-color: #24324c;
+    }
+
+    .dark-mock .logo,
+    .dark-mock .icon-btn,
+    .dark-mock .ghost-btn {
+      color: #f5f7fb;
+    }
+
+    .dark-mock .links a,
+    .dark-mock .link-btn,
+    .dark-mock .topline {
+      color: #aab5c7;
+    }
+
+    .dark-mock .links a.active,
+    .dark-mock .links a:hover {
+      color: #8bb8ff;
+      background: rgba(139,184,255,0.12);
+    }
+
+    .dark-mock .icon-btn,
+    .dark-mock .search-pill,
+    .dark-mock .ghost-btn {
+      background: #111a2e;
+      border-color: #24324c;
+    }
+
+    @media (max-width: 860px) {
+      .variant { padding: 14px; }
+      .variant-head { flex-direction: column; }
+      .links .optional,
+      .search-pill span,
+      .kbd { display: none; }
+      .search-pill { min-width: 36px; width: 36px; padding: 0; justify-content: center; }
+      .nav { padding: 0 12px; gap: 10px; }
+      .links a { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="intro">
+      <small>Exploration navbar</small>
+      <h1>Directions possibles pour la navigation</h1>
+      <p>Ces propositions sont des maquettes visuelles. Elles ne changent pas encore la navigation réelle du site.</p>
+    </section>
+
+    <section class="variant">
+      <div class="variant-head">
+        <div>
+          <h2 class="variant-title"><span>Option 1.</span> Compacte moderne</h2>
+          <p class="variant-desc">Ma recommandation : plus basse, actions en icônes, connexion moins massive.</p>
+        </div>
+        <span class="badge">équilibrée</span>
+      </div>
+      <div class="mock">
+        <nav class="nav">
+          <a class="logo" href="#"><span class="mark"></span>Admiscible</a>
+          <div class="links center">
+            <a class="active" href="#">Cours</a>
+            <a href="#">Méthodes</a>
+            <a href="#">Exercices</a>
+            <a href="#">Orientation</a>
+            <a class="optional" href="#">Concours</a>
+          </div>
+          <div class="actions">
+            <button class="icon-btn" aria-label="Recherche">⌕</button>
+            <button class="icon-btn" aria-label="Thème">◐</button>
+            <a class="ghost-btn" href="#">Connexion</a>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <section class="variant">
+      <div class="variant-head">
+        <div>
+          <h2 class="variant-title"><span>Option 2.</span> Portail public</h2>
+          <p class="variant-desc">Plus institutionnel : une ligne service, une ligne navigation. Très clair, mais plus haut.</p>
+        </div>
+        <span class="badge">institutionnel</span>
+      </div>
+      <div class="mock">
+        <div class="topline">
+          Service éducatif gratuit
+          <div class="right"><span>Aide</span><span>Accessibilité</span><span>Mode sombre</span></div>
+        </div>
+        <nav class="nav two-line">
+          <a class="logo" href="#"><span class="mark"></span>Admiscible</a>
+          <div class="links center">
+            <a class="active" href="#">Cours</a>
+            <a href="#">Méthodes</a>
+            <a href="#">Exercices</a>
+            <a href="#">Orientation</a>
+            <a href="#">Concours</a>
+          </div>
+          <div class="actions">
+            <a class="link-btn" href="#">Connexion</a>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <section class="variant">
+      <div class="variant-head">
+        <div>
+          <h2 class="variant-title"><span>Option 3.</span> Ressources centrales</h2>
+          <p class="variant-desc">Très lisible pour ton architecture : les trois ressources principales deviennent le coeur de la barre.</p>
+        </div>
+        <span class="badge">très clair</span>
+      </div>
+      <div class="mock">
+        <nav class="nav">
+          <a class="logo" href="#"><span class="mark"></span>Admiscible</a>
+          <div class="segmented">
+            <a class="active" href="#">Cours</a>
+            <a href="#">Méthodes</a>
+            <a href="#">Exercices</a>
+          </div>
+          <div class="links">
+            <a href="#">Orientation</a>
+            <a class="optional" href="#">Concours</a>
+          </div>
+          <div class="actions">
+            <button class="icon-btn" aria-label="Recherche">⌕</button>
+            <a class="primary-btn" href="#">Connexion</a>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <section class="variant">
+      <div class="variant-head">
+        <div>
+          <h2 class="variant-title"><span>Option 4.</span> Recherche assumée</h2>
+          <p class="variant-desc">Pour un site riche en contenus : la recherche devient visible, mais reste fine.</p>
+        </div>
+        <span class="badge">productif</span>
+      </div>
+      <div class="mock">
+        <nav class="nav">
+          <a class="logo" href="#"><span class="mark"></span>Admiscible</a>
+          <div class="links">
+            <a class="active" href="#">Cours</a>
+            <a href="#">Méthodes</a>
+            <a href="#">Exercices</a>
+            <a class="optional" href="#">Orientation</a>
+          </div>
+          <div class="actions">
+            <button class="search-pill"><span>Rechercher</span><span class="kbd">⌘K</span></button>
+            <button class="icon-btn" aria-label="Thème">◐</button>
+            <a class="link-btn" href="#">Connexion</a>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <section class="variant">
+      <div class="variant-head">
+        <div>
+          <h2 class="variant-title"><span>Option 5.</span> Connecté compact</h2>
+          <p class="variant-desc">Version connectée : le gros bouton Mon espace disparaît au profit d'une zone profil plus légère.</p>
+        </div>
+        <span class="badge">connecté</span>
+      </div>
+      <div class="mock dark-mock">
+        <nav class="nav">
+          <a class="logo" href="#"><span class="mark"></span>Admiscible</a>
+          <div class="links center">
+            <a class="active" href="#">Cours</a>
+            <a href="#">Méthodes</a>
+            <a href="#">Exercices</a>
+            <a href="#">Orientation</a>
+            <a class="optional" href="#">Concours</a>
+          </div>
+          <div class="actions">
+            <button class="icon-btn" aria-label="Recherche">⌕</button>
+            <button class="icon-btn" aria-label="Thème">◐</button>
+            <a class="ghost-btn" href="#"><span class="avatar">JA</span> Espace</a>
+          </div>
+        </nav>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <script src="/site-mode.js"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#123b7a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Politique de confidentialité du service Admiscible : données, finalités, conservation et droits.">
+  <meta name="robots" content="noindex">
+  <title>Politique de confidentialité — Admiscible</title>
+  <script type="module" src="js/main.js"></script>
+  <style>
+    .legal-page { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+    .legal-page h1 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+    .legal-page .updated { font-size: 0.78rem; color: var(--text-3); margin-bottom: 3rem; }
+    .legal-page h2 { font-size: 1rem; font-weight: 700; margin: 2.5rem 0 0.75rem; }
+    .legal-page p, .legal-page li { font-size: 0.88rem; color: var(--text-2); line-height: 1.7; margin-bottom: 0.5rem; }
+    .legal-page ul { padding-left: 1.2rem; }
+    .legal-page a { color: var(--accent); }
+    .legal-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin: 1rem 0; }
+    .legal-table th, .legal-table td { padding: 0.6rem 0.8rem; border: 1px solid var(--border-1); text-align: left; }
+    .legal-table th { background: var(--bg-2); font-weight: 600; color: var(--text-1); }
+    .legal-table td { color: var(--text-2); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li class="has-dd">
+        <a href="cours.html">Filière <span class="filiere-label"></span><span class="caret">&#9662;</span></a>
+        <div class="dd"><a href="cours.html">Cours</a></div>
+      </li>
+      <li class="has-dd">
+        <a href="concours.html">Ressources <span class="caret">&#9662;</span></a>
+        <div class="dd">
+          <a href="methodes.html">Méthodes</a>
+          <a href="ressources.html">Sujets et exercices</a>
+          <a href="concours.html">Concours</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-espace">
+        <button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button>
+        <div class="dd-espace" id="espace-dd">
+          <a href="parcours.html"><span class="dd-icon" aria-hidden="true">P</span> Mon parcours</a>
+          <a href="dashboard.html"><span class="dd-icon" aria-hidden="true">S</span> Tableau de bord</a>
+          <a href="notes.html"><span class="dd-icon" aria-hidden="true">N</span> Notes</a>
+          <a href="focus.html"><span class="dd-icon" aria-hidden="true">T</span> Timer de travail</a>
+          <a href="schedule.html"><span class="dd-icon" aria-hidden="true">E</span> Emploi du temps</a>
+          <a href="todos.html"><span class="dd-icon" aria-hidden="true">A</span> Actions</a>
+          <a href="erreurs.html"><span class="dd-icon" aria-hidden="true">C</span> Cahier d'erreurs</a>
+          <div style="height:1px;background:var(--border-1);margin:4px 0"></div>
+          <a href="profil.html"><span class="dd-icon" aria-hidden="true">I</span> Mon profil</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button>
+      <button class="login-btn" id="login-btn">Se connecter</button>
+    </div>
+  </nav>
+
+  <div class="legal-page">
+    <h1>Politique de confidentialité</h1>
+    <p class="updated">Dernière mise à jour : 15 juin 2026 — Conforme RGPD (Règlement UE 2016/679) et à la loi Informatique et Libertés</p>
+
+    <h2>1. Responsable du traitement</h2>
+    <p>Le responsable du traitement est <strong>Joseph Aboulker</strong>, entrepreneur individuel (régime de la micro-entreprise),
+    SIRET <strong>106 297 880 00010</strong>, joignable à <a href="mailto:contact@admiscible.fr">contact@admiscible.fr</a>.
+    Compte tenu de sa taille, le Site n'est pas tenu de désigner un délégué à la protection des données (DPO) ;
+    le responsable ci-dessus traite directement toute demande relative aux données.</p>
+
+    <h2>2. Données que nous collectons</h2>
+    <p>Nous appliquons le principe de <strong>minimisation</strong> : nous ne collectons que ce qui est nécessaire au service.
+    Aucune donnée sensible n'est demandée et aucun paiement en ligne n'est collecté dans cette version du service.</p>
+    <table class="legal-table">
+      <thead>
+        <tr><th>Donnée</th><th>Finalité</th><th>Base légale</th><th>Conservation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Prénom, nom d'utilisateur, e-mail (facultatif)</td><td>Création du compte, identification, récupération d'accès</td><td>Exécution du contrat</td><td>Durée du compte + 1 an</td></tr>
+        <tr><td>Mot de passe (haché avec bcrypt)</td><td>Authentification</td><td>Exécution du contrat</td><td>Durée du compte</td></tr>
+        <tr><td>Classe / filière</td><td>Personnalisation du contenu</td><td>Exécution du contrat</td><td>Durée du compte</td></tr>
+        <tr><td>Données de travail (progression, notes, actions, planning, sessions de travail, cahier d'erreurs)</td><td>Fournir les fonctionnalités de contenu et de suivi</td><td>Exécution du contrat</td><td>Durée du compte + 6 mois</td></tr>
+        <tr><td>Preuves de consentement (horodatages : CGU, majorité/représentant légal)</td><td>Prouver le recueil du consentement</td><td>Obligation légale / intérêt légitime</td><td>5 ans après la fin de la relation</td></tr>
+        <tr><td>Journaux techniques (adresse IP, date/heure)</td><td>Sécurité, prévention de la fraude, limitation du débit</td><td>Intérêt légitime</td><td>12 mois</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Protection des mineurs</h2>
+    <p>Une partie importante de nos utilisateurs sont <strong>mineurs</strong> (dès la 6ᵉ). Nous y portons une attention renforcée.</p>
+    <ul>
+      <li>En France, le consentement d'un <strong>mineur de moins de 15 ans</strong> à un service en ligne doit être donné conjointement avec le <strong>titulaire de l'autorité parentale</strong> (art. 8 du RGPD ; art. 45 de la loi Informatique et Libertés).</li>
+      <li>Le compte d'un élève mineur doit être créé ou utilisé avec l'accord du <strong>titulaire de l'autorité parentale</strong> lorsque cet accord est requis. Le créateur du compte confirme sa majorité ou sa qualité de représentant légal lors de l'inscription.</li>
+      <li>Les données des élèves sont limitées au strict nécessaire au fonctionnement du service. <strong>Aucune publicité, aucun profilage commercial, aucune revente de données.</strong></li>
+      <li>Le représentant légal peut à tout moment <strong>consulter, rectifier, exporter ou supprimer</strong> les données de l'élève, en écrivant à <a href="mailto:contact@admiscible.fr">contact@admiscible.fr</a>.</li>
+      <li>Si nous apprenons qu'un compte d'un mineur de moins de 15 ans a été créé sans consentement parental, nous le suspendons et supprimons les données concernées.</li>
+    </ul>
+
+    <h2>4. Destinataires et sous-traitants</h2>
+    <p>Vos données ne sont accessibles qu'au responsable du traitement et aux prestataires techniques strictement nécessaires, liés par contrat (clauses de confidentialité et de protection des données). <strong>Nous ne vendons ni ne louons jamais vos données.</strong></p>
+    <table class="legal-table">
+      <thead><tr><th>Prestataire</th><th>Rôle</th><th>Localisation</th></tr></thead>
+      <tbody>
+        <tr><td>Brevo (Sendinblue SAS)</td><td>Envoi des e-mails transactionnels (réinitialisation)</td><td>Union européenne</td></tr>
+        <tr><td>Railway</td><td>Hébergement de l'application et de la base de données</td><td>Union européenne</td></tr>
+        <tr><td>Cloudflare</td><td>Diffusion du site, DNS, et stockage chiffré des sauvegardes</td><td>UE / États-Unis (CCT)</td></tr>
+        <tr><td>jsDelivr</td><td>Fourniture de la bibliothèque d'affichage des formules (MathJax)</td><td>Réseau international</td></tr>
+        <tr><td>Google Fonts</td><td>Fourniture d'une police d'écriture</td><td>États-Unis</td></tr>
+      </tbody>
+    </table>
+
+    <h2>5. Transferts hors Union européenne</h2>
+    <p>Nous privilégions un hébergement <strong>dans l'Union européenne</strong>. Certains prestataires techniques, notamment Cloudflare, peuvent traiter des données aux États-Unis : ces transferts sont encadrés par les <strong>clauses contractuelles types</strong> de la Commission européenne (et, le cas échéant, le cadre de protection des données UE–États-Unis).</p>
+
+    <h2>6. Cookies et stockage local</h2>
+    <p>Le Site n'utilise <strong>aucun cookie publicitaire ni outil de pistage</strong>. Il s'appuie uniquement sur le stockage local (<code>localStorage</code>) du navigateur pour :</p>
+    <ul>
+      <li>maintenir votre session de connexion (jeton JWT) ;</li>
+      <li>mémoriser vos préférences (thème clair/sombre) ;</li>
+      <li>enregistrer la progression du tutoriel.</li>
+    </ul>
+    <p>Les pages affichant des formules mathématiques chargent la bibliothèque <strong>MathJax</strong> (via jsDelivr) et certaines pages chargent une <strong>police Google Fonts</strong> ; ces services reçoivent votre <strong>adresse IP</strong> (techniquement nécessaire à tout affichage web) <em>sans finalité de suivi publicitaire</em>.</p>
+
+    <h2>7. Vos droits (RGPD)</h2>
+    <p>Vous disposez des droits suivants :</p>
+    <ul>
+      <li><strong>Accès</strong> : obtenir une copie de vos données ;</li>
+      <li><strong>Rectification</strong> : corriger des données inexactes ;</li>
+      <li><strong>Effacement</strong> : demander la suppression du compte et des données associées ;</li>
+      <li><strong>Portabilité</strong> : recevoir vos données dans un format structuré ;</li>
+      <li><strong>Opposition</strong> : vous opposer à un traitement fondé sur l'intérêt légitime ;</li>
+      <li><strong>Limitation</strong> : demander la suspension d'un traitement ;</li>
+      <li><strong>Retrait du consentement</strong> : à tout moment, sans effet sur les traitements déjà réalisés.</li>
+    </ul>
+    <p>Pour exercer ces droits ou <strong>supprimer un compte</strong> : <a href="mailto:contact@admiscible.fr">contact@admiscible.fr</a>. Le compte et les données associées sont effacés sous 30 jours (sauf données que la loi nous oblige à conserver, ex. factures). Réponse sous un mois.</p>
+    <p>Vous pouvez aussi introduire une réclamation auprès de la <strong>CNIL</strong> : <a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>.</p>
+
+    <h2>8. Sécurité</h2>
+    <p>Les mots de passe sont hachés avec bcrypt ; les communications sont chiffrées via HTTPS/TLS ; les jetons d'authentification expirent après 7 jours ; les sauvegardes de la base sont stockées de façon chiffrée et à accès restreint.</p>
+
+    <h2>9. Modification de la politique</h2>
+    <p>Cette politique peut évoluer. Toute modification substantielle sera signalée sur le Site. La date de dernière mise à jour figure en haut de page.</p>
+
+    <h2>10. Contact</h2>
+    <p><a href="mailto:contact@admiscible.fr">contact@admiscible.fr</a></p>
+  </div>
+
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header"><h3>Connexion</h3><button class="modal-close" id="modal-close" aria-label="Fermer">&times;</button></div>
+      <div class="modal-body">
+        <form id="login-form">
+          <div class="form-group"><label for="username">Nom d'utilisateur</label><input type="text" id="username" required></div>
+          <div class="form-group"><label for="password">Mot de passe</label><input type="password" id="password" required></div>
+          <button type="submit" class="login-submit">Se connecter</button>
+        </form>
+        <div id="login-message" class="login-message"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

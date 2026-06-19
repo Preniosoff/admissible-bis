@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#123b7a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Préparation des accès institutionnels, FranceConnect, EduConnect et rôles du service Admiscible.">
+  <title>Accès institutionnel — Admiscible</title>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <nav><a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a><ul class="nav-links"><li><a href="index.html">Accueil</a></li><li class="has-dd"><a href="cours.html">Filière <span class="filiere-label"></span><span class="caret">&#9662;</span></a><div class="dd"><a href="cours.html">Cours</a></div></li><li class="has-dd"><a href="concours.html">Ressources <span class="caret">&#9662;</span></a><div class="dd"><a href="methodes.html">Méthodes</a><a href="ressources.html">Sujets et exercices</a><a href="concours.html">Concours</a></div></li></ul><div class="nav-right"><div class="nav-espace"><button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button><div class="dd-espace" id="espace-dd"><a href="parcours.html"><span class="dd-icon" aria-hidden="true">P</span> Mon parcours</a><a href="dashboard.html"><span class="dd-icon" aria-hidden="true">S</span> Tableau de bord</a><a href="notes.html"><span class="dd-icon" aria-hidden="true">N</span> Notes</a><a href="focus.html"><span class="dd-icon" aria-hidden="true">T</span> Timer de travail</a><a href="schedule.html"><span class="dd-icon" aria-hidden="true">E</span> Emploi du temps</a><a href="todos.html"><span class="dd-icon" aria-hidden="true">A</span> Actions</a><a href="erreurs.html"><span class="dd-icon" aria-hidden="true">C</span> Cahier d'erreurs</a><div style="height:1px;background:var(--border-1);margin:4px 0"></div><a href="profil.html"><span class="dd-icon" aria-hidden="true">I</span> Mon profil</a></div></div><button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button><button class="login-btn" id="login-btn">Se connecter</button></div></nav>
+  <main class="info-page">
+    <header class="info-hero"><div class="info-kicker">Accès</div><h1>Accès institutionnel</h1><p>Cette page décrit les rôles et les exigences nécessaires avant une connexion de type FranceConnect, EduConnect ou établissement.</p></header>
+    <div class="info-layout"><div class="info-content">
+      <section class="info-card"><h2>Rôles prévus</h2><div class="program-grid"><div><strong>Élève</strong><span>Consulter les contenus, suivre son parcours, exporter son bilan.</span></div><div><strong>Enseignant</strong><span>Préparer des recommandations et suivre une classe.</span></div><div><strong>Établissement</strong><span>Déployer le service, cadrer les données et les responsabilités.</span></div></div></section>
+      <section class="info-card"><h2>Connecteurs envisageables</h2><table class="audit-table"><thead><tr><th>Accès</th><th>Usage</th><th>Statut</th></tr></thead><tbody><tr><td>Compte Admiscible</td><td>Accès immédiat au service.</td><td>En place</td></tr><tr><td>FranceConnect</td><td>Identification forte pour certains usagers.</td><td>À instruire</td></tr><tr><td>EduConnect</td><td>Accès scolaire élève/parent.</td><td>À instruire</td></tr><tr><td>SSO établissement</td><td>Déploiement local ou académique.</td><td>À cadrer</td></tr></tbody></table></section>
+      <section class="info-card"><h2>Pré-requis</h2><ul><li>Déterminer le responsable de traitement et les finalités.</li><li>Documenter la sécurité et la conservation des données.</li><li>Vérifier les conditions d'accès aux connecteurs institutionnels.</li><li>Prévoir une migration ou association des comptes existants.</li></ul></section>
+    </div><aside class="info-side"><div class="info-side-card"><h2>Liens</h2><a href="https://api.gouv.fr/les-api/franceconnect" target="_blank" rel="noopener">FranceConnect</a><a href="securite.html">Sécurité</a><a href="politique-confidentialite.html">Confidentialité</a></div></aside></div>
+  </main>
+  <div id="login-modal" class="modal"><div class="modal-content"></div></div>
+</body>
+</html>

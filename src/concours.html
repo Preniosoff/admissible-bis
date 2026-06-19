@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <script src="/site-mode.js"></script>
+  <link rel="canonical" href="https://admiscible.fr/concours.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#123b7a">
+  <meta name="description" content="Repères sur les écoles d'ingénieurs, les banques de concours, les frais et les informations d'orientation.">
+  <meta property="og:title" content="Concours et écoles — Admiscible">
+  <meta property="og:description" content="Repères sur les écoles d'ingénieurs, les banques de concours, les frais et les informations d'orientation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://admiscible.fr/concours.html">
+  <meta property="og:site_name" content="Admiscible">
+  <meta property="og:image" content="/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta name="twitter:image" content="/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Concours et écoles — Admiscible">
+  <meta name="twitter:description" content="Repères sur les écoles d'ingénieurs, les banques de concours, les frais et les informations d'orientation.">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Concours — Admiscible</title>
+  <script type="module" src="js/pages/concours-entry.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li class="has-dd">
+        <a href="cours.html">Filière <span class="filiere-label"></span><span class="caret">&#9662;</span></a>
+        <div class="dd">
+          <a href="cours.html">Cours</a>
+        </div>
+      </li>
+      <li class="has-dd">
+        <a href="concours.html">Ressources <span class="caret">&#9662;</span></a>
+        <div class="dd">
+          <a href="methodes.html">Méthodes</a>
+          <a href="ressources.html">Sujets et exercices</a>
+          <a href="concours.html">Concours</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-espace">
+        <button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button>
+        <div class="dd-espace" id="espace-dd">
+          <a href="parcours.html"><span class="dd-icon" aria-hidden="true">P</span> Mon parcours</a>
+          <a href="dashboard.html"><span class="dd-icon" aria-hidden="true">S</span> Tableau de bord</a>
+          <a href="notes.html"><span class="dd-icon" aria-hidden="true">N</span> Notes</a>
+          <a href="focus.html"><span class="dd-icon" aria-hidden="true">T</span> Timer de travail</a>
+          <a href="schedule.html"><span class="dd-icon" aria-hidden="true">E</span> Emploi du temps</a>
+          <a href="todos.html"><span class="dd-icon" aria-hidden="true">A</span> Actions</a>
+          <a href="erreurs.html"><span class="dd-icon" aria-hidden="true">C</span> Cahier d'erreurs</a>
+          <div style="height:1px;background:var(--border-1);margin:4px 0"></div>
+          <a href="profil.html"><span class="dd-icon" aria-hidden="true">I</span> Mon profil</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button>
+      <button class="login-btn" id="login-btn">Se connecter</button>
+    </div>
+  </nav>
+  <header class="service-header">
+    <div class="service-header-inner">
+      <div class="service-kicker">Orientation et concours</div>
+      <h1>Concours et écoles d'ingénieurs</h1>
+      <p>Consultez les informations utiles sur les écoles, les banques de concours, les frais et les repères d'orientation.</p>
+      <div class="service-meta">
+        <span>Écoles</span>
+        <span>Banques de concours</span>
+        <span>Frais</span>
+        <a href="annales.html">Annales concours</a>
+        <a href="sources-programmes.html">Sources et programmes</a>
+      </div>
+    </div>
+  </header>
+  <section class="service-container concours-school-section" aria-labelledby="ecoles-title">
+    <div class="section-head compact">
+      <div>
+        <div class="service-kicker">Écoles et banques</div>
+        <h2 id="ecoles-title">Explorer les écoles d'ingénieurs</h2>
+      </div>
+      <p>Repères d'orientation, domaines, banques de concours, frais et spécialisations.</p>
+    </div>
+  </section>
+  <div class="board-controls">
+    <div class="search-box">
+      <label for="ecole-search">Rechercher une école</label>
+      <input id="ecole-search" type="search" placeholder="Nom, ville, spécialité, banque de concours...">
+    </div>
+    <div class="ecole-domain-filter" aria-label="Domaines">
+      <button type="button" class="active" data-ecole-tag="">Tous</button>
+      <button type="button" data-ecole-tag="aero">Aérospatial</button>
+      <button type="button" data-ecole-tag="info">Informatique</button>
+      <button type="button" data-ecole-tag="energie">Énergie</button>
+      <button type="button" data-ecole-tag="sante">Santé</button>
+      <button type="button" data-ecole-tag="environnement">Environnement</button>
+      <button type="button" data-ecole-tag="btp">BTP</button>
+    </div>
+    <div class="filter-group">
+      <select id="ecole-sort" style="padding:0.5rem 0.85rem;border:1px solid var(--border-0);border-radius:var(--r-sm);background:var(--bg-card);color:var(--text-0);font-size:0.82rem;cursor:pointer;font-family:inherit">
+        <option value="rang">Tri par rang</option>
+        <option value="nom">Tri A-Z</option>
+      </select>
+    </div>
+  </div>
+  <div class="service-container" style="padding-top:1.25rem">
+    <div id="concours-content"><div class="loading">Chargement des écoles...</div></div>
+  </div>
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header"><h3>Connexion</h3><button class="modal-close" id="modal-close" aria-label="Fermer">&times;</button></div>
+      <div class="modal-body">
+        <form id="login-form">
+          <div class="form-group"><label for="username">Nom d'utilisateur</label><input type="text" id="username" required></div>
+          <div class="form-group"><label for="password">Mot de passe</label><input type="password" id="password" required></div>
+          <button type="submit" class="login-submit">Se connecter</button>
+        </form>
+        <div id="login-message" class="login-message"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

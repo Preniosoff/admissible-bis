@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="40%" r="62%">
+      <stop offset="0%" stop-color="#1b1b24"/>
+      <stop offset="60%" stop-color="#101016"/>
+      <stop offset="100%" stop-color="#0a0a0e"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="2%" y1="20%" x2="98%" y2="82%">
+      <stop offset="0%" stop-color="#ead07a"/>
+      <stop offset="40%" stop-color="#dcb648"/>
+      <stop offset="52%" stop-color="#d4ad3a"/>
+      <stop offset="66%" stop-color="#c2932f"/>
+      <stop offset="100%" stop-color="#a2791f"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.34"/>
+      <stop offset="34%" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1024" height="1024" fill="#0a0a0e"/>
+  <rect x="0" y="0" width="1024" height="1024" rx="0" fill="url(#glow)"/>
+  
+  <g>
+    <path d="M 512 232 L 808 794 L 672 794 L 556 630 L 468 630 L 352 794 L 216 794 Z M 512 392 L 556 556 Q 512 574 468 556 Z" fill="url(#gold)" fill-rule="evenodd"/>
+    <path d="M 512 232 L 808 794 L 672 794 L 556 630 L 468 630 L 352 794 L 216 794 Z M 512 392 L 556 556 Q 512 574 468 556 Z" fill="url(#sheen)" fill-rule="evenodd"/>
+  </g>
+</svg>

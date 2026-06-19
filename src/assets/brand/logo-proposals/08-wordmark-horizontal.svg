@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 72" role="img" aria-label="Admiscible wordmark proposition">
+  <rect x="4" y="8" width="56" height="56" rx="15" fill="#071f4f"/>
+  <path d="M18 52L30 20" fill="none" stroke="#2f6bff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M46 52L34 20" fill="none" stroke="#e6404b" stroke-width="8" stroke-linecap="round"/>
+  <path d="M25 40H39" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+  <text x="76" y="43" font-family="Marianne, Arial, sans-serif" font-size="24" font-weight="800" fill="#071f4f">Admiscible</text>
+  <text x="77" y="57" font-family="Marianne, Arial, sans-serif" font-size="10" font-weight="700" fill="#666666">cours, méthodes et outils de travail</text>
+</svg>

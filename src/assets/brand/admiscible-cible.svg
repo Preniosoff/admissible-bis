@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="44%" r="70%">
+      <stop offset="0%" stop-color="#191922"/><stop offset="58%" stop-color="#101016"/><stop offset="100%" stop-color="#0a0a0e"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="4%" y1="14%" x2="96%" y2="88%">
+      <stop offset="0%" stop-color="#ead07a"/><stop offset="40%" stop-color="#dcb648"/>
+      <stop offset="52%" stop-color="#d4ad3a"/><stop offset="66%" stop-color="#c2932f"/><stop offset="100%" stop-color="#a2791f"/>
+    </linearGradient>
+    <linearGradient id="arrowG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f6e7b0"/><stop offset="100%" stop-color="#cda53a"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.30"/><stop offset="36%" stop-color="#ffffff" stop-opacity="0.04"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="224" fill="url(#glow)"/>
+  <rect x="26" y="26" width="972" height="972" rx="198" fill="none" stroke="url(#gold)" stroke-opacity="0.22" stroke-width="2.5"/>
+  <circle cx="512" cy="512" r="214" fill="url(#gold)" fill-opacity="0.06"/><circle cx="512" cy="512" r="392" fill="none" stroke="url(#gold)" stroke-opacity="0.36" stroke-width="6"/><circle cx="512" cy="512" r="250" fill="none" stroke="url(#gold)" stroke-opacity="0.62" stroke-width="7"/><line x1="512" y1="82" x2="512" y2="140" stroke="url(#gold)" stroke-opacity="0.62" stroke-width="9" stroke-linecap="round"/><line x1="512" y1="884" x2="512" y2="942" stroke="url(#gold)" stroke-opacity="0.62" stroke-width="9" stroke-linecap="round"/><line x1="82" y1="512" x2="140" y2="512" stroke="url(#gold)" stroke-opacity="0.62" stroke-width="9" stroke-linecap="round"/><line x1="884" y1="512" x2="942" y2="512" stroke="url(#gold)" stroke-opacity="0.62" stroke-width="9" stroke-linecap="round"/>
+  <g transform="translate(512 512) scale(0.475) translate(-512 -513)">
+    <path d="M 512 232 L 808 794 L 672 794 L 556 630 L 468 630 L 352 794 L 216 794 Z M 512 392 L 556 556 Q 512 574 468 556 Z" fill="url(#gold)" fill-rule="evenodd"/>
+    <path d="M 512 232 L 808 794 L 672 794 L 556 630 L 468 630 L 352 794 L 216 794 Z M 512 392 L 556 556 Q 512 574 468 556 Z" fill="url(#sheen)" fill-rule="evenodd"/>
+  </g>
+  <g>
+    <path d="M 576.1943250698865 424.62258344470064 L 829.4588132797029 182.65014247990788 L 840.5116816673614 194.21881139232383 L 587.247193457545 436.1912523571165 Z" fill="url(#arrowG)"/>
+    <polyline points="823.0665710621737,152.7981871095735 827.7548294032722,195.34251967840243 870.0412617097223,201.96502998734118" fill="none" stroke="url(#arrowG)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><polyline points="791.2527315530299,183.19357517563444 795.9409898941283,225.7379077444634 838.2274222005785,232.36041805340213" fill="none" stroke="url(#arrowG)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><polyline points="759.4388920438861,213.58896324169538 764.1271503849846,256.1332958105244 806.4135826914347,262.75580611946305" fill="none" stroke="url(#arrowG)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 534 476 L 570.1244581803306 380.63216726181963 L 581.7207592637158 430.4069179009086 L 630.9152343124525 444.25984628010724 Z" fill="url(#arrowG)" stroke="#0a0a0e" stroke-width="3" stroke-opacity="0.22"/>
+  </g>
+</svg>

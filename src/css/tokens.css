@@ -1,0 +1,138 @@
+@import url('https://fonts.bunny.net/css?family=public-sans:400,500,600,700,800|spectral:400,500,600,700&display=swap');
+
+:root {
+  /* Typographie : Public Sans (libre, esprit « service public »), repli police système.
+     NB : on évite Marianne, réservée à l'État. Hébergeur Bunny Fonts (UE, conforme RGPD). */
+  --font-sans: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-serif: "Spectral", Georgia, "Times New Roman", serif;
+
+  /* Surfaces — neutres : le bleu reste un accent, pas une teinte d'ambiance */
+  --bg-0: #ffffff;
+  --bg-1: #f5f6f7;
+  --bg-2: #ebedf0;
+  --bg-card: #ffffff;
+  --bg-hover: #f2f4f6;
+  --nav-bg: rgba(255,255,255,0.92);
+
+  /* Texte */
+  --text-0: #161616;
+  --text-1: #3a3a3a;
+  --text-2: #666666;
+  --text-3: #6b7280;
+  --text-inv: #ffffff;
+  --on-accent: #ffffff;
+  --on-dark: #ffffff;
+  --on-light: #161616;
+
+  /* Bordures — gris neutre (pas bleu) pour un rendu net */
+  --border-0: #d6d9de;
+  --border-1: #e3e6ea;
+  --border-2: #eef0f2;
+
+  /* Ombres sobres — neutres et discrètes (institutionnel = retenue) */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.07);
+  --shadow-md: 0 2px 10px rgba(0,0,0,0.07);
+  --shadow-lg: 0 6px 24px rgba(0,0,0,0.10);
+
+  /* Couleurs institutionnelles */
+  --blue-france: #123f82;
+  --blue-france-hover: #1b5fbd;
+  --blue-france-active: #0b2f68;
+  --red-marianne: #c9191e;
+  --accent: var(--blue-france);
+  --accent-hover: var(--blue-france-hover);
+  --accent-active: var(--blue-france-active);
+  --accent-soft: #eaf3ff;
+  --accent-medium: #d7e8ff;
+  --accent-border: #a9c7f4;
+  --blue: var(--info);
+
+  /* Semantique */
+  --positive: #18753c;
+  --positive-rgb: 24,117,60;
+  --positive-soft: #dffee6;
+  --caution: #b34000;
+  --caution-rgb: 179,64,0;
+  --caution-soft: #fff4e5;
+  --negative: #ce0500;
+  --negative-rgb: 206,5,0;
+  --negative-soft: #fff4f4;
+  --info: #0063cb;
+  --info-rgb: 0,99,203;
+  --info-soft: #e8edff;
+  --neutral: #666666;
+  --neutral-soft: #f6f6f6;
+
+  /* Types de cartes pedagogiques */
+  --card-th: var(--red-marianne);
+  --card-df: var(--positive);
+  --card-fo: var(--caution);
+  --card-pr: var(--info);
+  --card-co: var(--negative);
+
+  /* Espacements */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-8: 3rem;
+  --s-10: 4rem;
+  --s-12: 5rem;
+
+  /* Rayons resserrés — quasi carrés, plus « officiel » que « app » */
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 8px;
+  --r-xl: 10px;
+  --r-full: 999px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration: 0.18s;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-0: #0b1020;
+  --bg-1: #10182b;
+  --bg-2: #17223a;
+  --bg-card: #111a2e;
+  --bg-hover: #17284a;
+  --nav-bg: rgba(11,16,32,0.9);
+  --text-0: #f5f7fb;
+  --text-1: #d7deea;
+  --text-2: #aab5c7;
+  --text-3: #9aa6b8;
+  --text-inv: #0b1020;
+  --on-accent: #0b1020;
+  --on-dark: #ffffff;
+  --on-light: #0b1020;
+  --border-0: #24324c;
+  --border-1: #1d2a42;
+  --border-2: #172338;
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-sm: 0 8px 22px rgba(0,0,0,0.28);
+  --shadow-md: 0 14px 36px rgba(0,0,0,0.35);
+  --shadow-lg: 0 24px 60px rgba(0,0,0,0.45);
+  --accent: #8bb8ff;
+  --accent-hover: #b6d2ff;
+  --accent-active: #d7e6ff;
+  --accent-soft: rgba(139,184,255,0.12);
+  --accent-medium: rgba(139,184,255,0.18);
+  --accent-border: rgba(139,184,255,0.35);
+  --neutral-soft: rgba(255,255,255,0.06);
+  --positive: #7bd88f;
+  --positive-rgb: 123,216,143;
+  --positive-soft: rgba(123,216,143,0.14);
+  --caution: #ffb86b;
+  --caution-rgb: 255,184,107;
+  --caution-soft: rgba(255,184,107,0.14);
+  --negative: #ff8a80;
+  --negative-rgb: 255,138,128;
+  --negative-soft: rgba(255,138,128,0.14);
+  --info: #8bb8ff;
+  --info-rgb: 139,184,255;
+  --info-soft: rgba(139,184,255,0.14);
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#123b7a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Politique de sécurité, données et conservation du service Admiscible.">
+  <title>Sécurité — Admiscible</title>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <nav><a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a><ul class="nav-links"><li><a href="index.html">Accueil</a></li><li class="has-dd"><a href="cours.html">Filière <span class="filiere-label"></span><span class="caret">&#9662;</span></a><div class="dd"><a href="cours.html">Cours</a></div></li><li class="has-dd"><a href="concours.html">Ressources <span class="caret">&#9662;</span></a><div class="dd"><a href="methodes.html">Méthodes</a><a href="ressources.html">Sujets et exercices</a><a href="concours.html">Concours</a></div></li></ul><div class="nav-right"><div class="nav-espace"><button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button><div class="dd-espace" id="espace-dd"><a href="parcours.html"><span class="dd-icon" aria-hidden="true">P</span> Mon parcours</a><a href="dashboard.html"><span class="dd-icon" aria-hidden="true">S</span> Tableau de bord</a><a href="notes.html"><span class="dd-icon" aria-hidden="true">N</span> Notes</a><a href="focus.html"><span class="dd-icon" aria-hidden="true">T</span> Timer de travail</a><a href="schedule.html"><span class="dd-icon" aria-hidden="true">E</span> Emploi du temps</a><a href="todos.html"><span class="dd-icon" aria-hidden="true">A</span> Actions</a><a href="erreurs.html"><span class="dd-icon" aria-hidden="true">C</span> Cahier d'erreurs</a><div style="height:1px;background:var(--border-1);margin:4px 0"></div><a href="profil.html"><span class="dd-icon" aria-hidden="true">I</span> Mon profil</a></div></div><button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button><button class="login-btn" id="login-btn">Se connecter</button></div></nav>
+  <main class="info-page">
+    <header class="info-hero"><div class="info-kicker">Sécurité</div><h1>Sécurité et protection des données</h1><p>Cette page documente les mesures attendues pour un service éducatif sérieux : minimisation, conservation, authentification, sauvegarde et gestion des incidents.</p></header>
+    <div class="info-layout"><div class="info-content">
+      <section class="info-card"><h2>Données traitées</h2><ul><li>Compte : identifiant, nom affiché, filière, email facultatif.</li><li>Travail : progression, erreurs, notes, planning, sessions de travail.</li><li>Technique : jeton de session et préférences locales nécessaires au fonctionnement.</li></ul></section>
+      <section class="info-card"><h2>Mesures de sécurité</h2><table class="audit-table"><thead><tr><th>Domaine</th><th>Mesure</th><th>Statut</th></tr></thead><tbody><tr><td>Mot de passe</td><td>Hachage avec bcrypt.</td><td>En place</td></tr><tr><td>Session</td><td>JWT avec expiration.</td><td>En place</td></tr><tr><td>Débit</td><td>Limitation des tentatives de connexion.</td><td>En place</td></tr><tr><td>Transport</td><td>HTTPS obligatoire en production.</td><td>À contrôler au déploiement</td></tr><tr><td>Sauvegarde</td><td>Plan de sauvegarde et restauration documenté.</td><td>À formaliser</td></tr></tbody></table></section>
+      <section class="info-card"><h2>Gestion des incidents</h2><p>Tout incident significatif doit être qualifié, journalisé, corrigé et communiqué aux utilisateurs concernés lorsque la situation l'exige. Les signalements passent par la page <a href="contact-signalement.html">Contact et signalement</a>.</p></section>
+      <section class="info-card"><h2>Références</h2><p>Pour un usage public, le service devrait être rapproché du RGS et d'une démarche d'homologation de sécurité.</p><p><a href="https://cyber.gouv.fr/reglementation/reglementation-identite-confiance-numerique/securite-echanges-voie-electronique/referentiel-general-de-securite/" target="_blank" rel="noopener">Référentiel général de sécurité</a></p></section>
+    </div><aside class="info-side"><div class="info-side-card"><h2>Documents liés</h2><a href="politique-confidentialite.html">Confidentialité</a><a href="cgu.html">Conditions d'utilisation</a><a href="connexion-institutionnelle.html">Accès institutionnel</a><a href="statut-service.html">Statut du service</a></div></aside></div>
+  </main>
+  <div id="login-modal" class="modal"><div class="modal-content"></div></div>
+</body>
+</html>

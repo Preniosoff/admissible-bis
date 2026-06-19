@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#123b7a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Plan du site Admiscible et accès aux principales rubriques.">
+  <title>Plan du site — Admiscible</title>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li class="has-dd"><a href="cours.html">Filière <span class="filiere-label"></span><span class="caret">&#9662;</span></a><div class="dd"><a href="cours.html">Cours</a></div></li>
+      <li class="has-dd"><a href="concours.html">Ressources <span class="caret">&#9662;</span></a><div class="dd"><a href="methodes.html">Méthodes</a><a href="ressources.html">Sujets et exercices</a><a href="concours.html">Concours</a></div></li>
+    </ul>
+    <div class="nav-right"><div class="nav-espace"><button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button><div class="dd-espace" id="espace-dd"><a href="parcours.html"><span class="dd-icon" aria-hidden="true">P</span> Mon parcours</a><a href="dashboard.html"><span class="dd-icon" aria-hidden="true">S</span> Tableau de bord</a><a href="notes.html"><span class="dd-icon" aria-hidden="true">N</span> Notes</a><a href="focus.html"><span class="dd-icon" aria-hidden="true">T</span> Timer de travail</a><a href="schedule.html"><span class="dd-icon" aria-hidden="true">E</span> Emploi du temps</a><a href="todos.html"><span class="dd-icon" aria-hidden="true">A</span> Actions</a><a href="erreurs.html"><span class="dd-icon" aria-hidden="true">C</span> Cahier d'erreurs</a><div style="height:1px;background:var(--border-1);margin:4px 0"></div><a href="profil.html"><span class="dd-icon" aria-hidden="true">I</span> Mon profil</a></div></div><button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button><button class="login-btn" id="login-btn">Se connecter</button></div>
+  </nav>
+
+  <main class="info-page">
+    <header class="info-hero">
+      <div class="info-kicker">Navigation</div>
+      <h1>Plan du site</h1>
+      <p>Retrouvez les principales rubriques d'Admiscible depuis une page unique.</p>
+    </header>
+
+    <div class="info-content">
+      <section class="info-card">
+        <h2>Contenus</h2>
+        <div class="info-list-grid">
+          <a class="info-mini-link" href="cours.html">Cours</a>
+          <a class="info-mini-link" href="methodes.html">Méthodes</a>
+          <a class="info-mini-link" href="ressources.html">Sujets et exercices</a>
+          <a class="info-mini-link" href="concours.html">Concours</a>
+        </div>
+      </section>
+
+      <section class="info-card">
+        <h2>Espace personnel</h2>
+        <div class="info-list-grid">
+          <a class="info-mini-link" href="parcours.html">Mon parcours</a>
+          <a class="info-mini-link" href="dashboard.html">Tableau de bord</a>
+          <a class="info-mini-link" href="schedule.html">Emploi du temps</a>
+          <a class="info-mini-link" href="todos.html">Actions</a>
+          <a class="info-mini-link" href="focus.html">Timer de travail</a>
+          <a class="info-mini-link" href="notes.html">Notes</a>
+          <a class="info-mini-link" href="erreurs.html">Cahier d'erreurs</a>
+        </div>
+      </section>
+
+      <section class="info-card">
+        <h2>Publics</h2>
+        <div class="info-list-grid">
+          <a class="info-mini-link" href="inscription.html">Créer un compte</a>
+          <a class="info-mini-link" href="eleves.html">Élèves</a>
+          <a class="info-mini-link" href="priorites-eleve.html">Priorités élève</a>
+          <a class="info-mini-link" href="parents.html">Parents</a>
+          <a class="info-mini-link" href="bilan-parent.html">Bilan parent</a>
+          <a class="info-mini-link" href="enseignants.html">Enseignants</a>
+          <a class="info-mini-link" href="etablissements.html">Établissements</a>
+          <a class="info-mini-link" href="espace-enseignant.html">Espace enseignant</a>
+          <a class="info-mini-link" href="sequences-pedagogiques.html">Séquences pédagogiques</a>
+          <a class="info-mini-link" href="pilotage-etablissement.html">Pilotage établissement</a>
+        </div>
+      </section>
+
+      <section class="info-card">
+        <h2>Informations</h2>
+        <div class="info-list-grid">
+          <a class="info-mini-link" href="a-propos.html">A propos</a>
+          <a class="info-mini-link" href="notre-methode.html">Notre méthode</a>
+          <a class="info-mini-link" href="sources-programmes.html">Sources et programmes</a>
+          <a class="info-mini-link" href="transparence.html">Transparence</a>
+          <a class="info-mini-link" href="conformite-dsfr.html">Alignement DSFR</a>
+          <a class="info-mini-link" href="securite.html">Sécurité</a>
+          <a class="info-mini-link" href="connexion-institutionnelle.html">Accès institutionnel</a>
+          <a class="info-mini-link" href="deploiement-etablissement.html">Déploiement établissement</a>
+          <a class="info-mini-link" href="matrice-rgpd.html">Matrice RGPD</a>
+          <a class="info-mini-link" href="fiche-presentation.html">Fiche de présentation</a>
+          <a class="info-mini-link" href="statut-service.html">Statut du service</a>
+          <a class="info-mini-link" href="contact-signalement.html">Contact et signalement</a>
+          <a class="info-mini-link" href="accessibilite.html">Accessibilité</a>
+          <a class="info-mini-link" href="aide.html">Aide</a>
+          <a class="info-mini-link" href="mentions-legales.html">Mentions légales</a>
+          <a class="info-mini-link" href="cgu.html">Conditions d'utilisation</a>
+          <a class="info-mini-link" href="politique-confidentialite.html">Confidentialité</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="login-modal" class="modal"><div class="modal-content"></div></div>
+</body>
+</html>

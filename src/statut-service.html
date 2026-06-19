@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#123b7a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Statut du service Admiscible : disponibilité, périmètre, incidents, limites connues et suivi opérationnel.">
+  <title>Statut du service — Admiscible</title>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li class="has-dd"><a href="cours.html">Filière <span class="filiere-label"></span><span class="caret">&#9662;</span></a><div class="dd"><a href="cours.html">Cours</a></div></li>
+      <li class="has-dd"><a href="concours.html">Ressources <span class="caret">&#9662;</span></a><div class="dd"><a href="methodes.html">Méthodes</a><a href="ressources.html">Sujets et exercices</a><a href="concours.html">Concours</a></div></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-espace"><button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button><div class="dd-espace" id="espace-dd"><a href="parcours.html"><span class="dd-icon" aria-hidden="true">P</span> Mon parcours</a><a href="dashboard.html"><span class="dd-icon" aria-hidden="true">S</span> Tableau de bord</a><a href="notes.html"><span class="dd-icon" aria-hidden="true">N</span> Notes</a><a href="focus.html"><span class="dd-icon" aria-hidden="true">T</span> Timer de travail</a><a href="schedule.html"><span class="dd-icon" aria-hidden="true">E</span> Emploi du temps</a><a href="todos.html"><span class="dd-icon" aria-hidden="true">A</span> Actions</a><a href="erreurs.html"><span class="dd-icon" aria-hidden="true">C</span> Cahier d'erreurs</a><div style="height:1px;background:var(--border-1);margin:4px 0"></div><a href="profil.html"><span class="dd-icon" aria-hidden="true">I</span> Mon profil</a></div></div>
+      <button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button>
+      <button class="login-btn" id="login-btn">Se connecter</button>
+    </div>
+  </nav>
+
+  <main class="info-page">
+    <header class="info-hero">
+      <div class="info-kicker">Exploitation</div>
+      <h1>Statut du service</h1>
+      <p>Une page de suivi public pour distinguer ce qui fonctionne, ce qui est en observation et ce qui doit être formalisé avant un déploiement plus large.</p>
+    </header>
+
+    <div class="info-content">
+      <section class="info-card">
+        <h2>Disponibilité déclarée</h2>
+        <div class="metric-grid">
+          <div><b>OK</b><span>Pages publiques et contenus principaux</span></div>
+          <div><b>OK</b><span>Recherche, cours, méthodes et exercices</span></div>
+          <div><b>OK</b><span>Tableau de bord et outils personnels</span></div>
+          <div><b>À formaliser</b><span>Supervision externe et historique d'incidents</span></div>
+        </div>
+      </section>
+
+      <section class="info-card">
+        <h2>Journal public</h2>
+        <table class="audit-table">
+          <thead><tr><th>Date</th><th>Événement</th><th>Statut</th></tr></thead>
+          <tbody>
+            <tr><td>Juin 2026</td><td>Transition vers une version gratuite, sobre et institutionnelle.</td><td>En place</td></tr>
+            <tr><td>Juin 2026</td><td>Ajout des pages publics, sécurité, transparence et accès institutionnel.</td><td>En place</td></tr>
+            <tr><td>Juin 2026</td><td>Formalisation de la supervision de production et des sauvegardes.</td><td>À planifier</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="info-card">
+        <h2>Limites connues</h2>
+        <ul>
+          <li>Le statut affiché est déclaratif tant qu'aucune supervision externe n'est branchée.</li>
+          <li>Les procédures de sauvegarde et de restauration doivent être documentées avant un usage institutionnel réel.</li>
+          <li>L'audit RGAA formel reste à planifier pour mesurer la conformité d'accessibilité.</li>
+          <li>L'alignement DSFR est visuel et fonctionnel, sans intégration officielle du paquet DSFR à ce stade.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <div id="login-modal" class="modal"><div class="modal-content"></div></div>
+</body>
+</html>

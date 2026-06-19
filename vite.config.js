@@ -1,0 +1,81 @@
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
+
+export default defineConfig({
+  root: 'src',
+  // root = src/, donc publicDir doit pointer explicitement vers le public/ racine
+  // (sinon Vite cherche src/public, absent → og-image, manifest, robots, sitemap
+  //  non servis en dev et absents du build dist/).
+  publicDir: resolve(__dirname, 'public'),
+  build: {
+    outDir: '../dist',
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        index: resolve(__dirname, 'src/index.html'),
+        cours: resolve(__dirname, 'src/cours.html'),
+        methodes: resolve(__dirname, 'src/methodes.html'),
+        concours: resolve(__dirname, 'src/concours.html'),
+        annales: resolve(__dirname, 'src/annales.html'),
+        annalesBac: resolve(__dirname, 'src/annales-bac.html'),
+        annalesBrevet: resolve(__dirname, 'src/annales-brevet.html'),
+        ressources: resolve(__dirname, 'src/ressources.html'),
+        dashboard: resolve(__dirname, 'src/dashboard.html'),
+        parcours: resolve(__dirname, 'src/parcours.html'),
+        schedule: resolve(__dirname, 'src/schedule.html'),
+        todos: resolve(__dirname, 'src/todos.html'),
+        focus: resolve(__dirname, 'src/focus.html'),
+        notes: resolve(__dirname, 'src/notes.html'),
+        erreurs: resolve(__dirname, 'src/erreurs.html'),
+        onboarding: resolve(__dirname, 'src/onboarding.html'),
+        profil: resolve(__dirname, 'src/profil.html'),
+        notfound: resolve(__dirname, 'src/404.html'),
+        // assets-preview: dev-only, excluded from prod build
+        aPropos: resolve(__dirname, 'src/a-propos.html'),
+        notreMethode: resolve(__dirname, 'src/notre-methode.html'),
+        sourcesProgrammes: resolve(__dirname, 'src/sources-programmes.html'),
+        accessibilite: resolve(__dirname, 'src/accessibilite.html'),
+        aide: resolve(__dirname, 'src/aide.html'),
+        planSite: resolve(__dirname, 'src/plan-site.html'),
+        recherche: resolve(__dirname, 'src/recherche.html'),
+        inscription: resolve(__dirname, 'src/inscription.html'),
+        orientation: resolve(__dirname, 'src/orientation.html'),
+        attendusOfficiels: resolve(__dirname, 'src/attendus-officiels.html'),
+        etatContenus: resolve(__dirname, 'src/etat-contenus.html'),
+        choisirNiveau: resolve(__dirname, 'src/choisir-niveau.html'),
+        demarrer: resolve(__dirname, 'src/demarrer.html'),
+        eleves: resolve(__dirname, 'src/eleves.html'),
+        prioritesEleve: resolve(__dirname, 'src/priorites-eleve.html'),
+        parents: resolve(__dirname, 'src/parents.html'),
+        bilanParent: resolve(__dirname, 'src/bilan-parent.html'),
+        enseignants: resolve(__dirname, 'src/enseignants.html'),
+        etablissements: resolve(__dirname, 'src/etablissements.html'),
+        pilotageEtablissement: resolve(__dirname, 'src/pilotage-etablissement.html'),
+        deploiementEtablissement: resolve(__dirname, 'src/deploiement-etablissement.html'),
+        matriceRgpd: resolve(__dirname, 'src/matrice-rgpd.html'),
+        fichePresentation: resolve(__dirname, 'src/fiche-presentation.html'),
+        sequencesPedagogiques: resolve(__dirname, 'src/sequences-pedagogiques.html'),
+        espaceEnseignant: resolve(__dirname, 'src/espace-enseignant.html'),
+        conformiteDsfr: resolve(__dirname, 'src/conformite-dsfr.html'),
+        securite: resolve(__dirname, 'src/securite.html'),
+        transparence: resolve(__dirname, 'src/transparence.html'),
+        connexionInstitutionnelle: resolve(__dirname, 'src/connexion-institutionnelle.html'),
+        contactSignalement: resolve(__dirname, 'src/contact-signalement.html'),
+        statutService: resolve(__dirname, 'src/statut-service.html'),
+        mentions: resolve(__dirname, 'src/mentions-legales.html'),
+        cgu: resolve(__dirname, 'src/cgu.html'),
+        confidentialite: resolve(__dirname, 'src/politique-confidentialite.html'),
+      },
+    },
+  },
+  server: {
+    port: 3000,
+    strictPort: true,
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:3001',
+        changeOrigin: true,
+      },
+    },
+  },
+});

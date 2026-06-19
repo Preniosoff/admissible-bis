@@ -1,0 +1,21 @@
+{
+  "name": "Admiscible",
+  "short_name": "Admiscible",
+  "description": "Service éducatif gratuit de cours, méthodes, exercices et outils de travail",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#123b7a",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "screenshots": [],
+  "prefer_related_applications": false
+}

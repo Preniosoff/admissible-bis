@@ -1,0 +1,141 @@
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { background: var(--bg-0); }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-0);
+  background-image:
+    linear-gradient(180deg, #eef6ff 0%, var(--bg-0) 44%, #f0f6fd 100%),
+    url("data:image/svg+xml,%3Csvg width='1280' height='720' viewBox='0 0 1280 720' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%231b5fbd' stroke-width='1' stroke-linecap='round' opacity='.22'%3E%3Cpath d='M-150 166C18 72 147 56 309 126c178 77 323 66 468-33 137-94 286-88 451 18 84 54 157 82 242 86'/%3E%3Cpath d='M-120 312c152-86 302-83 449 8 135 84 268 91 399 21 154-82 301-81 443 8 95 59 191 88 286 82'/%3E%3Cpath d='M-180 520c151-120 334-143 520-48 167 86 320 90 459 13 132-73 284-58 456 45 74 45 146 70 216 75'/%3E%3Cpath d='M78 650c156-92 292-101 409-27 128 81 259 75 392-18 124-86 272-89 442-9'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed, fixed;
+  background-position: center top, center top;
+  background-repeat: no-repeat, repeat-y;
+  background-size: cover, min(1280px, 120vw) auto;
+  color: var(--text-0);
+  line-height: 1.65;
+  font-size: 16.5px;
+  font-weight: 400;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+[data-theme="dark"] body {
+  background-image:
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-0) 88%, var(--accent) 12%) 0%, var(--bg-0) 50%, var(--bg-1) 100%),
+    url("data:image/svg+xml,%3Csvg width='1280' height='720' viewBox='0 0 1280 720' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1.05' stroke-linecap='round' opacity='.3'%3E%3Cpath d='M-150 166C18 72 147 56 309 126c178 77 323 66 468-33 137-94 286-88 451 18 84 54 157 82 242 86'/%3E%3Cpath d='M-120 312c152-86 302-83 449 8 135 84 268 91 399 21 154-82 301-81 443 8 95 59 191 88 286 82'/%3E%3Cpath d='M-180 520c151-120 334-143 520-48 167 86 320 90 459 13 132-73 284-58 456 45 74 45 146 70 216 75'/%3E%3Cpath d='M78 650c156-92 292-101 409-27 128 81 259 75 392-18 124-86 272-89 442-9'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 12000;
+  transform: translateY(-140%);
+  background: var(--accent);
+  color: var(--text-inv);
+  border: 1px solid var(--accent);
+  border-radius: var(--r-sm);
+  padding: 0.65rem 0.85rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color var(--duration) var(--ease), background var(--duration) var(--ease);
+}
+
+a:hover { color: var(--accent-hover); opacity: 1; }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #0a76f6;
+  outline-offset: 2px;
+}
+
+::selection { background: var(--accent-medium); }
+
+:where(
+  .btn-primary,
+  .login-btn,
+  .login-submit,
+  .home-btn.primary,
+  .stabs button.on,
+  .filter.active,
+  .chap-n,
+  .flashcard-toggle.active,
+  .methode-bar-tag,
+  .step-n,
+  .ecole-link,
+  .hub-btn-p,
+  .pk-btn-p,
+  #tuto-cta,
+  #tuto-next
+) {
+  color: var(--text-inv) !important;
+}
+
+:where(
+  [style*="background:var(--text-0)"],
+  [style*="background: var(--text-0)"],
+  [style*="background:var(--accent)"],
+  [style*="background: var(--accent)"]
+) {
+  color: var(--text-inv) !important;
+}
+
+:where(
+  [style*="background:#123b7a"],
+  [style*="background: #123b7a"],
+  [style*="background:#0063cb"],
+  [style*="background: #0063cb"],
+  [style*="background:#0b1020"],
+  [style*="background: #0b1020"]
+) {
+  color: var(--on-dark) !important;
+}
+
+:where(
+  [style*="background:#fff"],
+  [style*="background: #fff"],
+  [style*="background:#ffffff"],
+  [style*="background: #ffffff"],
+  [style*="background:var(--bg-card)"],
+  [style*="background: var(--bg-card)"],
+  [style*="background:var(--bg-0)"],
+  [style*="background: var(--bg-0)"]
+) {
+  color: var(--text-0);
+}
+
+table { width: 100%; border-collapse: collapse; margin: var(--s-4) 0; }
+th {
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.65rem 0.8rem;
+  text-align: left;
+  border-bottom: 2px solid var(--text-0);
+  color: var(--text-0);
+  text-transform: none;
+  letter-spacing: 0;
+}
+td { padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--border-1); color: var(--text-1); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }

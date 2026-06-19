@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /dashboard.html
+Disallow: /profil.html
+Disallow: /todos.html
+Disallow: /notes.html
+Disallow: /focus.html
+Disallow: /schedule.html
+Disallow: /erreurs.html
+Disallow: /onboarding.html
+
+Sitemap: https://admiscible.fr/sitemap.xml

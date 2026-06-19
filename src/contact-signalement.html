@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#123b7a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Contact, signalement d'erreur, accessibilité, sécurité et demande établissement pour Admiscible.">
+  <title>Contact et signalement — Admiscible</title>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li class="has-dd"><a href="cours.html">Filière <span class="filiere-label"></span><span class="caret">&#9662;</span></a><div class="dd"><a href="cours.html">Cours</a></div></li>
+      <li class="has-dd"><a href="concours.html">Ressources <span class="caret">&#9662;</span></a><div class="dd"><a href="methodes.html">Méthodes</a><a href="ressources.html">Sujets et exercices</a><a href="concours.html">Concours</a></div></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-espace"><button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button><div class="dd-espace" id="espace-dd"><a href="parcours.html"><span class="dd-icon" aria-hidden="true">P</span> Mon parcours</a><a href="dashboard.html"><span class="dd-icon" aria-hidden="true">S</span> Tableau de bord</a><a href="notes.html"><span class="dd-icon" aria-hidden="true">N</span> Notes</a><a href="focus.html"><span class="dd-icon" aria-hidden="true">T</span> Timer de travail</a><a href="schedule.html"><span class="dd-icon" aria-hidden="true">E</span> Emploi du temps</a><a href="todos.html"><span class="dd-icon" aria-hidden="true">A</span> Actions</a><a href="erreurs.html"><span class="dd-icon" aria-hidden="true">C</span> Cahier d'erreurs</a><div style="height:1px;background:var(--border-1);margin:4px 0"></div><a href="profil.html"><span class="dd-icon" aria-hidden="true">I</span> Mon profil</a></div></div>
+      <button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button>
+      <button class="login-btn" id="login-btn">Se connecter</button>
+    </div>
+  </nav>
+
+  <main class="info-page">
+    <header class="info-hero">
+      <div class="info-kicker">Contact</div>
+      <h1>Contact et signalement</h1>
+      <p>Un point d'entrée unique pour signaler une erreur, une difficulté d'accès, un incident de sécurité ou une demande liée à un établissement.</p>
+    </header>
+
+    <div class="info-layout">
+      <div class="info-content">
+        <section class="info-card">
+          <h2>Canaux de contact</h2>
+          <div class="info-list-grid">
+            <a class="info-mini-link" href="mailto:contact@admiscible.fr?subject=Signalement%20contenu%20Admiscible">Erreur de contenu</a>
+            <a class="info-mini-link" href="mailto:contact@admiscible.fr?subject=Accessibilite%20Admiscible">Accessibilité</a>
+            <a class="info-mini-link" href="mailto:contact@admiscible.fr?subject=Securite%20Admiscible">Sécurité</a>
+            <a class="info-mini-link" href="mailto:contact@admiscible.fr?subject=Demande%20etablissement%20Admiscible">Établissement</a>
+          </div>
+        </section>
+
+        <section class="info-card">
+          <h2>Informations utiles à transmettre</h2>
+          <ul>
+            <li>La page ou le chapitre concerné, avec l'URL si possible.</li>
+            <li>Le niveau, la matière et le type de contenu concerné.</li>
+            <li>Une description courte du problème ou de la demande.</li>
+            <li>Pour un incident technique : navigateur, appareil et moment approximatif.</li>
+          </ul>
+        </section>
+
+        <section class="info-card">
+          <h2>Traitement attendu</h2>
+          <table class="audit-table">
+            <thead><tr><th>Type</th><th>Objectif</th><th>Priorité</th></tr></thead>
+            <tbody>
+              <tr><td>Erreur bloquante</td><td>Qualifier et corriger rapidement.</td><td>Haute</td></tr>
+              <tr><td>Accessibilité</td><td>Identifier le critère RGAA concerné.</td><td>Haute</td></tr>
+              <tr><td>Sécurité</td><td>Qualifier le risque et limiter l'exposition.</td><td>Haute</td></tr>
+              <tr><td>Demande établissement</td><td>Répondre sur le périmètre et les conditions d'usage.</td><td>Normale</td></tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+
+      <aside class="info-side">
+        <div class="info-side-card">
+          <h2>Documents liés</h2>
+          <a href="accessibilite.html">Accessibilité</a>
+          <a href="securite.html">Sécurité</a>
+          <a href="transparence.html">Transparence</a>
+          <a href="statut-service.html">Statut du service</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div id="login-modal" class="modal"><div class="modal-content"></div></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#123b7a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Suivi d'alignement avec les principes DSFR du service Admiscible.">
+  <title>Alignement DSFR — Admiscible</title>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <nav><a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a><ul class="nav-links"><li><a href="index.html">Accueil</a></li><li class="has-dd"><a href="cours.html">Filière <span class="filiere-label"></span><span class="caret">&#9662;</span></a><div class="dd"><a href="cours.html">Cours</a></div></li><li class="has-dd"><a href="concours.html">Ressources <span class="caret">&#9662;</span></a><div class="dd"><a href="methodes.html">Méthodes</a><a href="ressources.html">Sujets et exercices</a><a href="concours.html">Concours</a></div></li></ul><div class="nav-right"><div class="nav-espace"><button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button><div class="dd-espace" id="espace-dd"><a href="parcours.html"><span class="dd-icon" aria-hidden="true">P</span> Mon parcours</a><a href="dashboard.html"><span class="dd-icon" aria-hidden="true">S</span> Tableau de bord</a><a href="notes.html"><span class="dd-icon" aria-hidden="true">N</span> Notes</a><a href="focus.html"><span class="dd-icon" aria-hidden="true">T</span> Timer de travail</a><a href="schedule.html"><span class="dd-icon" aria-hidden="true">E</span> Emploi du temps</a><a href="todos.html"><span class="dd-icon" aria-hidden="true">A</span> Actions</a><a href="erreurs.html"><span class="dd-icon" aria-hidden="true">C</span> Cahier d'erreurs</a><div style="height:1px;background:var(--border-1);margin:4px 0"></div><a href="profil.html"><span class="dd-icon" aria-hidden="true">I</span> Mon profil</a></div></div><button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button><button class="login-btn" id="login-btn">Se connecter</button></div></nav>
+  <main class="info-page">
+    <header class="info-hero"><div class="info-kicker">Design public</div><h1>Alignement DSFR</h1><p>Le service adopte une grammaire proche du Système de Design de l'État : composants sobres, lisibilité, accessibilité et navigation stable. Admiscible n'est pas un site officiel de l'État et n'embarque pas le DSFR officiel à ce stade.</p></header>
+    <div class="info-layout"><div class="info-content">
+      <section class="info-card"><h2>Principes appliqués</h2><ul><li>En-tête identifiable avec accès direct à la recherche et au compte.</li><li>Pied de page structuré par rubriques, informations légales et accessibilité.</li><li>Boutons, tags, formulaires et cartes avec contrastes contrôlés.</li><li>Hiérarchie de titres claire et pages organisées autour d'une action principale.</li></ul></section>
+      <section class="info-card"><h2>Tableau de suivi</h2><table class="audit-table"><thead><tr><th>Composant</th><th>État</th><th>Action restante</th></tr></thead><tbody><tr><td>En-tête</td><td>Aligné</td><td>Évaluer un remplacement DSFR natif si usage institutionnel.</td></tr><tr><td>Pied de page</td><td>Aligné</td><td>Ajouter les mentions d'organisme responsable en cas de déploiement.</td></tr><tr><td>Formulaires</td><td>En cours</td><td>Uniformiser les messages d'aide et d'erreur.</td></tr><tr><td>Recherche</td><td>Aligné</td><td>Ajouter tri et pagination si volume important.</td></tr><tr><td>Alertes</td><td>En cours</td><td>Créer des variantes information, succès, avertissement, erreur.</td></tr></tbody></table></section>
+      <section class="info-card"><h2>Référence</h2><p>Documentation : <a href="https://www.systeme-de-design.gouv.fr/version-courante/fr" target="_blank" rel="noopener">Système de Design de l'État</a>.</p></section>
+    </div><aside class="info-side"><div class="info-side-card"><h2>Documents liés</h2><a href="accessibilite.html">Accessibilité</a><a href="securite.html">Sécurité</a><a href="transparence.html">Transparence</a></div></aside></div>
+  </main>
+  <div id="login-modal" class="modal"><div class="modal-content"></div></div>
+</body>
+</html>

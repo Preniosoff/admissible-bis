@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#123b7a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Attendus officiels reformulés par niveau, avec liens vers les programmes et ressources publiques.">
+  <title>Attendus officiels — Admiscible</title>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li class="has-dd"><a href="cours.html">Filière <span class="filiere-label"></span><span class="caret">&#9662;</span></a><div class="dd"><a href="cours.html">Cours</a></div></li>
+      <li class="has-dd"><a href="concours.html">Ressources <span class="caret">&#9662;</span></a><div class="dd"><a href="methodes.html">Méthodes</a><a href="ressources.html">Sujets et exercices</a><a href="concours.html">Concours</a><a href="orientation.html">Orientation</a><a href="attendus-officiels.html">Attendus officiels</a></div></li>
+    </ul>
+    <div class="nav-right"><div class="nav-espace"><button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button><div class="dd-espace" id="espace-dd"><a href="parcours.html"><span class="dd-icon" aria-hidden="true">P</span> Mon parcours</a><a href="dashboard.html"><span class="dd-icon" aria-hidden="true">S</span> Tableau de bord</a><a href="notes.html"><span class="dd-icon" aria-hidden="true">N</span> Notes</a><a href="focus.html"><span class="dd-icon" aria-hidden="true">T</span> Timer de travail</a><a href="schedule.html"><span class="dd-icon" aria-hidden="true">E</span> Emploi du temps</a><a href="todos.html"><span class="dd-icon" aria-hidden="true">A</span> Actions</a><a href="erreurs.html"><span class="dd-icon" aria-hidden="true">C</span> Cahier d'erreurs</a><div style="height:1px;background:var(--border-1);margin:4px 0"></div><a href="profil.html"><span class="dd-icon" aria-hidden="true">I</span> Mon profil</a></div></div><button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button><button class="login-btn" id="login-btn">Se connecter</button></div>
+  </nav>
+
+  <main class="info-page">
+    <header class="info-hero">
+      <div class="info-kicker">Programmes</div>
+      <h1>Attendus officiels, en clair</h1>
+      <p>Une lecture simple des compétences attendues, avec les liens vers les textes publics. L’objectif est de transformer un programme long en repères actionnables pour travailler.</p>
+    </header>
+
+    <div class="attendus-layout">
+      <section class="attendus-summary">
+        <h2>Les six gestes à maîtriser</h2>
+        <div class="attendus-keywords">
+          <span>Chercher</span>
+          <span>Modéliser</span>
+          <span>Représenter</span>
+          <span>Raisonner</span>
+          <span>Calculer</span>
+          <span>Communiquer</span>
+        </div>
+        <p>Ces mots reviennent dans les programmes de mathématiques et structurent aussi les sciences : comprendre la situation, choisir un outil, produire un résultat, puis expliquer ce qui a été fait.</p>
+      </section>
+
+      <section class="attendus-level" id="cycle-3">
+        <div>
+          <span class="attendus-tag">Cycle 3 · 6e</span>
+          <h2>Installer des habitudes solides</h2>
+          <p>À ce niveau, l’attendu principal est de savoir expliquer une démarche simple, utiliser les nombres avec confiance, reconnaître des figures, lire des données et résoudre des problèmes guidés.</p>
+        </div>
+        <ul>
+          <li><strong>Mots-clés.</strong> Comprendre l’énoncé, choisir une opération, vérifier un résultat, tracer proprement, expliquer avec une phrase courte.</li>
+          <li><strong>Signal de maîtrise.</strong> L’élève sait refaire seul un exercice proche après correction.</li>
+          <li><strong>Source.</strong> <a href="https://www.education.gouv.fr/sites/default/files/programme-de-math-matiques-pour-le-cycle-3-439827.pdf" target="_blank" rel="noopener">Programme de mathématiques du cycle 3</a>.</li>
+        </ul>
+      </section>
+
+      <section class="attendus-level" id="cycle-4">
+        <div>
+          <span class="attendus-tag">Cycle 4 · 5e à 3e</span>
+          <h2>Passer de l’application à l’argumentation</h2>
+          <p>L’élève doit automatiser les bases, mais aussi justifier : calcul littéral, proportionnalité, fonctions, statistiques, géométrie et premières démarches scientifiques.</p>
+        </div>
+        <ul>
+          <li><strong>Mots-clés.</strong> Démontrer, généraliser, organiser un calcul, interpréter un graphique, passer d’un exemple à une règle.</li>
+          <li><strong>Signal de maîtrise.</strong> L’élève sait dire pourquoi une méthode fonctionne, pas seulement appliquer une formule.</li>
+          <li><strong>Source.</strong> <a href="https://www.education.gouv.fr/sites/default/files/document/Annexe%202%20%E2%80%93%20Programme%20de%20math%C3%A9matiques%20pour%20le%20cycle%204-480716.pdf" target="_blank" rel="noopener">Programme de mathématiques du cycle 4</a>.</li>
+        </ul>
+      </section>
+
+      <section class="attendus-level" id="seconde">
+        <div>
+          <span class="attendus-tag">Seconde</span>
+          <h2>Construire l’autonomie de lycée</h2>
+          <p>La seconde demande de consolider les automatismes et de commencer à choisir soi-même les outils : fonctions, géométrie, probabilités, calcul numérique et algébrique.</p>
+        </div>
+        <ul>
+          <li><strong>Mots-clés.</strong> Identifier le modèle, choisir une représentation, comparer plusieurs méthodes, rédiger une conclusion.</li>
+          <li><strong>Signal de maîtrise.</strong> L’élève sait attaquer un problème non guidé en découpant le travail.</li>
+          <li><strong>Source.</strong> <a href="https://www.education.gouv.fr/sites/default/files/document/Annexe%20%E2%80%93%20Programme%20d%26%23039%3Benseignement%20de%20math%C3%A9matiques%20de%20la%20classe%20de%20seconde%20g%C3%A9n%C3%A9rale%20et%20technologique-515402.pdf" target="_blank" rel="noopener">Programme de mathématiques de seconde</a>.</li>
+        </ul>
+      </section>
+
+      <section class="attendus-level" id="terminale">
+        <div>
+          <span class="attendus-tag">Première · Terminale</span>
+          <h2>Relier méthodes, preuves et projet d’orientation</h2>
+          <p>Le lycée supérieur attend une maîtrise plus abstraite : raisonnement, fonctions, probabilités, algorithmique, modélisation et rédaction précise selon les spécialités.</p>
+        </div>
+        <ul>
+          <li><strong>Mots-clés.</strong> Justifier, formaliser, interpréter un résultat, choisir une stratégie, relier cours et exercice.</li>
+          <li><strong>Signal de maîtrise.</strong> L’élève sait passer d’un chapitre à l’autre et expliquer les conditions d’utilisation d’un outil.</li>
+          <li><strong>Source.</strong> <a href="https://eduscol.education.fr/sites/default/files/document/spe246annexe1158907pdf-84159.pdf" target="_blank" rel="noopener">Programme de spécialité mathématiques de terminale</a>.</li>
+        </ul>
+      </section>
+
+      <section class="attendus-level" id="cpge">
+        <div>
+          <span class="attendus-tag">CPGE scientifiques</span>
+          <h2>Travailler vite, juste et proprement</h2>
+          <p>En classe préparatoire, les attendus portent sur la précision des hypothèses, la robustesse des méthodes, la rédaction et la capacité à choisir un outil sous contrainte de temps.</p>
+        </div>
+        <ul>
+          <li><strong>Mots-clés.</strong> Hypothèses, rigueur, efficacité, changement de cadre, ordre de grandeur, synthèse.</li>
+          <li><strong>Signal de maîtrise.</strong> L’étudiant sait repérer la méthode naturelle, éviter les pièges classiques et rédiger une solution exploitable.</li>
+          <li><strong>Source.</strong> <a href="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/imported_files/documents/BOSPE1_MESRI_1378831.pdf" target="_blank" rel="noopener">Bulletin officiel spécial CPGE scientifiques</a>.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <div id="login-modal" class="modal"><div class="modal-content"></div></div>
+</body>
+</html>

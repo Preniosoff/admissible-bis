@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Admiscible logo proposition 5">
+  <rect width="64" height="64" rx="8" fill="#071f4f"/>
+  <path d="M16 51L29 14" fill="none" stroke="#2f6bff" stroke-width="7" stroke-linecap="butt"/>
+  <path d="M48 51L35 14" fill="none" stroke="#e6404b" stroke-width="7" stroke-linecap="butt"/>
+  <path d="M23 37H41" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="butt"/>
+  <path d="M14 53H50" stroke="#ffffff" stroke-width="3" stroke-linecap="square" opacity="0.92"/>
+</svg>

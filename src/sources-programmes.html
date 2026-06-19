@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#123b7a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Repères sur l'organisation des contenus, niveaux couverts et programmes dans Admiscible.">
+  <title>Sources et programmes — Admiscible</title>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li class="has-dd"><a href="cours.html">Filière <span class="filiere-label"></span><span class="caret">&#9662;</span></a><div class="dd"><a href="cours.html">Cours</a></div></li>
+      <li class="has-dd"><a href="concours.html">Ressources <span class="caret">&#9662;</span></a><div class="dd"><a href="methodes.html">Méthodes</a><a href="ressources.html">Sujets et exercices</a><a href="concours.html">Concours</a></div></li>
+    </ul>
+    <div class="nav-right"><div class="nav-espace"><button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button><div class="dd-espace" id="espace-dd"><a href="parcours.html"><span class="dd-icon" aria-hidden="true">P</span> Mon parcours</a><a href="dashboard.html"><span class="dd-icon" aria-hidden="true">S</span> Tableau de bord</a><a href="notes.html"><span class="dd-icon" aria-hidden="true">N</span> Notes</a><a href="focus.html"><span class="dd-icon" aria-hidden="true">T</span> Timer de travail</a><a href="schedule.html"><span class="dd-icon" aria-hidden="true">E</span> Emploi du temps</a><a href="todos.html"><span class="dd-icon" aria-hidden="true">A</span> Actions</a><a href="erreurs.html"><span class="dd-icon" aria-hidden="true">C</span> Cahier d'erreurs</a><div style="height:1px;background:var(--border-1);margin:4px 0"></div><a href="profil.html"><span class="dd-icon" aria-hidden="true">I</span> Mon profil</a></div></div><button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button><button class="login-btn" id="login-btn">Se connecter</button></div>
+  </nav>
+
+  <main class="info-page">
+    <header class="info-hero">
+      <div class="info-kicker">Contenus</div>
+      <h1>Sources et programmes</h1>
+      <p>Cette page précise la façon dont les contenus sont organisés, les niveaux visés et les repères utilisés pour maintenir une progression cohérente.</p>
+    </header>
+
+    <div class="info-layout">
+      <div class="info-content">
+        <section class="info-card">
+          <h2>Niveaux couverts</h2>
+          <div class="program-grid">
+            <div><strong>Collège</strong><span>6e, 5e, 4e, 3e · consolidation des fondamentaux et préparation du brevet.</span></div>
+            <div><strong>Lycée général</strong><span>Seconde, première, terminale · tronc commun, spécialités et épreuves du baccalauréat.</span></div>
+            <div><strong>CPGE scientifiques</strong><span>MP, PC, PSI, MPI, BCPST · contenus disponibles selon les matières et filières.</span></div>
+          </div>
+        </section>
+
+        <section class="info-card">
+          <h2>Organisation des contenus</h2>
+          <p>Les pages de cours sont organisées par niveau, filière, matière et chapitre. Les méthodes sont séparées des fiches afin de permettre un accès direct aux démarches de résolution. Les exercices et sujets sont regroupés dans une rubrique distincte.</p>
+        </section>
+
+        <section class="info-card">
+          <h2>Références institutionnelles</h2>
+          <p>Admiscible n'est pas un service officiel. Les contenus sont structurés pour rester compatibles avec les repères publiés par les institutions compétentes.</p>
+          <ul>
+            <li><a href="https://eduscol.education.fr/" target="_blank" rel="noopener">Éduscol</a> pour les ressources et programmes scolaires.</li>
+            <li><a href="https://www.education.gouv.fr/bo" target="_blank" rel="noopener">Bulletin officiel de l'Éducation nationale</a> pour les textes réglementaires.</li>
+            <li><a href="https://www.enseignementsup-recherche.gouv.fr/fr/classes-preparatoires-aux-grandes-ecoles-cpge-46496" target="_blank" rel="noopener">Ministère de l'Enseignement supérieur · CPGE</a> pour le cadre des classes préparatoires.</li>
+          </ul>
+          <p><a href="attendus-officiels.html">Lire les attendus officiels reformulés</a></p>
+        </section>
+
+        <section class="info-card">
+          <h2>État de couverture</h2>
+          <p>Chaque chapitre peut évoluer selon trois états : disponible, en enrichissement, ou à vérifier. Les contenus visibles doivent rester utilisables même lorsqu'une partie du programme est encore en cours de structuration.</p>
+          <p><a href="etat-contenus.html">Consulter l'état des contenus</a></p>
+        </section>
+
+        <section class="info-card">
+          <h2>Mise à jour</h2>
+          <p>Les contenus sont enrichis progressivement. Lorsqu'un contenu est incomplet ou en cours de structuration, il doit rester identifiable et ne pas empêcher l'accès aux autres ressources disponibles.</p>
+          <p>Pour signaler une erreur, une imprécision ou un chapitre manquant : <a href="mailto:contact@admiscible.fr">contact@admiscible.fr</a>.</p>
+        </section>
+      </div>
+
+      <aside class="info-side" aria-label="Accès contenus">
+        <div class="info-side-card"><h2>Rubriques</h2><a href="cours.html">Cours</a><a href="methodes.html">Méthodes</a><a href="ressources.html">Sujets et exercices</a><a href="concours.html">Concours</a><a href="orientation.html">Orientation</a><a href="attendus-officiels.html">Attendus officiels</a></div>
+        <div class="info-side-card"><h2>Dernière mise à jour</h2><span>Juin 2026</span></div>
+      </aside>
+    </div>
+  </main>
+
+  <div id="login-modal" class="modal"><div class="modal-content"></div></div>
+</body>
+</html>
