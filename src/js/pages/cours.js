@@ -120,6 +120,21 @@ function updateCourseHeader(filiereData, matiereId, view = 'course') {
         : `${filiereData.nom} - ${current.nom}. Définitions, théorèmes, propriétés et formules.`;
     }
   }
+
+  // Sélecteur de contexte : passer de Cours à Méthodes / Exercices pour la même matière
+  const ctx = document.getElementById('course-context');
+  if (ctx) {
+    if (current && filiereData?.id) {
+      const q = `?filiere=${encodeURIComponent(filiereData.id)}&matiere=${encodeURIComponent(matiereId)}`;
+      ctx.innerHTML = `<span class="course-context-label">${current.nom} :</span>
+        <a class="course-context-link${isExercises ? '' : ' is-active'}" href="cours.html${q}">Cours</a>
+        <a class="course-context-link" href="methodes.html${q}">Méthodes</a>
+        <a class="course-context-link${isExercises ? ' is-active' : ''}" href="ressources.html${q}">Exercices</a>`;
+      ctx.removeAttribute('hidden');
+    } else {
+      ctx.setAttribute('hidden', '');
+    }
+  }
 }
 
 function initCourseTools() {

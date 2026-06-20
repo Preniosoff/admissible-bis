@@ -887,7 +887,10 @@
       border-radius: var(--r-sm);
       padding: 0.25rem 0.55rem;
       font-size: 0.86rem;
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
     }
+    a.portal-pill:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 
     .decision-panel {
       background: var(--bg-card);
@@ -1238,10 +1241,10 @@
         <div>
           <div class="service-kicker">Service éducatif gratuit</div>
           <h1>Un espace clair pour <span>apprendre, s’entraîner et progresser</span></h1>
-          <p class="hero-lede">Admiscible réunit des cours, des méthodes, des exercices et des outils de suivi pour accompagner le travail scolaire, du collège aux classes préparatoires. Le compte sert à adapter l’espace au profil, au niveau et aux objectifs de l’utilisateur.</p>
+          <p class="hero-lede">Des cours, des méthodes et des exercices pour t’accompagner dans ton travail, du collège aux classes préparatoires. Tout est gratuit et sans publicité — et ton compte, quand tu en veux un, garde ta progression et s’adapte à ton niveau.</p>
           <div class="hero-actions">
-            <a href="inscription.html" class="home-btn primary">Créer un compte guidé</a>
-            <a href="#presentation-video" class="home-btn secondary">Voir la présentation</a>
+            <a href="cours.html" class="home-btn primary">Commencer à réviser →</a>
+            <a href="inscription.html" class="home-btn secondary">Créer un compte</a>
           </div>
           <div class="trust-strip" aria-label="Garanties principales">
             <span>Accès gratuit</span>
@@ -1270,10 +1273,10 @@
       <div class="portal-band">
         <div class="portal-band-inner">
           <strong>Entrées guidées.</strong>
-          <span class="portal-pill">Élève</span>
-          <span class="portal-pill">Parent</span>
-          <span class="portal-pill">Enseignant</span>
-          <span class="portal-pill">Établissement</span>
+          <a class="portal-pill" href="cours.html">Élève</a>
+          <a class="portal-pill" href="parents.html">Parent</a>
+          <a class="portal-pill" href="enseignants.html">Enseignant</a>
+          <a class="portal-pill" href="etablissements.html">Établissement</a>
         </div>
       </div>
     </section>

@@ -81,9 +81,9 @@ export function renderCard(carte) {
   const showProgress = !!getToken();
   const showPersonalTools = !!getToken();
 
-  const meta = `<span class="content-meta-chip">Mis à jour : ${CONTENT_UPDATED}</span>
-    <span class="status-chip complete">Contenu disponible</span>
-    <a class="report-link" href="mailto:contact@admiscible.fr?subject=Signalement%20contenu%20Admiscible&body=${encodeURIComponent(`Page : ${location.pathname}${location.search}\nCarte : ${head || carte.titre || carte.id}\n\nDécrire le problème : `)}">Signaler une erreur</a>`;
+  // Allégé : la date et le statut « disponible » vivent déjà sur l'en-tête du
+  // chapitre. Sur la carte, on garde juste « Signaler », discret et au survol.
+  const meta = `<a class="report-link" href="mailto:contact@admiscible.fr?subject=Signalement%20contenu%20Admiscible&body=${encodeURIComponent(`Page : ${location.pathname}${location.search}\nCarte : ${head || carte.titre || carte.id}\n\nDécrire le problème : `)}">Signaler une erreur</a>`;
 
   const progressBtn = showProgress ? `<button class="prog-btn" data-carte="${carte.id}" data-status="${status}" data-title="${escapeAttr(head || carte.titre || 'Carte de cours')}" style="padding:0.3rem 0.8rem;border-radius:var(--r-sm);border:1px solid ${statusColors[status]};background:transparent;color:${statusColors[status]};font-size:0.75rem;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:0.05em;transition:all 0.2s">${statusLabels[status]}</button>` : '';
 

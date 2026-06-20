@@ -668,6 +668,18 @@
   color: var(--accent-hover);
 }
 
+/* Sur une carte de cours, « Signaler » reste discret et n'apparaît qu'au survol */
+.card .card-meta-row .report-link {
+  opacity: 0;
+  font-size: 0.72rem;
+  color: var(--text-3);
+  margin-left: 0;
+  transition: opacity 0.15s, color 0.15s;
+}
+.card:hover .card-meta-row .report-link,
+.card:focus-within .card-meta-row .report-link { opacity: 1; }
+.card .card-meta-row .report-link:hover { color: var(--accent); }
+
 .chap-meta {
   display: flex;
   flex-wrap: wrap;
@@ -3818,3 +3830,15 @@ body.page-wide .resource-gateway-inner {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Sélecteur de contexte cours ↔ méthodes ↔ exercices (même matière) */
+.course-context { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.9rem; }
+.course-context-label { font-size: 0.8rem; font-weight: 800; color: var(--text-2); }
+.course-context-link {
+  font-size: 0.85rem; font-weight: 700; text-decoration: none; color: var(--accent);
+  border: 1px solid var(--border-0); background: var(--bg-card);
+  padding: 0.3rem 0.75rem; border-radius: var(--r-sm);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.course-context-link:hover { border-color: var(--accent); background: var(--accent-soft); }
+.course-context-link.is-active { background: var(--accent); color: var(--text-inv); border-color: var(--accent); }
