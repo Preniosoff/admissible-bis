@@ -10,6 +10,23 @@
   <meta name="description" content="Présentation d'Admiscible, service éducatif gratuit de cours, méthodes, exercices et outils de travail.">
   <title>A propos du service — Admiscible</title>
   <script type="module" src="js/main.js"></script>
+  <style>
+    .founder { display: flex; gap: 1.5rem; align-items: flex-start; }
+    .founder-photo {
+      flex-shrink: 0; width: 116px; height: 116px;
+      border-radius: var(--r-lg); overflow: hidden; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-active));
+      border: 1px solid var(--border-0);
+    }
+    .founder-photo span { color: #fff; font-size: 2.3rem; font-weight: 800; letter-spacing: 0.02em; }
+    .founder-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .founder-role { color: var(--accent); font-size: 0.76rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
+    .founder-body h2 { margin-top: 0; }
+    .founder-body p { color: var(--text-1); line-height: 1.7; }
+    .founder-sign { margin-top: 0.6rem; font-weight: 800; color: var(--text-0); }
+    @media (max-width: 600px) { .founder { flex-direction: column; } }
+  </style>
 </head>
 <body>
   <nav>
@@ -48,6 +65,21 @@
 
     <div class="info-layout">
       <div class="info-content">
+        <section class="info-card founder">
+          <div class="founder-photo">
+            <span aria-hidden="true">JA</span>
+            <img src="/assets/joseph-aboulker.jpg" alt="Joseph Aboulker, fondateur d'Admiscible" onerror="this.remove()">
+          </div>
+          <div class="founder-body">
+            <div class="founder-role">À l'origine d'Admiscible</div>
+            <h2>Une initiative, une personne</h2>
+            <p>Je m'appelle <strong>Joseph Aboulker</strong>. J'ai imaginé Admiscible pendant mes années de classe préparatoire, à partir d'un constat simple : les ressources qui font vraiment progresser sont trop souvent payantes, éparpillées, ou réservées à ceux qui savent déjà où chercher.</p>
+            <p>Je voulais un endroit clair, exigeant et gratuit, où chaque élève — du collège à la prépa — trouve le bon cours, la bonne méthode et le bon exercice. Sans que la réussite ne commence jamais par un paiement.</p>
+            <p>Admiscible, c'est l'outil que j'aurais aimé avoir : construit pas à pas, pour que personne ne soit laissé de côté.</p>
+            <p class="founder-sign">Joseph Aboulker — fondateur d'Admiscible</p>
+          </div>
+        </section>
+
         <section class="info-card">
           <h2>Objectif</h2>
           <p>Le service vise à rendre le travail scolaire plus lisible : retrouver un cours, appliquer une méthode, s'entraîner sur des exercices, suivre son avancement et organiser ses séances de travail.</p>
