@@ -140,16 +140,6 @@ export function initFooter() {
           <a href="parents.html">Parents</a>
           <a href="enseignants.html">Enseignants</a>
           <a href="etablissements.html">Établissements</a>
-          <a href="espace-enseignant.html">Espace enseignant</a>
-        </div>
-        <div class="footer-col">
-          <div class="footer-col-title">Suivi</div>
-          <a href="dashboard.html">Tableau de bord</a>
-          <a href="schedule.html">Emploi du temps</a>
-          <a href="todos.html">Actions</a>
-          <a href="notes.html">Notes</a>
-          <a href="erreurs.html">Cahier d'erreurs</a>
-          <a href="focus.html">Timer de travail</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Service</div>
@@ -164,9 +154,7 @@ export function initFooter() {
           <a href="connexion-institutionnelle.html">Accès institutionnel</a>
           <a href="deploiement-etablissement.html">Déploiement établissement</a>
           <a href="matrice-rgpd.html">Matrice RGPD</a>
-          <a href="fiche-presentation.html">Fiche de présentation</a>
           <a href="statut-service.html">Statut du service</a>
-          <a href="choisir-niveau.html">Choisir mon niveau</a>
           <a href="accessibilite.html">Accessibilité</a>
           <a href="aide.html">Aide</a>
         </div>
