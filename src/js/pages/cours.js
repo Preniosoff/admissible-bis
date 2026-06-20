@@ -35,6 +35,7 @@ export async function initCoursPage() {
     await initResourceGateway({
       root: '#course-gateway',
       resourceLabel: 'Cours',
+      coverageType: 'cours',
       resourceName: 'le cours',
       intro: 'Commencez par votre niveau, puis votre filière, puis la matière à travailler.',
       preferredFiliereId: getUser()?.filiere_id || '',

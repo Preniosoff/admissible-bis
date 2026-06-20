@@ -19,6 +19,7 @@ export async function initMethodesPage() {
     await initResourceGateway({
       root: '#methodes-gateway',
       resourceLabel: 'Méthodes',
+      coverageType: 'methodes',
       resourceName: 'les méthodes',
       intro: 'Commencez par votre niveau, puis votre filière, puis la matière qui vous intéresse.',
       preferredFiliereId: getUser()?.filiere_id || '',

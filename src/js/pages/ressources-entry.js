@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await initResourceGateway({
     root: '#exercices-gateway',
     resourceLabel: 'Exercices',
+    coverageType: 'exercices',
     resourceName: 'les exercices',
     intro: 'Commencez par votre niveau, puis votre filière, puis la matière pour obtenir des exercices adaptés.',
     preferredFiliereId: getUser()?.filiere_id || '',

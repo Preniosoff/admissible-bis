@@ -554,7 +554,7 @@ Flux radiatif corps noir convexe : $\\Phi_{rad} = \\sigma(T^4-T_0^4)$</div></div
         { type: "th", titre: "Reste d'une série convergente", contenu: `La suite des restes $R_n \\to 0$ quand $n \\to +\\infty$.` },
       ]},
       { titre: "Séries à termes positifs (SATP)", cartes: [
-        { type: "th", titre: "Convergence d'une SATP", contenu: `Une SATP converge $\\iff la suite des sommes partielles est majorée.` },
+        { type: "th", titre: "Convergence d'une SATP", contenu: `Une SATP converge $\\iff$ la suite des sommes partielles est majorée.` },
         { type: "th", titre: "Série de Riemann", contenu: `$\\sum \\frac{1}{n^\\alpha}$ converge $\\iff \\alpha > 1$.` },
         { type: "th", titre: "Théorème de comparaison", contenu: `Si $0 \\le a_n \\le b_n$ (à partir d'un certain rang) : $\\sum b_n$ conv. $\\implies \\sum a_n$ conv. &nbsp;&nbsp; $\\sum a_n$ div. $\\implies \\sum b_n$ div.` },
         { type: "th", titre: "Comparaison par équivalent / grand O", contenu: `Si $a_n \\sim b_n$ ($b_n > 0$), les deux séries sont de même nature.<br>Si $a_n = \\mathcal{O}(b_n)$ et $\\sum b_n$ conv., alors $\\sum a_n$ conv.</div>` },

@@ -30,6 +30,7 @@ async function request(path, options = {}) {
 
 export const api = {
   getNiveaux: () => request('/niveaux'),
+  getCoverage: () => request('/coverage'),
   getFiliere: (id) => request(`/filieres/${id}`),
   getChapitres: (filiere, matiere) => request(`/filieres/${filiere}/matieres/${matiere}/chapitres`),
   getChapitre: (id) => request(`/chapitres/${id}`),

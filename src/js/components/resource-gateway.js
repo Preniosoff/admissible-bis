@@ -6,12 +6,27 @@ export async function initResourceGateway({
   resourceName = 'ce contenu',
   intro = 'Choisissez votre niveau, votre filière, puis la matière à travailler.',
   preferredFiliereId = '',
+  coverageType = 'cours',
   onComplete,
 }) {
   const container = typeof root === 'string' ? document.querySelector(root) : root;
   if (!container) return;
 
   const niveaux = await api.getNiveaux();
+
+  // Couverture : on ne propose que les filière×matière qui ont réellement du contenu.
+  // Si l'appel échoue, on n'altère rien (tout reste affiché) — fail-safe.
+  let covSet = new Set();
+  const filWithContent = new Set();
+  try {
+    const cov = await api.getCoverage();
+    for (const key of (cov?.[coverageType] || [])) { covSet.add(key); filWithContent.add(key.split('|')[0]); }
+  } catch { /* coverage indisponible → aucun filtrage */ }
+  const hasCov = () => covSet.size > 0;
+  const keepFilieres = (filieres) => hasCov() ? (filieres || []).filter(f => filWithContent.has(f.id)) : (filieres || []);
+  const keepNiveaux = (list) => hasCov() ? list.filter(n => (n.filieres || []).some(f => filWithContent.has(f.id))) : list;
+  const keepMatieres = (filiere, matieres) => hasCov() ? (matieres || []).filter(m => covSet.has(`${filiere.id}|${m.id}`)) : (matieres || []);
+
   let selectedNiveau = null;
   let selectedFiliere = null;
   let lockedToPreferredFiliere = false;
@@ -45,16 +60,17 @@ export async function initResourceGateway({
   }
 
   function renderNiveaux() {
+    const visibleNiveaux = keepNiveaux(niveaux);
     renderFrame({
       step: 1,
       title: `Choisir un niveau`,
       text: intro,
       body: `
         <div class="resource-choice-grid resource-choice-grid--featured">
-          ${niveaux.map((niveau, index) => choiceCard({
+          ${visibleNiveaux.map((niveau, index) => choiceCard({
             value: niveau.id,
             title: niveau.nom,
-            meta: `${(niveau.filieres || []).length} parcours disponibles`,
+            meta: `${keepFilieres(niveau.filieres).length} parcours disponibles`,
             action: 'Choisir',
             number: index + 1,
           })).join('')}
@@ -70,7 +86,7 @@ export async function initResourceGateway({
   }
 
   function renderFilieres() {
-    const filieres = selectedNiveau?.filieres || [];
+    const filieres = keepFilieres(selectedNiveau?.filieres);
     renderFrame({
       step: 2,
       title: `Choisir une filière`,
@@ -99,7 +115,7 @@ export async function initResourceGateway({
   }
 
   function renderMatieres() {
-    const matieres = selectedFiliere?.matieres || [];
+    const matieres = keepMatieres(selectedFiliere, selectedFiliere?.matieres);
     renderFrame({
       step: 3,
       title: `Choisir une matière`,
