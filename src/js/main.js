@@ -517,12 +517,23 @@ function initHamburger(nav) {
   const btn = document.createElement('button');
   btn.className = 'hamburger';
   btn.setAttribute('aria-label', 'Menu');
+  btn.setAttribute('aria-expanded', 'false');
   btn.innerHTML = ICON_MENU;
   nav.insertBefore(btn, links);
 
-  btn.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
+  function setMenuOpen(open) {
+    links.classList.toggle('open', open);
+    document.body.classList.toggle('nav-menu-open', open);
+    btn.setAttribute('aria-expanded', String(open));
     btn.innerHTML = open ? ICON_CLOSE : ICON_MENU;
+    if (!open) {
+      links.querySelectorAll('.dd.mobile-open').forEach(d => d.classList.remove('mobile-open'));
+      links.querySelectorAll('.caret.rotated').forEach(caret => caret.classList.remove('rotated'));
+    }
+  }
+
+  btn.addEventListener('click', () => {
+    setMenuOpen(!links.classList.contains('open'));
   });
 
   // Mobile: tap parent dropdown items to expand sub-menus
@@ -536,17 +547,29 @@ function initHamburger(nav) {
       links.querySelectorAll('.dd.mobile-open').forEach(o => {
         if (o !== dd) o.classList.remove('mobile-open');
       });
-      dd.classList.toggle('mobile-open');
+      links.querySelectorAll('.caret.rotated').forEach(caret => {
+        if (!trigger.contains(caret)) caret.classList.remove('rotated');
+      });
+      const open = dd.classList.toggle('mobile-open');
+      trigger.querySelector('.caret')?.classList.toggle('rotated', open);
     });
   });
 
   // Close menu when a real link is clicked
   links.addEventListener('click', (e) => {
     if (e.target.closest('a') && !e.target.closest('.has-dd > a')) {
-      links.classList.remove('open');
-      links.querySelectorAll('.dd.mobile-open').forEach(d => d.classList.remove('mobile-open'));
-      btn.innerHTML = ICON_MENU;
+      setMenuOpen(false);
     }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!links.classList.contains('open')) return;
+    if (e.target.closest('nav')) return;
+    setMenuOpen(false);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1320) setMenuOpen(false);
   });
 }
 

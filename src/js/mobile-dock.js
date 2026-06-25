@@ -2,11 +2,11 @@
 import { getUser } from './auth.js';
 
 const ITEMS = [
-  { ico: 'C', label: 'Cours',  href: 'cours.html',     match: ['cours'] },
-  { ico: 'T', label: 'Timer de travail',  href: 'focus.html',     match: ['focus'] },
-  { ico: 'M', label: 'Méthodes', href: 'methodes.html', match: ['methodes'] },
-  { ico: 'S', label: 'Suivi',  href: 'dashboard.html', match: ['dashboard'] },
-  { ico: 'A', label: 'Actions',  href: 'todos.html',     match: ['todos'] },
+  { ico: 'book', label: 'Cours',  href: 'cours.html',     match: ['cours'] },
+  { ico: 'timer', label: 'Focus',  href: 'focus.html',     match: ['focus'] },
+  { ico: 'path', label: 'Méthodes', href: 'methodes.html', match: ['methodes'] },
+  { ico: 'chart', label: 'Suivi',  href: 'dashboard.html', match: ['dashboard'] },
+  { ico: 'check', label: 'Actions',  href: 'todos.html',     match: ['todos'] },
 ];
 
 export function initMobileDock() {
@@ -21,7 +21,7 @@ export function initMobileDock() {
   dock.innerHTML = ITEMS.map(it => {
     const active = it.match.some(m => path.includes(m));
     return `<a href="${it.href}" class="mobile-dock-item${active ? ' active' : ''}">
-      <span class="mobile-dock-ico" aria-hidden="true">${it.ico}</span>
+      <span class="mobile-dock-ico" data-icon="${it.ico}" aria-hidden="true"></span>
       <span class="mobile-dock-label">${it.label}</span>
     </a>`;
   }).join('');
