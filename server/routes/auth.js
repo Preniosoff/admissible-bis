@@ -108,7 +108,7 @@ router.post('/register', (req, res) => {
   saveDb();
 
   const token = jwt.sign({ id, username, role }, JWT_SECRET, { expiresIn: '7d' });
-  res.status(201).json({ token, user: { id, username, nom, role, filiere_id } });
+  res.status(201).json({ token, user: { id, username, nom, role, plan: 'free', filiere_id } });
 });
 
 router.post('/login', (req, res) => {
@@ -131,7 +131,7 @@ router.post('/login', (req, res) => {
 
   const token = jwt.sign({ id: user.id, username: user.username, role: user.role }, JWT_SECRET, { expiresIn: '7d' });
   const streak = getOne(req.db, 'SELECT current, longest FROM streaks WHERE user_id = ?', [user.id]);
-  res.json({ token, user: { id: user.id, username: user.username, nom: user.nom, role: user.role, filiere_id: user.filiere_id }, streak: streak || { current: 1, longest: 1 } });
+  res.json({ token, user: { id: user.id, username: user.username, nom: user.nom, role: user.role, plan: user.plan || 'free', filiere_id: user.filiere_id }, streak: streak || { current: 1, longest: 1 } });
 });
 
 // ── Mot de passe oublié ──
@@ -202,8 +202,8 @@ router.put('/profile', authenticateToken, (req, res) => {
     req.db.run('UPDATE users SET nom = ?, filiere_id = ?, email = ? WHERE id = ?',
       [nom.trim(), filiere_id || null, email?.trim() || null, req.user.id]);
     saveDb();
-    const user = getOne(req.db, 'SELECT id, username, nom, email, role, filiere_id FROM users WHERE id = ?', [req.user.id]);
-    res.json({ user: { id: user.id, username: user.username, nom: user.nom, email: user.email, role: user.role, filiere_id: user.filiere_id } });
+    const user = getOne(req.db, 'SELECT id, username, nom, email, role, plan, filiere_id FROM users WHERE id = ?', [req.user.id]);
+    res.json({ user: { id: user.id, username: user.username, nom: user.nom, email: user.email, role: user.role, plan: user.plan || 'free', filiere_id: user.filiere_id } });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -230,7 +230,7 @@ router.put('/password', authenticateToken, (req, res) => {
 });
 
 router.get('/me', authenticateToken, (req, res) => {
-  const user = getOne(req.db, 'SELECT id, username, nom, role, filiere_id FROM users WHERE id = ?', [req.user.id]);
+  const user = getOne(req.db, 'SELECT id, username, nom, role, plan, filiere_id FROM users WHERE id = ?', [req.user.id]);
   if (!user) return res.status(404).json({ error: 'Utilisateur non trouvé' });
   updateStreak(req.db, user.id);
   const streak = getOne(req.db, 'SELECT current, longest FROM streaks WHERE user_id = ?', [user.id]);

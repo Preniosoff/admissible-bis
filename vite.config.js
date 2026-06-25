@@ -20,6 +20,7 @@ export default defineConfig({
         annalesBac: resolve(__dirname, 'src/annales-bac.html'),
         annalesBrevet: resolve(__dirname, 'src/annales-brevet.html'),
         ressources: resolve(__dirname, 'src/ressources.html'),
+        abonnement: resolve(__dirname, 'src/abonnement.html'),
         dashboard: resolve(__dirname, 'src/dashboard.html'),
         parcours: resolve(__dirname, 'src/parcours.html'),
         schedule: resolve(__dirname, 'src/schedule.html'),

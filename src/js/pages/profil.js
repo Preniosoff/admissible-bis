@@ -44,6 +44,20 @@ function fieldStyle() {
 
 function render(container, user, filieres) {
   const initials = (user.nom || '?').split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+  const plan = user.plan || 'free';
+  const planLabels = {
+    free: 'Contenus gratuits',
+    personal: 'Espace personnel',
+    parent: 'Espace parent',
+    family: 'Espace famille',
+    premium: 'Premium',
+    pro: 'Pro',
+    admin: 'Administration',
+  };
+  const planLabel = planLabels[plan] || 'Contenus gratuits';
+  const isPaidPlan = !['free'].includes(plan);
+  const planColor = isPaidPlan ? 'var(--accent)' : 'var(--positive)';
+  const planBg = isPaidPlan ? 'var(--accent-soft)' : 'var(--positive-soft)';
 
   const filiereOptions = filieres.map(f =>
     `<option value="${f.id}" ${f.id === user.filiere_id ? 'selected' : ''}>${f.nom}</option>`
@@ -59,7 +73,7 @@ function render(container, user, filieres) {
         <div style="font-size:1.05rem;font-weight:700;letter-spacing:-0.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${user.nom}</div>
         <div style="font-size:0.78rem;color:var(--text-3);margin-top:2px">@${user.username}</div>
       </div>
-      <div style="font-size:0.75rem;font-weight:600;color:var(--positive);background:var(--positive-soft);padding:0.3rem 0.7rem;border-radius:var(--r-full);white-space:nowrap">Accès gratuit</div>
+      <div style="font-size:0.75rem;font-weight:600;color:${planColor};background:${planBg};padding:0.3rem 0.7rem;border-radius:var(--r-full);white-space:nowrap">${planLabel}</div>
     </div>
 
     <!-- Informations du compte -->
@@ -115,8 +129,12 @@ function render(container, user, filieres) {
     <!-- Compte -->
     ${card('Compte', `
       <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid var(--border-2)">
-        <span style="font-size:0.85rem;color:var(--text-2)">Accès</span>
-        <span style="font-size:0.85rem;font-weight:600;color:var(--positive)">Gratuit</span>
+        <span style="font-size:0.85rem;color:var(--text-2)">Offre</span>
+        <span style="font-size:0.85rem;font-weight:600;color:${planColor}">${planLabel}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid var(--border-2)">
+        <span style="font-size:0.85rem;color:var(--text-2)">Gestion</span>
+        <a href="abonnement.html" style="font-size:0.85rem;font-weight:600;color:var(--accent)">Voir les offres</a>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid var(--border-2)">
         <span style="font-size:0.85rem;color:var(--text-2)">Nom d'utilisateur</span>

@@ -3,6 +3,7 @@ import '../css/base.css';
 import '../css/layout.css';
 import '../css/components.css';
 import '../css/pages.css';
+import '../css/neo.css';
 import { initTheme } from './theme.js';
 import { initAuthUI, getUser } from './auth.js';
 import { api } from './api.js';
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileDock();
   initSideRail();
   initNavSearchButton();
+  initFreemiumAccess();
   initConnectedHome();
   initHomeDecision();
   initResumeStrip();
@@ -320,17 +322,7 @@ function initLevelTone() {
 }
 
 function initPublicsNav() {
-  const links = document.querySelector('.nav-links');
-  if (!links || links.querySelector('.nav-publics')) return;
-  const orientation = document.createElement('li');
-  orientation.className = 'nav-publics nav-orientation';
-  orientation.innerHTML = '<a href="orientation.html">Orientation</a>';
-  const home = [...links.children].find(item => item.textContent.includes('Accueil'));
-  if (home) {
-    home.after(orientation);
-  } else {
-    links.appendChild(orientation);
-  }
+  // La navigation principale est désormais normalisée par initPrimaryResourceNav().
 }
 
 function initNav() {
@@ -349,56 +341,43 @@ function initPrimaryResourceNav(nav) {
   const links = nav.querySelector('.nav-links');
   if (!links) return;
 
-  const filiereLi = [...links.children].find(li =>
-    li.querySelector('.filiere-label') || /^Filière\b/.test((li.querySelector(':scope > a')?.textContent || '').trim())
-  );
-  if (!filiereLi) return;
-
-  filiereLi.className = 'nav-resource nav-cours';
-  filiereLi.innerHTML = '<a href="cours.html">Cours</a>';
-
-  const existingMethodes = [...links.querySelectorAll(':scope > li > a')]
-    .some(a => (a.textContent || '').trim() === 'Méthodes');
-  const existingExercices = [...links.querySelectorAll(':scope > li > a')]
-    .some(a => ['Exercices', 'Sujets et exercices'].includes((a.textContent || '').trim()));
-
-  let insertAfter = filiereLi;
-  if (!existingMethodes) {
-    const li = document.createElement('li');
-    li.className = 'nav-resource nav-methodes';
-    li.innerHTML = '<a href="methodes.html">Méthodes</a>';
-    insertAfter.after(li);
-    insertAfter = li;
-  }
-  if (!existingExercices) {
-    const li = document.createElement('li');
-    li.className = 'nav-resource nav-exercices';
-    li.innerHTML = '<a href="ressources.html">Exercices</a>';
-    insertAfter.after(li);
-  }
-
-  const resourcesLi = [...links.children].find(li =>
-    /^Ressources\b/.test((li.querySelector(':scope > a')?.textContent || '').trim())
-  );
-  const dd = resourcesLi?.querySelector('.dd');
-  if (dd) {
-    dd.querySelectorAll('a').forEach(a => {
-      const text = (a.textContent || '').trim();
-      const href = (a.getAttribute('href') || '').split('?')[0];
-      if (['Méthodes', 'Sujets et exercices', 'Exercices', 'Annales'].includes(text) || href.startsWith('annales')) a.remove();
-    });
-    const resources = getAnnalesResourceLinks();
-    const concours = [...dd.querySelectorAll('a')].find(a => (a.textContent || '').trim() === 'Concours');
-    resources.forEach(([href, label]) => {
-      const exists = [...dd.querySelectorAll('a')].some(a => (a.getAttribute('href') || '').split('?')[0] === href);
-      if (exists) return;
-      const link = document.createElement('a');
-      link.href = href;
-      link.textContent = label;
-      if (concours) concours.before(link);
-      else dd.appendChild(link);
-    });
-  }
+  links.innerHTML = `
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="cours.html">Cours</a></li>
+    <li><a href="methodes.html">Méthodes</a></li>
+    <li><a href="ressources.html">Exercices</a></li>
+    <li class="has-dd">
+      <a href="annales.html">Annales <span class="caret">&#9662;</span></a>
+      <div class="dd">
+        <a href="annales.html">Annales concours</a>
+        <a href="annales-bac.html">Annales bac</a>
+        <a href="annales-brevet.html">Annales brevet</a>
+      </div>
+    </li>
+    <li><a href="orientation.html">Orientation</a></li>
+    <li><a href="abonnement.html">Offres</a></li>
+    <li class="has-dd">
+      <a href="eleves.html">Espaces <span class="caret">&#9662;</span></a>
+      <div class="dd">
+        <a href="eleves.html">Élèves</a>
+        <a href="parents.html">Parents</a>
+        <a href="enseignants.html">Enseignants</a>
+        <a href="etablissements.html">Établissements</a>
+      </div>
+    </li>
+    <li class="has-dd">
+      <a href="recherche.html">Ressources <span class="caret">&#9662;</span></a>
+      <div class="dd">
+        <a href="recherche.html">Recherche</a>
+        <a href="concours.html">Concours et écoles</a>
+        <a href="attendus-officiels.html">Attendus officiels</a>
+        <a href="sources-programmes.html">Sources et programmes</a>
+        <a href="notre-methode.html">Notre méthode</a>
+        <a href="aide.html">Aide</a>
+        <a href="plan-site.html">Plan du site</a>
+      </div>
+    </li>
+  `;
 }
 
 function getAnnalesResourceLinks() {
@@ -413,15 +392,15 @@ function initActiveNav(nav) {
   const current = location.pathname.split('/').pop() || 'index.html';
   const matchGroups = {
     'index.html': ['index.html'],
-    'inscription.html': ['inscription.html', 'choisir-niveau.html', 'parcours.html', 'onboarding.html'],
-    'orientation.html': ['orientation.html', 'attendus-officiels.html', 'sources-programmes.html'],
+    'inscription.html': ['inscription.html', 'choisir-niveau.html', 'onboarding.html'],
+    'abonnement.html': ['abonnement.html'],
+    'orientation.html': ['orientation.html'],
     'cours.html': ['cours.html'],
     'methodes.html': ['methodes.html'],
-    'ressources.html': ['ressources.html', 'recherche.html'],
-    'annales.html': ['annales.html'],
-    'annales-bac.html': ['annales-bac.html'],
-    'annales-brevet.html': ['annales-brevet.html'],
-    'concours.html': ['concours.html', 'annales.html', 'annales-bac.html', 'annales-brevet.html'],
+    'ressources.html': ['ressources.html'],
+    'annales.html': ['annales.html', 'annales-bac.html', 'annales-brevet.html'],
+    'eleves.html': ['eleves.html', 'parents.html', 'enseignants.html', 'etablissements.html', 'priorites-eleve.html', 'bilan-parent.html', 'espace-enseignant.html', 'sequences-pedagogiques.html', 'pilotage-etablissement.html', 'deploiement-etablissement.html'],
+    'recherche.html': ['recherche.html', 'concours.html', 'attendus-officiels.html', 'sources-programmes.html', 'notre-methode.html', 'etat-contenus.html', 'fiche-presentation.html', 'a-propos.html', 'transparence.html', 'conformite-dsfr.html', 'securite.html', 'connexion-institutionnelle.html', 'contact-signalement.html', 'statut-service.html', 'accessibilite.html', 'aide.html', 'plan-site.html', 'matrice-rgpd.html'],
   };
 
   nav.querySelectorAll('.nav-links > li > a').forEach(link => {
@@ -432,6 +411,64 @@ function initActiveNav(nav) {
     if (isActive) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   });
+}
+
+const PAID_ACCESS = {
+  personal: {
+    label: 'Espace personnel',
+    pages: ['dashboard.html', 'parcours.html', 'schedule.html', 'todos.html', 'focus.html', 'notes.html', 'erreurs.html', 'priorites-eleve.html'],
+    title: 'Passez du contenu au vrai suivi de travail.',
+    text: 'Les cours, méthodes, exercices et annales restent gratuits. L’abonnement ajoute le tableau de bord, les priorités, le planning, les notes, le timer et le cahier d’erreurs pour travailler avec méthode.',
+  },
+  parent: {
+    label: 'Espace parent',
+    pages: ['parents.html', 'bilan-parent.html'],
+    title: 'Un cadre clair pour accompagner sans surveiller.',
+    text: 'Les contenus restent consultables gratuitement. L’accès parent ajoute les bilans volontaires, les repères de suivi et une lecture simple des traces de travail.',
+  },
+};
+
+function getAccessKindForPage(page) {
+  return Object.values(PAID_ACCESS).find(kind => kind.pages.includes(page)) || null;
+}
+
+function hasPaidAccess(user, kind) {
+  const plan = user?.plan || 'free';
+  if (plan === 'premium' || plan === 'pro' || plan === 'admin') return true;
+  if (kind?.label === 'Espace personnel') return ['personal', 'family'].includes(plan);
+  if (kind?.label === 'Espace parent') return ['parent', 'family'].includes(plan);
+  return false;
+}
+
+function initFreemiumAccess() {
+  const page = location.pathname.split('/').pop() || 'index.html';
+  const kind = getAccessKindForPage(page);
+  if (!kind) return;
+  const user = getUser();
+  if (hasPaidAccess(user, kind)) return;
+
+  const main = document.querySelector('main') || document.body;
+  main.innerHTML = `
+    <section class="paywall-shell" aria-labelledby="paywall-title">
+      <div class="paywall-card">
+        <div class="paywall-kicker">${kind.label}</div>
+        <h1 id="paywall-title">${kind.title}</h1>
+        <p>${kind.text}</p>
+        <div class="paywall-free">
+          <strong>Disponible gratuitement</strong>
+          <span>Cours, méthodes, exercices, annales, concours, orientation et recherche.</span>
+        </div>
+        <div class="paywall-premium">
+          <strong>Avec l’abonnement</strong>
+          <span>Un espace guidé pour organiser, suivre et reprendre le travail sans repartir de zéro.</span>
+        </div>
+        <div class="paywall-actions">
+          <a class="neo-cta" href="abonnement.html">Voir l’abonnement</a>
+          <a class="connected-btn connected-btn-secondary" href="cours.html">Continuer gratuitement</a>
+        </div>
+      </div>
+    </section>
+  `;
 }
 
 /* ── Dynamic filière label (kept for compat) ── */
@@ -469,7 +506,7 @@ function initHamburger(nav) {
   // Mobile: tap parent dropdown items to expand sub-menus
   links.querySelectorAll('.has-dd > a').forEach(trigger => {
     trigger.addEventListener('click', (e) => {
-      if (window.innerWidth > 1140) return;
+      if (window.innerWidth > 1320) return;
       e.preventDefault();
       const dd = trigger.nextElementSibling;
       if (!dd) return;
@@ -523,6 +560,11 @@ function initConnectedHome() {
   const courseHref = filiereId ? `cours.html?filiere=${encodeURIComponent(filiereId)}` : 'cours.html';
   const methodHref = filiereId ? `methodes.html?filiere=${encodeURIComponent(filiereId)}` : 'methodes.html';
   const exerciseHref = filiereId ? `ressources.html?filiere=${encodeURIComponent(filiereId)}` : 'ressources.html';
+  const canUsePersonalSpace = hasPaidAccess(user, PAID_ACCESS.personal);
+  const primaryHref = canUsePersonalSpace ? 'parcours.html' : 'abonnement.html';
+  const primaryText = canUsePersonalSpace ? 'Reprendre mon parcours' : 'Voir l’abonnement';
+  const focusHref = canUsePersonalSpace ? 'priorites-eleve.html' : 'abonnement.html';
+  const focusText = canUsePersonalSpace ? 'Créer mes priorités' : 'S’abonner au suivi';
 
   document.documentElement.classList.add('home-connected');
   main.innerHTML = `
@@ -533,16 +575,16 @@ function initConnectedHome() {
           <h1 id="connected-home-title">Bonjour ${escapeHtml(firstName)}.</h1>
           <p>Un point d’entrée simple pour reprendre le travail, sans bruit autour.</p>
           <div class="connected-primary-actions">
-            <a class="connected-btn connected-btn-primary" href="parcours.html">Reprendre mon parcours</a>
+            <a class="connected-btn connected-btn-primary" href="${primaryHref}">${primaryText}</a>
             <a class="connected-btn connected-btn-secondary" href="${courseHref}">Ouvrir les cours</a>
           </div>
         </div>
 
         <aside class="connected-focus" aria-label="Action conseillée">
           <span>À faire maintenant</span>
-          <strong>Choisir une seule action de travail</strong>
-          <p>${filiereLabel ? `${escapeHtml(filiereLabel)} · ` : ''}Cours, méthode, exercice ou erreur à corriger.</p>
-          <a href="priorites-eleve.html">Créer mes priorités</a>
+          <strong>${canUsePersonalSpace ? 'Choisir une seule action de travail' : 'Débloquer le suivi personnel'}</strong>
+          <p>${canUsePersonalSpace ? `${filiereLabel ? `${escapeHtml(filiereLabel)} · ` : ''}Cours, méthode, exercice ou erreur à corriger.` : 'Les contenus restent gratuits. L’abonnement transforme votre travail en parcours suivi : priorités, planning, notes et cahier d’erreurs.'}</p>
+          <a href="${focusHref}">${focusText}</a>
         </aside>
 
         <div class="connected-actions" aria-label="Accès rapides">

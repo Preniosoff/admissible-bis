@@ -10,4 +10,4 @@ Disallow: /schedule.html
 Disallow: /erreurs.html
 Disallow: /onboarding.html
 
-Sitemap: https://admiscible.fr/sitemap.xml
+Sitemap: https://www.admiscible.fr/sitemap.xml

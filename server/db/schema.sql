@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS users (
   nom           TEXT NOT NULL,
   email         TEXT,
   role          TEXT NOT NULL DEFAULT 'eleve',
+  plan          TEXT NOT NULL DEFAULT 'free',
   filiere_id    TEXT REFERENCES filieres(id),
   created_at    DATETIME DEFAULT CURRENT_TIMESTAMP
 );

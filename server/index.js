@@ -59,6 +59,7 @@ const db = await getDb();
 
 // ── Migrations automatiques (ALTER TABLE idempotentes) ────────────────────
 try { db.run("ALTER TABLE users ADD COLUMN email TEXT"); } catch {} // ignoré si déjà présent
+try { db.run("ALTER TABLE users ADD COLUMN plan TEXT NOT NULL DEFAULT 'free'"); } catch {}
 try { db.run("ALTER TABLE grades ADD COLUMN coefficient REAL NOT NULL DEFAULT 1"); } catch {}
 
 // Consentements (RGPD + mineurs) — preuve horodatée

@@ -74,8 +74,8 @@ const STEPS = [
   },
   {
     page: 'index.html',
-    title: 'Accès gratuit',
-    text: 'Les contenus publics restent accessibles gratuitement. Le compte sert surtout à conserver le suivi personnel.',
+    title: 'Contenus gratuits',
+    text: 'Les contenus publics restent accessibles gratuitement. Les espaces de suivi personnel et parent sont proposés sur abonnement.',
     target: null, position: 'center', illustration: 'G',
     cta: { label: 'Créer un compte guidé', href: 'inscription.html' },
   },

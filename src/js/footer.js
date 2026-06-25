@@ -116,7 +116,7 @@ export function initFooter() {
           <div class="logo-icon" style="width:34px;height:34px" aria-hidden="true"></div>
           Admiscible
         </a>
-        <p class="footer-tagline">Service éducatif gratuit de contenus et d'outils de travail, du collège aux classes préparatoires.</p>
+        <p class="footer-tagline">Cours, méthodes, exercices et annales gratuits. Espaces de suivi personnel et parent sur abonnement.</p>
         <p class="footer-notice">Admiscible est une initiative indépendante, conçue dans une présentation sobre et compatible avec les usages de l'éducation.</p>
       </div>
 
@@ -135,6 +135,7 @@ export function initFooter() {
         <div class="footer-col">
           <div class="footer-col-title">Publics</div>
           <a href="inscription.html">Créer un compte</a>
+          <a href="abonnement.html">Offres</a>
           <a href="orientation.html">Orientation</a>
           <a href="eleves.html">Élèves</a>
           <a href="parents.html">Parents</a>
@@ -172,7 +173,7 @@ export function initFooter() {
     <div class="footer-bottom">
       <span>© ${new Date().getFullYear()} Admiscible</span>
       <span class="footer-sep">·</span>
-      <span>Accès gratuit</span>
+      <span>Contenus gratuits</span>
       <span class="footer-sep">·</span>
       <a href="accessibilite.html">Accessibilité</a>
       <span class="footer-sep">·</span>
