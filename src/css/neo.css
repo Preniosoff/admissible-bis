@@ -2919,6 +2919,187 @@ nav,
   transform: scale(0.96);
 }
 
+@media (min-width: 1141px) {
+  nav {
+    width: min(calc(100% - 32px), 1460px);
+    min-height: 58px;
+    top: 12px;
+    margin: 12px auto 0;
+    padding: 8px 10px 8px 12px;
+    gap: 10px;
+    border: 1px solid color-mix(in srgb, var(--glass-border) 86%, transparent);
+    border-radius: 24px;
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--glass-strong) 82%, transparent), color-mix(in srgb, var(--glass-bg) 82%, transparent)),
+      radial-gradient(circle at 14% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 24rem);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.26),
+      0 18px 54px rgba(18,59,122,0.12);
+    backdrop-filter: blur(24px) saturate(1.28);
+  }
+
+  [data-theme="dark"] nav {
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.08),
+      0 24px 70px rgba(0,0,0,0.36);
+  }
+
+  nav::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+      linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 18%, transparent), transparent);
+    opacity: 0.48;
+    mask-image: linear-gradient(to bottom, black 0 1px, transparent 1px);
+  }
+
+  .logo {
+    min-height: 42px;
+    padding: 0 0.7rem 0 0.15rem;
+    gap: 10px;
+    border-radius: 999px;
+    color: var(--text-0);
+    font-size: 0.98rem;
+    letter-spacing: 0;
+    transition: background 0.18s var(--ease-premium), transform 0.18s var(--ease-premium);
+  }
+
+  .logo:hover {
+    background: var(--accent-soft);
+    transform: translateY(-1px);
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 13px;
+    box-shadow: 0 12px 26px color-mix(in srgb, var(--accent) 26%, transparent);
+  }
+
+  .nav-links {
+    flex: 1 1 auto;
+    justify-content: center;
+    width: auto;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 3px;
+    gap: 2px;
+    border: 1px solid color-mix(in srgb, var(--glass-border) 72%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--glass-bg) 54%, transparent);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.18),
+      inset 0 -1px 0 rgba(18,59,122,0.04);
+  }
+
+  .nav-links > li > a {
+    min-height: 34px;
+    padding: 0 10px;
+    border-radius: 999px;
+    color: var(--text-1);
+    font-size: 0.84rem;
+    font-weight: 850;
+    letter-spacing: 0;
+  }
+
+  .nav-links > li > a:hover {
+    color: var(--text-0);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+
+  .nav-links > li > a.active,
+  .nav-links > li > a[aria-current="page"] {
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 24%, transparent);
+  }
+
+  .nav-links > li > a::after {
+    display: none;
+  }
+
+  .nav-right {
+    flex: 0 0 auto;
+    gap: 6px;
+    margin-left: 0;
+  }
+
+  .nav-search-btn,
+  .theme-toggle,
+  .espace-btn,
+  .nav-help-btn,
+  .nav-profile-btn,
+  .nav-logout {
+    min-height: 38px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--glass-bg) 72%, transparent);
+    border-color: color-mix(in srgb, var(--glass-border) 80%, transparent);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
+  }
+
+  .nav-search-btn {
+    width: 38px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .nav-search-btn span,
+  .nav-search-btn kbd {
+    display: none;
+  }
+
+  .login-btn {
+    min-height: 38px;
+    padding: 0 1rem;
+    font-size: 0.85rem;
+    border-radius: 999px;
+    box-shadow: 0 12px 28px color-mix(in srgb, var(--accent) 26%, transparent);
+  }
+
+  .dd,
+  .dd-espace {
+    top: calc(100% + 10px);
+    border-radius: 18px;
+    padding: 0.45rem;
+  }
+
+  .dd a,
+  .dd-espace a {
+    border-radius: 13px;
+  }
+}
+
+@media (min-width: 1141px) and (max-width: 1280px) {
+  nav {
+    width: min(calc(100% - 20px), 1240px);
+    padding-inline: 8px;
+    gap: 7px;
+  }
+
+  .logo {
+    font-size: 0.92rem;
+    padding-right: 0.45rem;
+  }
+
+  .logo-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .nav-links > li > a {
+    min-height: 32px;
+    padding: 0 7px;
+    font-size: 0.78rem;
+  }
+
+  .login-btn {
+    padding-inline: 0.78rem;
+  }
+}
+
 @media (hover: none) {
   .resource-choice-card:hover,
   .neo-card:hover,
