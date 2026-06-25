@@ -10,6 +10,7 @@ const PAGE_RESULTS = [
   { label: 'Concours et écoles', href: 'concours.html', desc: 'Écoles, banques de concours, frais et orientation.' },
   { label: 'Choisir mon niveau', href: 'choisir-niveau.html', desc: 'Point d’entrée par parcours scolaire.' },
   { label: 'Créer un compte guidé', href: 'inscription.html', desc: 'Création guidée selon le profil et le besoin.' },
+  { label: 'Présentation vidéo', href: 'presentation.html', desc: 'Comprendre le site, les espaces de suivi et le modèle d’abonnement.' },
   { label: 'Offres et abonnements', href: 'abonnement.html', desc: 'Cours gratuits, espaces personnel et parent payants.' },
   { label: 'Orientation', href: 'orientation.html', desc: 'Repères collège, lycée et post-bac avec liens publics de référence.' },
   { label: 'Attendus officiels', href: 'attendus-officiels.html', desc: 'Programmes reformulés en gestes de travail, mots-clés et sources officielles.' },

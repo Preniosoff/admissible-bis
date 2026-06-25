@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://www.admiscible.fr/presentation.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#06142f">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Présentation d'Admiscible : comprendre le site, les ressources, les espaces de suivi et les abonnements.">
+  <meta property="og:title" content="Présentation — Admiscible">
+  <meta property="og:description" content="Une présentation claire du service Admiscible, des ressources et des espaces de suivi.">
+  <meta property="og:url" content="https://www.admiscible.fr/presentation.html">
+  <title>Présentation — Admiscible</title>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a>
+    <ul class="nav-links"><li><a href="index.html">Accueil</a></li><li><a href="cours.html">Cours</a></li></ul>
+    <div class="nav-right"><div class="nav-espace"><button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button><div class="dd-espace" id="espace-dd"></div></div><button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button><button class="login-btn" id="login-btn">Se connecter</button></div>
+  </nav>
+
+  <main class="presentation-page">
+    <section class="presentation-hero" aria-labelledby="presentation-title">
+      <div>
+        <div class="neo-eyebrow">Présentation vidéo</div>
+        <h1 id="presentation-title">Comprendre Admiscible sans se perdre.</h1>
+        <p>Cette page sert de base à la vidéo officielle : elle présente le site, les ressources, les espaces de suivi et le rôle des abonnements de manière simple.</p>
+        <div class="neo-hero-actions">
+          <a class="neo-cta" href="cours.html">Explorer le site</a>
+          <a class="neo-cta neo-cta-soft" href="abonnement.html">Voir les offres</a>
+        </div>
+      </div>
+
+      <section class="presentation-video" aria-label="Lecteur vidéo de présentation">
+        <div class="presentation-video-frame">
+          <div class="presentation-play" aria-hidden="true"></div>
+          <span>Vidéo de présentation</span>
+          <strong>Admiscible en 90 secondes</strong>
+          <p>Cours, méthodes, exercices, annales, suivi élève et accompagnement famille.</p>
+        </div>
+        <p class="presentation-video-note">Le lecteur est prêt pour accueillir la vidéo finale. Le script ci-dessous peut être utilisé pour générer le montage et la voix off.</p>
+      </section>
+    </section>
+
+    <section class="presentation-grid" aria-label="Plan de la vidéo">
+      <article>
+        <span>00:00</span>
+        <strong>Le problème</strong>
+        <p>Trop de ressources dispersées, trop d'outils, pas assez de parcours clair pour savoir quoi faire maintenant.</p>
+      </article>
+      <article>
+        <span>00:15</span>
+        <strong>La réponse</strong>
+        <p>Admiscible rassemble les cours, méthodes, exercices et annales dans une interface unique, lisible et structurée.</p>
+      </article>
+      <article>
+        <span>00:35</span>
+        <strong>Les espaces</strong>
+        <p>Élèves, parents, enseignants et établissements disposent chacun d'une porte d'entrée adaptée.</p>
+      </article>
+      <article>
+        <span>01:00</span>
+        <strong>Le suivi</strong>
+        <p>Les abonnements ajoutent ce qui aide à durer : priorités, planning, cahier d'erreurs, bilans et suivi famille.</p>
+      </article>
+    </section>
+
+    <section class="presentation-script" aria-labelledby="script-title">
+      <div>
+        <div class="neo-eyebrow">Voix off</div>
+        <h2 id="script-title">Script court proposé</h2>
+      </div>
+      <p>“Quand on travaille, le plus difficile n'est pas seulement de trouver une ressource. C'est de savoir quoi faire, dans quel ordre, et comment progresser sans se disperser. Admiscible réunit les cours, les méthodes, les exercices et les annales, du collège à la prépa, dans un parcours clair. L'élève peut apprendre, s'entraîner et retrouver rapidement ce dont il a besoin. Les parents peuvent comprendre le cadre, accompagner sans surveiller et lire des bilans simples. Les enseignants et les établissements disposent d'espaces pour structurer le travail. Les ressources de base restent accessibles ; les espaces de suivi servent à organiser, mesurer et tenir dans la durée. Admiscible : l'éducation, sans friction.”</p>
+    </section>
+  </main>
+
+  <div id="login-modal" class="modal"><div class="modal-content"></div></div>
+</body>
+</html>

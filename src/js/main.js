@@ -341,6 +341,26 @@ function initPrimaryResourceNav(nav) {
   const links = nav.querySelector('.nav-links');
   if (!links) return;
 
+  if (!getUser()) {
+    links.innerHTML = `
+      <li><a href="index.html">Accueil</a></li>
+      <li class="has-dd">
+        <a href="cours.html">Ressources gratuites <span class="caret">&#9662;</span></a>
+        <div class="dd">
+          <a href="cours.html">Cours</a>
+          <a href="methodes.html">Méthodes</a>
+          <a href="ressources.html">Exercices</a>
+          <a href="annales.html">Annales</a>
+          <a href="orientation.html">Orientation</a>
+        </div>
+      </li>
+      <li><a href="parents.html">Parents</a></li>
+      <li><a href="presentation.html">Présentation</a></li>
+      <li><a href="recherche.html">Recherche</a></li>
+    `;
+    return;
+  }
+
   links.innerHTML = `
     <li><a href="index.html">Accueil</a></li>
     <li><a href="cours.html">Cours</a></li>
@@ -395,6 +415,7 @@ function initActiveNav(nav) {
     'index.html': ['index.html'],
     'inscription.html': ['inscription.html', 'choisir-niveau.html', 'onboarding.html'],
     'abonnement.html': ['abonnement.html'],
+    'presentation.html': ['presentation.html'],
     'orientation.html': ['orientation.html'],
     'cours.html': ['cours.html'],
     'methodes.html': ['methodes.html'],

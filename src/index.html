@@ -66,9 +66,13 @@
           <div class="neo-eyebrow">Éducation, sans friction</div>
           <h1 class="neo-title" id="home-title">Du collège <span>à la prépa.</span></h1>
           <p class="neo-lede">Les bonnes fiches. Les bonnes méthodes. Les bons exercices types. Un parcours clair pour comprendre, appliquer et s'entraîner.</p>
+          <div class="neo-hero-actions" aria-label="Actions principales">
+            <a class="neo-cta" href="cours.html">Commencer</a>
+            <a class="neo-cta neo-cta-soft" href="presentation.html">Voir la présentation</a>
+          </div>
           <div class="neo-proof" aria-label="Garanties principales">
-            <span class="neo-chip"><i class="neo-dot cyan"></i>Gratuit</span>
-            <span class="neo-chip"><i class="neo-dot"></i>Clair</span>
+            <span class="neo-chip"><i class="neo-dot cyan"></i>Clair</span>
+            <span class="neo-chip"><i class="neo-dot"></i>Structuré</span>
             <span class="neo-chip"><i class="neo-dot red"></i>Du collège à la prépa</span>
           </div>
         </div>
@@ -108,47 +112,24 @@
       </div>
     </section>
 
-    <section class="neo-section neo-split" aria-labelledby="personal-title">
-      <div>
-        <div class="neo-eyebrow">Suivi personnalisé</div>
-        <h2 id="personal-title">Un suivi personnalisé. <span>Pour chaque élève.</span></h2>
-        <p class="neo-section-lede">Piloter le travail, suivre les progrès, corriger ses erreurs et garder un rythme régulier sans multiplier les écrans inutiles.</p>
+    <section class="neo-section neo-simple-section" aria-labelledby="choice-title">
+      <div class="neo-section-head">
+        <div class="neo-eyebrow">Point de départ</div>
+        <h2 id="choice-title">Choisissez une seule entrée.</h2>
+        <p class="neo-section-lede">Le site ne demande pas de choisir dix outils au départ. Commencez par votre situation, puis Admiscible vous amène vers le bon espace.</p>
       </div>
-      <div class="neo-panel neo-dashboard" aria-label="Aperçu du tableau de bord">
-        <div class="neo-dashboard-top">
-          <div class="neo-mini"><strong>Bonjour, Élève</strong>Prêt pour une session productive ?</div>
-          <div class="neo-stats">
-            <div class="neo-stat"><small>Série actuelle</small><strong>7 jours</strong></div>
-            <div class="neo-stat"><small>Objectif hebdo</small><strong>82%</strong></div>
-            <div class="neo-stat"><small>Aujourd'hui</small><strong>2 h 15</strong></div>
-          </div>
-        </div>
-        <div class="neo-dashboard-grid">
-          <a class="neo-tile" style="--card-accent: var(--accent)" href="erreurs.html"><small>Cahier d'erreurs</small><strong>Comprendre et corriger</strong><span class="neo-progress"><span style="--w: 46%"></span></span></a>
-          <a class="neo-tile" style="--card-accent: var(--brand-cyan)" href="schedule.html"><small>Calendrier</small><strong>Planning personnalisé</strong><span class="neo-progress"><span style="--w: 70%"></span></span></a>
-          <a class="neo-tile" style="--card-accent: var(--brand-purple)" href="focus.html"><small>Focus</small><strong>Chronomètre de travail</strong><span class="neo-progress"><span style="--w: 58%"></span></span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="neo-section neo-split" aria-labelledby="spaces-title">
-      <div>
-        <div class="neo-eyebrow">Espaces dédiés</div>
-        <h2 id="spaces-title">Élèves, profs, <span>établissements.</span></h2>
-        <p class="neo-section-lede">Des entrées distinctes pour éviter de perdre l'utilisateur : chaque profil voit d'abord ce dont il a besoin.</p>
-      </div>
-      <div class="neo-card-grid">
-        <a class="neo-card" style="--card-accent: var(--accent)" href="eleves.html">
+      <div class="neo-choice-grid" aria-label="Choix par profil">
+        <a class="neo-choice-card" style="--card-accent: var(--accent)" href="eleves.html">
           <span class="neo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg></span>
-          <span><h3>Élèves</h3><span class="neo-rule"></span><p>Cours, méthodes, exercices et suivi personnalisé.</p></span>
+          <span><strong>Je suis élève</strong><small>Je veux travailler un cours, m'entraîner ou organiser mes priorités.</small></span>
         </a>
-        <a class="neo-card" style="--card-accent: var(--brand-cyan)" href="enseignants.html">
+        <a class="neo-choice-card" style="--card-accent: var(--brand-purple)" href="parents.html">
+          <span class="neo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M2 21v-2a4 4 0 0 1 3-3.87"/></svg></span>
+          <span><strong>Je suis parent</strong><small>Je veux comprendre le site et accompagner sans me perdre dans les outils.</small></span>
+        </a>
+        <a class="neo-choice-card" style="--card-accent: var(--brand-cyan)" href="enseignants.html">
           <span class="neo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 10 12 4 2 10l10 6 10-6Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>
-          <span><h3>Profs</h3><span class="neo-rule"></span><p>Ressources, séquences et suivi pédagogique.</p></span>
-        </a>
-        <a class="neo-card" style="--card-accent: var(--brand-orange)" href="etablissements.html">
-          <span class="neo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/><path d="M9 10h.01M15 10h.01"/></svg></span>
-          <span><h3>Établissements</h3><span class="neo-rule"></span><p>Pilotage, déploiement et cadre structuré.</p></span>
+          <span><strong>Je suis enseignant</strong><small>Je veux préparer une ressource, une séquence ou un suivi de classe.</small></span>
         </a>
       </div>
     </section>

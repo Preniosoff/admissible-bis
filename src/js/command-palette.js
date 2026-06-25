@@ -7,6 +7,7 @@ const PAGES = [
   { ico: 'CO', label: 'Cours',            href: 'cours.html' },
   { ico: 'ME', label: 'Méthodes',         href: 'methodes.html' },
   { ico: 'AC', label: 'Accueil',          href: 'index.html' },
+  { ico: 'VI', label: 'Présentation vidéo', href: 'presentation.html' },
   { ico: 'OF', label: 'Offres et abonnements', href: 'abonnement.html' },
   { ico: 'DI', label: 'Diagnostic du parcours', href: 'parcours.html#diagnostic' },
   { ico: 'TB', label: 'Tableau de bord',  href: 'dashboard.html' },

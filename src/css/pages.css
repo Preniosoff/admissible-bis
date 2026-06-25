@@ -2475,6 +2475,105 @@
   font-size: 0.9rem;
 }
 
+.parent-entry-page {
+  max-width: 1120px;
+}
+
+.parent-entry-hero {
+  text-align: center;
+}
+
+.parent-entry-hero .role-primary-actions {
+  justify-content: center;
+}
+
+.parent-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.parent-choice-card {
+  min-height: 230px;
+  display: grid;
+  align-content: center;
+  gap: 0.65rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-md);
+  background: var(--bg-card);
+  color: var(--text-0);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.parent-choice-card:hover {
+  border-color: var(--accent-border);
+  background: var(--accent-soft);
+  color: var(--text-0);
+}
+
+.parent-choice-card span {
+  width: max-content;
+  max-width: 100%;
+  padding: 0.3rem 0.62rem;
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.parent-choice-card strong {
+  color: var(--text-0);
+  font-size: 1.35rem;
+  line-height: 1.12;
+}
+
+.parent-choice-card p {
+  margin: 0;
+  color: var(--text-1);
+  line-height: 1.55;
+}
+
+.parent-choice-paid {
+  border-color: var(--accent-border);
+  background:
+    radial-gradient(circle at 50% 0%, var(--accent-medium), transparent 58%),
+    var(--bg-card);
+}
+
+.parent-plain-panel {
+  max-width: none;
+}
+
+.parent-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.parent-compare div {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem;
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-sm);
+  background: var(--bg-1);
+}
+
+.parent-compare strong {
+  color: var(--text-0);
+}
+
+.parent-compare span {
+  color: var(--text-1);
+  line-height: 1.5;
+}
+
 /* ═══════════ Orientation — page guidée ═══════════ */
 .orientation-page {
   width: min(1180px, 94%);
