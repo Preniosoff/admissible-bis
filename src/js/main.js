@@ -539,7 +539,7 @@ function initHamburger(nav) {
   // Mobile: tap parent dropdown items to expand sub-menus
   links.querySelectorAll('.has-dd > a').forEach(trigger => {
     trigger.addEventListener('click', (e) => {
-      if (window.innerWidth > 1320) return;
+      if (window.innerWidth > 1140) return;
       e.preventDefault();
       const dd = trigger.nextElementSibling;
       if (!dd) return;
@@ -569,7 +569,7 @@ function initHamburger(nav) {
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 1320) setMenuOpen(false);
+    if (window.innerWidth > 1140) setMenuOpen(false);
   });
 }
 
