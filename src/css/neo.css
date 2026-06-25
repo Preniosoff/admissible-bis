@@ -1572,6 +1572,20 @@ nav {
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
+body.page-wide .resource-gateway {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+body.page-wide .resource-gateway-inner {
+  width: min(100%, 1180px);
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (max-width: 1320px) {
   nav { flex-wrap: wrap; min-height: 64px; padding: 10px 14px; }
   .hamburger { display: block; order: 1; }
@@ -2028,7 +2042,6 @@ nav {
   .info-page,
   .service-container,
   .methodes-container,
-  .resource-gateway,
   .annales-search-shell,
   body.page-wide .wrap,
   body.page-wide .board-controls,
@@ -2036,9 +2049,7 @@ nav {
   body.page-wide .course-subjects,
   body.page-wide .service-header-inner,
   body.page-wide .service-container,
-  body.page-wide .methodes-container,
-  body.page-wide .resource-gateway,
-  body.page-wide .resource-gateway-inner {
+  body.page-wide .methodes-container {
     width: min(100% - 1rem, 760px);
     max-width: none;
   }

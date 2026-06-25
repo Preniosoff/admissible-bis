@@ -52,6 +52,9 @@ export async function initResourceGateway({
           <div class="resource-gateway-kicker">${escapeHtml(resourceLabel)} · choix guidé</div>
           <h2>${escapeHtml(title)}</h2>
           <p>${escapeHtml(text)}</p>
+          <div class="resource-gateway-progress" aria-label="Étape ${step} sur 3">
+            ${[1, 2, 3].map(item => `<span class="${item <= step ? 'is-active' : ''}"></span>`).join('')}
+          </div>
         </div>
         ${body}
         ${back}
@@ -73,6 +76,7 @@ export async function initResourceGateway({
             meta: `${keepFilieres(niveau.filieres).length} parcours disponibles`,
             action: 'Choisir',
             number: index + 1,
+            kind: 'level',
           })).join('')}
         </div>
       `,
@@ -101,6 +105,7 @@ export async function initResourceGateway({
             meta: 'Afficher les matières',
             action: 'Continuer',
             number: index + 1,
+            kind: 'path',
           })).join('')}
         </div>
       `,
@@ -132,6 +137,7 @@ export async function initResourceGateway({
             meta: `Ouvrir ${resourceName}`,
             action: 'Ouvrir',
             number: index + 1,
+            kind: 'subject',
           })).join('')}
         </div>
       `,
@@ -160,9 +166,10 @@ export async function initResourceGateway({
   }
 }
 
-function choiceCard({ value, title, meta, action, number }) {
+function choiceCard({ value, title, meta, action, number, kind = 'choice' }) {
   return `
-    <button class="resource-choice-card" type="button" data-choice="${escapeHtml(value)}">
+    <button class="resource-choice-card" type="button" data-choice="${escapeHtml(value)}" data-kind="${escapeHtml(kind)}" style="--choice-index:${number}">
+      <span class="resource-choice-icon" aria-hidden="true"></span>
       <span class="resource-choice-number">${String(number).padStart(2, '0')}</span>
       <strong>${escapeHtml(title)}</strong>
       <small>${escapeHtml(meta)}</small>
