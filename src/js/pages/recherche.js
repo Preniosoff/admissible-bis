@@ -17,6 +17,7 @@ const PAGE_RESULTS = [
   { label: 'Élèves', href: 'eleves.html', desc: 'Accès direct aux contenus, au parcours et aux outils de travail.' },
   { label: 'Priorités élève', href: 'priorites-eleve.html', desc: 'Générer trois actions de travail simples pour aujourd’hui.' },
   { label: 'Parents', href: 'parents.html', desc: 'Comprendre le suivi, accompagner sans surveiller en continu.' },
+  { label: 'Famille', href: 'famille.html', desc: 'Suivre plusieurs élèves, organiser les priorités et imprimer un bilan familial.' },
   { label: 'Bilan parent', href: 'bilan-parent.html', desc: 'Préparer un bilan volontaire et imprimable à partager avec la famille.' },
   { label: 'Enseignants', href: 'enseignants.html', desc: 'Recommander des contenus et suivre une classe.' },
   { label: 'Séquences pédagogiques', href: 'sequences-pedagogiques.html', desc: 'Modèles de séances pour relier objectif, ressource et trace de travail.' },

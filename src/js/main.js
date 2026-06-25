@@ -361,6 +361,7 @@ function initPrimaryResourceNav(nav) {
       <div class="dd">
         <a href="eleves.html">Élèves</a>
         <a href="parents.html">Parents</a>
+        <a href="famille.html">Famille</a>
         <a href="enseignants.html">Enseignants</a>
         <a href="etablissements.html">Établissements</a>
       </div>
@@ -399,7 +400,7 @@ function initActiveNav(nav) {
     'methodes.html': ['methodes.html'],
     'ressources.html': ['ressources.html'],
     'annales.html': ['annales.html', 'annales-bac.html', 'annales-brevet.html'],
-    'eleves.html': ['eleves.html', 'parents.html', 'enseignants.html', 'etablissements.html', 'priorites-eleve.html', 'bilan-parent.html', 'espace-enseignant.html', 'sequences-pedagogiques.html', 'pilotage-etablissement.html', 'deploiement-etablissement.html'],
+    'eleves.html': ['eleves.html', 'parents.html', 'famille.html', 'enseignants.html', 'etablissements.html', 'priorites-eleve.html', 'bilan-parent.html', 'espace-enseignant.html', 'sequences-pedagogiques.html', 'pilotage-etablissement.html', 'deploiement-etablissement.html'],
     'recherche.html': ['recherche.html', 'concours.html', 'attendus-officiels.html', 'sources-programmes.html', 'notre-methode.html', 'etat-contenus.html', 'fiche-presentation.html', 'a-propos.html', 'transparence.html', 'conformite-dsfr.html', 'securite.html', 'connexion-institutionnelle.html', 'contact-signalement.html', 'statut-service.html', 'accessibilite.html', 'aide.html', 'plan-site.html', 'matrice-rgpd.html'],
   };
 
@@ -422,9 +423,9 @@ const PAID_ACCESS = {
   },
   parent: {
     label: 'Espace parent',
-    pages: ['parents.html', 'bilan-parent.html'],
+    pages: ['parents.html', 'bilan-parent.html', 'famille.html'],
     title: 'Un cadre clair pour accompagner sans surveiller.',
-    text: 'Les contenus restent consultables gratuitement. L’accès parent ajoute les bilans volontaires, les repères de suivi et une lecture simple des traces de travail.',
+    text: 'Les contenus restent consultables gratuitement. L’accès famille ajoute les bilans volontaires, les priorités de plusieurs élèves et une lecture simple des traces de travail.',
   },
 };
 

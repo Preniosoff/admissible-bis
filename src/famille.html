@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#123b7a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Espace famille Admiscible : suivre plusieurs élèves, priorités, traces et bilan familial local.">
+  <title>Espace famille — Admiscible</title>
+  <script type="module" src="js/pages/famille.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a>
+    <ul class="nav-links"><li><a href="index.html">Accueil</a></li><li><a href="cours.html">Cours</a></li></ul>
+    <div class="nav-right"><div class="nav-espace"><button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button><div class="dd-espace" id="espace-dd"></div></div><button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button><button class="login-btn" id="login-btn">Se connecter</button></div>
+  </nav>
+  <main class="info-page">
+    <header class="info-hero">
+      <div class="info-kicker">Famille</div>
+      <h1>Espace famille</h1>
+      <p>Un tableau local pour suivre plusieurs élèves, organiser les priorités de la semaine et imprimer un bilan familial clair.</p>
+    </header>
+    <div id="family-app"></div>
+  </main>
+  <div id="login-modal" class="modal"><div class="modal-content"></div></div>
+</body>
+</html>

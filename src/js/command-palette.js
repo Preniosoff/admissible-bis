@@ -29,6 +29,7 @@ const PAGES = [
   { ico: 'EL', label: 'Élèves',            href: 'eleves.html' },
   { ico: 'PR', label: 'Priorités élève',    href: 'priorites-eleve.html' },
   { ico: 'PA', label: 'Parents',           href: 'parents.html' },
+  { ico: 'FA', label: 'Famille',           href: 'famille.html' },
   { ico: 'BP', label: 'Bilan parent',       href: 'bilan-parent.html' },
   { ico: 'EN', label: 'Enseignants',       href: 'enseignants.html' },
   { ico: 'EE', label: 'Espace enseignant', href: 'espace-enseignant.html' },

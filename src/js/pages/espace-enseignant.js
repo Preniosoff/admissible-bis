@@ -102,7 +102,10 @@ export function initEspaceEnseignant() {
       <section class="teacher-panel">
         <div class="teacher-panel-head">
           <h2>Paramètres de classe</h2>
-          <button class="btn btn-primary" id="teacher-export" type="button">Exporter le bilan</button>
+          <div class="teacher-actions">
+            <button class="btn btn-ghost" id="teacher-auto-plan" type="button">Générer un plan</button>
+            <button class="btn btn-primary" id="teacher-export" type="button">Exporter le bilan</button>
+          </div>
         </div>
         <form class="teacher-form" id="teacher-settings">
           <label>Nom de la classe<input name="className" value="${esc(state.className)}"></label>
@@ -188,6 +191,7 @@ export function initEspaceEnseignant() {
         </div>
         <div class="teacher-actions-row">
           <button class="btn btn-ghost" id="teacher-json-export" type="button">Exporter JSON</button>
+          <button class="btn btn-ghost" id="teacher-csv-export" type="button">Exporter CSV</button>
           <label class="teacher-import">
             Importer JSON
             <input id="teacher-json-import" type="file" accept="application/json">
@@ -274,8 +278,38 @@ export function initEspaceEnseignant() {
     });
 
     root.querySelector('#teacher-export')?.addEventListener('click', exportReport);
+    root.querySelector('#teacher-auto-plan')?.addEventListener('click', generatePlan);
     root.querySelector('#teacher-json-export')?.addEventListener('click', exportJson);
+    root.querySelector('#teacher-csv-export')?.addEventListener('click', exportCsv);
     root.querySelector('#teacher-json-import')?.addEventListener('change', importJson);
+  }
+
+  function generatePlan() {
+    const low = state.students.filter(s => Number(s.score || 0) < 45);
+    const mid = state.students.filter(s => Number(s.score || 0) >= 45 && Number(s.score || 0) < 75);
+    const dominantNeed = [...state.students]
+      .map(s => s.need)
+      .filter(Boolean)
+      .sort((a, b) =>
+        state.students.filter(s => s.need === b).length - state.students.filter(s => s.need === a).length
+      )[0] || 'Cours à reprendre';
+
+    state.recommendations.unshift({
+      id: cryptoId(),
+      title: `Plan prioritaire · ${dominantNeed}`,
+      detail: `${low.length} élève(s) prioritaire(s), ${mid.length} à consolider. Séance recommandée : 12 min de rappel, 25 min d'application, 10 min de correction guidée.`,
+    });
+    state.sequences = state.sequences || [];
+    state.sequences.unshift({
+      id: cryptoId(),
+      title: 'Séance générée automatiquement',
+      objective: `Traiter la priorité collective : ${dominantNeed}.`,
+      resource: dominantNeed.includes('Méthode') ? 'methodes' : dominantNeed.includes('Exercices') ? 'exercices' : 'cours',
+      query: dominantNeed,
+      duration: 50,
+    });
+    saveState(state);
+    render();
   }
 
   function exportReport() {
@@ -301,6 +335,21 @@ export function initEspaceEnseignant() {
     const a = document.createElement('a');
     a.href = url;
     a.download = `admiscible-${state.className.replace(/\s+/g, '-').toLowerCase()}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function exportCsv() {
+    const rows = [
+      ['nom', 'maitrise', 'statut', 'point_a_reprendre'],
+      ...state.students.map(s => [s.name, Number(s.score || 0), statusLabel(Number(s.score || 0)), s.need || '']),
+    ];
+    const csv = rows.map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `admiscible-${state.className.replace(/\s+/g, '-').toLowerCase()}-eleves.csv`;
     a.click();
     URL.revokeObjectURL(url);
   }

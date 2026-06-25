@@ -48,6 +48,7 @@ export default defineConfig({
         eleves: resolve(__dirname, 'src/eleves.html'),
         prioritesEleve: resolve(__dirname, 'src/priorites-eleve.html'),
         parents: resolve(__dirname, 'src/parents.html'),
+        famille: resolve(__dirname, 'src/famille.html'),
         bilanParent: resolve(__dirname, 'src/bilan-parent.html'),
         enseignants: resolve(__dirname, 'src/enseignants.html'),
         etablissements: resolve(__dirname, 'src/etablissements.html'),

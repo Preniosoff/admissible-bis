@@ -12,6 +12,7 @@
   <url><loc>https://www.admiscible.fr/eleves.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.admiscible.fr/priorites-eleve.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.admiscible.fr/parents.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.admiscible.fr/famille.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.admiscible.fr/bilan-parent.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.admiscible.fr/enseignants.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.admiscible.fr/etablissements.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>

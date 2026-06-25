@@ -139,6 +139,7 @@ export function initFooter() {
           <a href="orientation.html">Orientation</a>
           <a href="eleves.html">Élèves</a>
           <a href="parents.html">Parents</a>
+          <a href="famille.html">Famille</a>
           <a href="enseignants.html">Enseignants</a>
           <a href="etablissements.html">Établissements</a>
         </div>
