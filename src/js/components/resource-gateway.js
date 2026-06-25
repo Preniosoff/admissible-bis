@@ -171,8 +171,9 @@ const CHOICE_ICONS = ['book', 'target', 'route', 'flask', 'calculator', 'compass
 function choiceCard({ value, title, meta, action, number, kind = 'choice' }) {
   const icon = CHOICE_ICONS[(number - 1) % CHOICE_ICONS.length];
   const tone = ((number - 1) % CHOICE_ICONS.length) + 1;
+  const delay = Math.min(number, 8) * 45;
   return `
-    <button class="resource-choice-card" type="button" data-choice="${escapeHtml(value)}" data-kind="${escapeHtml(kind)}" data-icon="${icon}" data-tone="${tone}" style="--choice-index:${number}">
+    <button class="resource-choice-card" type="button" data-choice="${escapeHtml(value)}" data-kind="${escapeHtml(kind)}" data-icon="${icon}" data-tone="${tone}" style="--choice-index:${number};--choice-delay:${delay}ms">
       <span class="resource-choice-icon" aria-hidden="true"></span>
       <span class="resource-choice-number">${String(number).padStart(2, '0')}</span>
       <strong>${escapeHtml(title)}</strong>
