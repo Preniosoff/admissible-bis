@@ -3,6 +3,7 @@
 // (ex. https://api.admiscible.fr) dans Cloudflare Pages.
 const BASE = (import.meta.env.VITE_API_BASE || '') + '/api';
 const STATIC_BASE = '/static-api';
+const LOCAL_USERS_KEY = 'admiscible-local-users';
 
 async function request(path, options = {}) {
   const token = localStorage.getItem('token');
@@ -14,6 +15,8 @@ async function request(path, options = {}) {
   try {
     return await networkRequest(path, options, headers, token);
   } catch (err) {
+    const local = await localAuthRequest(path, options, token).catch(() => null);
+    if (local !== null) return local;
     if (method === 'GET') {
       const fallback = await staticRequest(path).catch(() => null);
       if (fallback !== null) return fallback;
@@ -116,6 +119,128 @@ async function staticRequest(path) {
   }
 
   return null;
+}
+
+async function localAuthRequest(path, options = {}, token = '') {
+  const method = String(options.method || 'GET').toUpperCase();
+  const url = new URL(path, window.location.origin);
+  const pathname = url.pathname;
+  const body = options.body ? JSON.parse(options.body) : {};
+
+  if (pathname === '/auth/register' && method === 'POST') {
+    const users = readLocalUsers();
+    const username = String(body.username || '').trim();
+    if (!username) throw new Error('Nom d’utilisateur requis.');
+    if (users.some(u => normalize(u.username) === normalize(username))) {
+      throw new Error('Ce nom d’utilisateur existe déjà sur cet appareil.');
+    }
+    const user = {
+      id: Date.now(),
+      username,
+      nom: String(body.nom || username).trim(),
+      email: String(body.email || '').trim(),
+      role: String(body.role || 'eleve'),
+      plan: localPlanForRole(body.role),
+      filiere_id: body.filiere_id || null,
+      local_only: true,
+      created_at: new Date().toISOString(),
+    };
+    users.push({ ...user, password: String(body.password || '') });
+    writeLocalUsers(users);
+    return { token: localToken(user.id), user };
+  }
+
+  if (pathname === '/auth/login' && method === 'POST') {
+    const users = readLocalUsers();
+    const username = String(body.username || '').trim();
+    const password = String(body.password || '');
+    const found = users.find(u => normalize(u.username) === normalize(username) && String(u.password || '') === password);
+    if (!found) throw new Error('Compte introuvable sur cet appareil.');
+    const { password: _password, ...user } = found;
+    return { token: localToken(user.id), user };
+  }
+
+  if (pathname === '/auth/me' && method === 'GET' && isLocalToken(token)) {
+    const user = localUserFromToken(token);
+    if (!user) throw new Error('Session locale introuvable.');
+    return user;
+  }
+
+  if (pathname === '/auth/profile' && method === 'PUT' && isLocalToken(token)) {
+    const current = localUserFromToken(token);
+    if (!current) throw new Error('Session locale introuvable.');
+    const users = readLocalUsers().map(user => {
+      if (Number(user.id) !== Number(current.id)) return user;
+      return {
+        ...user,
+        nom: body.nom ?? user.nom,
+        email: body.email ?? user.email,
+        filiere_id: body.filiere_id ?? user.filiere_id,
+      };
+    });
+    writeLocalUsers(users);
+    const updated = localUserFromToken(token);
+    localStorage.setItem('user', JSON.stringify(updated));
+    return { user: updated };
+  }
+
+  if (pathname === '/auth/password' && method === 'PUT' && isLocalToken(token)) {
+    const current = localUserFromToken(token);
+    if (!current) throw new Error('Session locale introuvable.');
+    const users = readLocalUsers();
+    const target = users.find(user => Number(user.id) === Number(current.id));
+    if (!target || String(target.password || '') !== String(body.current || '')) {
+      throw new Error('Mot de passe actuel incorrect.');
+    }
+    target.password = String(body.nouveau || '');
+    writeLocalUsers(users);
+    return { ok: true };
+  }
+
+  if (pathname === '/auth/forgot' && method === 'POST') {
+    return { email_sent: false, local_only: true };
+  }
+
+  if (pathname === '/auth/reset' && method === 'POST') {
+    throw new Error('La réinitialisation nécessite le serveur de production.');
+  }
+
+  return null;
+}
+
+function readLocalUsers() {
+  try {
+    const users = JSON.parse(localStorage.getItem(LOCAL_USERS_KEY) || '[]');
+    return Array.isArray(users) ? users : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeLocalUsers(users) {
+  localStorage.setItem(LOCAL_USERS_KEY, JSON.stringify(users));
+}
+
+function localToken(id) {
+  return `local-session-${id}`;
+}
+
+function isLocalToken(token) {
+  return String(token || '').startsWith('local-session-');
+}
+
+function localUserFromToken(token) {
+  const id = String(token || '').replace('local-session-', '');
+  const found = readLocalUsers().find(user => String(user.id) === id);
+  if (!found) return null;
+  const { password: _password, ...user } = found;
+  return user;
+}
+
+function localPlanForRole(role) {
+  if (role === 'parent') return 'family';
+  if (role === 'enseignant' || role === 'etablissement') return 'pro';
+  return 'personal';
 }
 
 function normalize(value) {
