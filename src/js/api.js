@@ -2,12 +2,27 @@
 // En production : défini au build via la variable VITE_API_BASE
 // (ex. https://api.admiscible.fr) dans Cloudflare Pages.
 const BASE = (import.meta.env.VITE_API_BASE || '') + '/api';
+const STATIC_BASE = '/static-api';
 
 async function request(path, options = {}) {
   const token = localStorage.getItem('token');
   const headers = { 'Content-Type': 'application/json', ...options.headers };
   if (token) headers['Authorization'] = `Bearer ${token}`;
 
+  const method = String(options.method || 'GET').toUpperCase();
+
+  try {
+    return await networkRequest(path, options, headers, token);
+  } catch (err) {
+    if (method === 'GET') {
+      const fallback = await staticRequest(path).catch(() => null);
+      if (fallback !== null) return fallback;
+    }
+    throw err;
+  }
+}
+
+async function networkRequest(path, options, headers, token) {
   const res = await fetch(`${BASE}${path}`, { ...options, headers });
 
   // Token expiré ou invalide → déconnexion automatique propre
@@ -26,6 +41,88 @@ async function request(path, options = {}) {
     throw new Error(err.error || res.statusText);
   }
   return res.json();
+}
+
+async function fetchStatic(relativePath) {
+  const res = await fetch(`${STATIC_BASE}/${relativePath}`);
+  if (!res.ok) throw new Error(`Static API missing: ${relativePath}`);
+  return res.json();
+}
+
+async function staticRequest(path) {
+  const url = new URL(path, window.location.origin);
+  const pathname = url.pathname;
+
+  if (pathname === '/niveaux') return fetchStatic('niveaux.json');
+  if (pathname === '/coverage') return fetchStatic('coverage.json');
+
+  let match = pathname.match(/^\/filieres\/([^/]+)$/);
+  if (match) return fetchStatic(`filieres/${encodeURIComponent(match[1])}.json`);
+
+  match = pathname.match(/^\/filieres\/([^/]+)\/matieres\/([^/]+)\/chapitres$/);
+  if (match) return fetchStatic(`chapitres-index/${encodeURIComponent(match[1])}__${encodeURIComponent(match[2])}.json`);
+
+  match = pathname.match(/^\/chapitres\/([^/]+)$/);
+  if (match) return fetchStatic(`chapitres/${encodeURIComponent(match[1])}.json`);
+
+  match = pathname.match(/^\/methodes\/([^/]+)$/);
+  if (match) return fetchStatic(`methodes/${encodeURIComponent(match[1])}.json`);
+
+  if (pathname === '/methodes') {
+    const rows = await fetchStatic('methodes.json');
+    const filiere = url.searchParams.get('filiere') || '';
+    const matiere = url.searchParams.get('matiere') || '';
+    const categorie = url.searchParams.get('categorie') || '';
+    return rows
+      .filter(row => !filiere || row.filieres?.includes(filiere))
+      .filter(row => !matiere || row.matiere_id === matiere)
+      .filter(row => !categorie || row.categorie === categorie)
+      .sort((a, b) => {
+        const ao = Math.min(...(a.chapitres || []).map(c => c.ordre), 999);
+        const bo = Math.min(...(b.chapitres || []).map(c => c.ordre), 999);
+        return ao - bo || Number(a.ordre || 0) - Number(b.ordre || 0);
+      });
+  }
+
+  if (pathname === '/ecoles') {
+    const rows = await fetchStatic('ecoles.json');
+    const q = normalize(url.searchParams.get('q') || '');
+    const banque = url.searchParams.get('banque') || '';
+    const type = url.searchParams.get('type') || '';
+    const sort = url.searchParams.get('sort') || 'rang';
+    return rows
+      .filter(row => !q || [row.nom, row.ville, row.region].some(value => normalize(value).includes(q)))
+      .filter(row => !banque || row.banque === banque)
+      .filter(row => !type || row.type === type)
+      .sort((a, b) => sort === 'nom'
+        ? String(a.nom || '').localeCompare(String(b.nom || ''), 'fr')
+        : Number(a.rang || 9999) - Number(b.rang || 9999));
+  }
+
+  if (pathname === '/search') {
+    const q = normalize(url.searchParams.get('q') || '');
+    if (q.length < 2) return [];
+    const filiere = url.searchParams.get('filiere') || '';
+    const matiere = url.searchParams.get('matiere') || '';
+    const type = url.searchParams.get('type') || '';
+    const limit = Number(url.searchParams.get('limit') || 50);
+    const rows = await fetchStatic('search.json');
+    return rows
+      .filter(row => !filiere || row.filiere_id === filiere)
+      .filter(row => !matiere || row.matiere_id === matiere)
+      .filter(row => !type || row.type === type)
+      .filter(row => normalize(`${row.titre || ''} ${row.contenu || ''}`).includes(q))
+      .slice(0, limit);
+  }
+
+  return null;
+}
+
+function normalize(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
 }
 
 export const api = {

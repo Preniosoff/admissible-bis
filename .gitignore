@@ -14,6 +14,7 @@ repomix-output.xml
 .DS_Store
 tmp/
 output/video/
+public/static-api/
 __pycache__/
 *.pyc
 

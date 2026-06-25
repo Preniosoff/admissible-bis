@@ -6,7 +6,7 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "PORT=3001 node --watch server/index.js",
     "dev:client": "vite --port 3000",
-    "build": "vite build",
+    "build": "node scripts/export-static-api.js && vite build",
     "start": "node server/index.js",
     "seed": "node server/db/seed.js",
     "migrate": "node scripts/migrate.js",
