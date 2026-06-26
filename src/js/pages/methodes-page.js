@@ -161,16 +161,18 @@ function renderCard(m, typeColors, typeLabels, chapterTitle) {
   const status = programmeMeta(m);
 
   return `
-    <div class="card methode-card" data-method-type="${escapeAttr(m.type)}" data-method-status="${escapeAttr(status.key)}" data-method-chapter="${escapeAttr(chapterTitle)}" style="margin-bottom:1.5rem;border-left:3px solid ${color}">
-      <div class="card-head" style="display:flex;align-items:center;gap:8px">
-        <span style="font-size:0.6rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;
-                     padding:2px 8px;border-radius:var(--r-sm);background:${color};color:var(--text-inv)">
-          ${label}
-        </span>
-        <span class="program-badge ${status.key}">${status.label}</span>
-        ${m.titre}
+    <div class="card methode-card" data-method-type="${escapeAttr(m.type)}" data-method-status="${escapeAttr(status.key)}" data-method-chapter="${escapeAttr(chapterTitle)}" style="--method-color:${color}">
+      <div class="card-head methode-card-head">
+        <div class="methode-title-block">
+          <div class="methode-title-meta">
+            <span class="method-type-pill">${label}</span>
+            <span class="program-badge ${status.key}">${status.label}</span>
+          </div>
+          <strong>${escapeHtml(m.titre)}</strong>
+        </div>
+        <span class="methode-read-cue">Lecture</span>
       </div>
-      <div class="card-body">${balanceHTML(m.contenu)}</div>
+      <div class="card-body methode-card-body">${balanceHTML(m.contenu)}</div>
     </div>`;
 }
 
@@ -268,6 +270,16 @@ function slugify(value) {
 }
 
 function escapeAttr(value) {
+  return String(value || '').replace(/[&<>"']/g, (char) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;',
+  }[char]));
+}
+
+function escapeHtml(value) {
   return String(value || '').replace(/[&<>"']/g, (char) => ({
     '&': '&amp;',
     '<': '&lt;',

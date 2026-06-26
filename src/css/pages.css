@@ -3608,6 +3608,97 @@
   .teacher-row { grid-template-columns: 1fr; }
 }
 
+/* ═══════════ Espace prof particulier ═══════════ */
+.tutor-wrap {
+  width: min(1180px, 94%);
+}
+
+.tutor-hero {
+  border-left-color: var(--brand-orange);
+}
+
+.tutor-grid {
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+}
+
+.tutor-settings {
+  grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) minmax(170px, 0.7fr) auto;
+}
+
+.tutor-student-form {
+  grid-template-columns: minmax(140px, 1fr) minmax(135px, 0.75fr) minmax(150px, 0.85fr) minmax(150px, 0.85fr) 118px auto;
+}
+
+.tutor-assignment-form {
+  grid-template-columns: minmax(180px, 0.95fr) minmax(130px, 0.7fr) minmax(220px, 1.2fr) minmax(160px, 0.8fr) auto;
+}
+
+.tutor-student-row small {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--text-3);
+  font-size: 0.76rem;
+}
+
+.tutor-next-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.tutor-next-card {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.85rem;
+  border: 1px solid var(--border-0);
+  border-radius: var(--r-sm);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--brand-orange) 10%, transparent), transparent),
+    var(--bg-1);
+  color: var(--text-1);
+  text-decoration: none;
+}
+
+.tutor-next-card:hover {
+  border-color: var(--brand-orange);
+  transform: translateY(-2px);
+}
+
+.tutor-next-card strong {
+  color: var(--text-0);
+}
+
+.tutor-next-card small {
+  color: var(--brand-orange);
+  font-weight: 850;
+}
+
+.tutor-assignment p {
+  margin: 0.3rem 0;
+}
+
+@media (max-width: 900px) {
+  .tutor-grid,
+  .tutor-settings,
+  .tutor-student-form,
+  .tutor-assignment-form {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tutor-student-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .teacher-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ═══════════ Inscription ludique ═══════════ */
 .signup-body {
   min-height: 100vh;
@@ -3773,6 +3864,16 @@
 .signup-form-actions { display: flex; justify-content: space-between; gap: 0.75rem; }
 .signup-submit { border: 1px solid var(--accent); background: var(--accent); color: var(--text-inv); }
 .signup-loading { color: var(--text-1); font-weight: 800; }
+.signup-next-action {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--accent-border);
+  border-radius: var(--r-md);
+  background: var(--accent-soft);
+}
+.signup-next-action strong { color: var(--accent); font-weight: 950; }
+.signup-next-action span { color: var(--text-0); line-height: 1.45; font-weight: 750; }
 
 @media (max-width: 860px) {
   .signup-choice-grid,

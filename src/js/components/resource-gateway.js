@@ -50,7 +50,7 @@ export async function initResourceGateway({
       <div class="resource-gateway-inner" data-step="${step}">
         <div class="resource-gateway-head">
           <div class="resource-gateway-kicker">${escapeHtml(resourceLabel)} · choix guidé</div>
-          <h2>${escapeHtml(title)}</h2>
+          <h1>${escapeHtml(title)}</h1>
           <p>${escapeHtml(text)}</p>
           <div class="resource-gateway-progress" aria-label="Étape ${step} sur 3">
             ${[1, 2, 3].map(item => `<span class="${item <= step ? 'is-active' : ''}"></span>`).join('')}
@@ -134,7 +134,7 @@ export async function initResourceGateway({
           ${matieres.map((matiere, index) => choiceCard({
             value: matiere.id,
             title: matiere.nom,
-            meta: `Ouvrir ${resourceName}`,
+            meta: `${resourceLabel} disponible`,
             action: 'Ouvrir',
             number: index + 1,
             kind: 'subject',

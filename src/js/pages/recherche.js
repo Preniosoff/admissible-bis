@@ -21,6 +21,8 @@ const PAGE_RESULTS = [
   { label: 'Famille', href: 'famille.html', desc: 'Suivre plusieurs élèves, organiser les priorités et imprimer un bilan familial.' },
   { label: 'Bilan parent', href: 'bilan-parent.html', desc: 'Préparer un bilan volontaire et imprimable à partager avec la famille.' },
   { label: 'Enseignants', href: 'enseignants.html', desc: 'Recommander des contenus et suivre une classe.' },
+  { label: 'Prof particulier', href: 'prof-particulier.html', desc: 'Piloter un ou plusieurs élèves, leurs séances, devoirs et bilans.' },
+  { label: 'Espace prof particulier', href: 'espace-prof-particulier.html', desc: 'Portefeuille élèves, cours recommandés, exercices donnés et export de bilan.' },
   { label: 'Séquences pédagogiques', href: 'sequences-pedagogiques.html', desc: 'Modèles de séances pour relier objectif, ressource et trace de travail.' },
   { label: 'Établissements', href: 'etablissements.html', desc: 'Déployer un cadre de travail lisible et vérifiable.' },
   { label: 'Pilotage établissement', href: 'pilotage-etablissement.html', desc: 'Tableau local anonymisé pour suivre un déploiement.' },

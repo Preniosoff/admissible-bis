@@ -29,7 +29,9 @@ const { seedCollegeIfNeeded } = await import('../server/db/seed-college-init.js'
 const { seedLyceeIfNeeded } = await import('../server/db/seed-lycee-init.js');
 const { loadContentFiles } = await import('../server/db/seed-content-loader.js');
 const { seedMethodeLinksIfNeeded } = await import('../server/db/seed-methode-links.js');
+const { seedCuratedMethodes } = await import('../server/db/seed-methodes-curated.js');
 const { seedMethodesQuality } = await import('../server/db/seed-methodes-quality.js');
+const { seedCourseQuality } = await import('../server/db/seed-course-quality.js');
 const { getMethodeProgrammeMeta } = await import('../server/db/methodes-programme.js');
 
 const db = await getDb();
@@ -70,7 +72,9 @@ seedCollegeIfNeeded(db);
 seedLyceeIfNeeded(db);
 await loadContentFiles(db);
 seedMethodeLinksIfNeeded(db);
+seedCuratedMethodes(db);
 seedMethodesQuality(db);
+seedCourseQuality(db);
 
 function writeJson(relativePath, data) {
   const file = resolve(OUT_DIR, relativePath);

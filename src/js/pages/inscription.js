@@ -5,6 +5,7 @@ const PROFILES = [
   { id: 'eleve', code: 'EL', title: 'Élève', text: 'Je veux apprendre, m’entraîner et suivre mon niveau.' },
   { id: 'parent', code: 'PAR', title: 'Parent', text: 'Je veux accompagner un élève sans surveiller en continu.' },
   { id: 'enseignant', code: 'ENS', title: 'Enseignant', text: 'Je veux recommander des ressources et préparer une classe.' },
+  { id: 'prof_particulier', code: 'PROF', title: 'Prof particulier', text: 'Je veux piloter mes élèves, leurs séances et leurs exercices.' },
   { id: 'etablissement', code: 'ETAB', title: 'Établissement', text: 'Je veux cadrer un usage collectif.' },
 ];
 
@@ -24,6 +25,11 @@ const GOALS = {
     ['sequence', 'Préparer une séquence'],
     ['classe', 'Orienter un groupe'],
     ['resources', 'Trouver des ressources ciblées'],
+  ],
+  prof_particulier: [
+    ['students', 'Suivre plusieurs élèves'],
+    ['homework', 'Donner cours et exercices'],
+    ['report', 'Exporter un bilan de séance'],
   ],
   etablissement: [
     ['deploy', 'Préparer un pilote'],
@@ -51,6 +57,7 @@ const state = {
   niveau: '',
   filiere: '',
   goal: '',
+  plan: '',
 };
 
 let niveaux = [];
@@ -143,6 +150,12 @@ function hydrateFromUrl() {
   const profile = params.get('profile');
   if (FLOWS_PROFILE_IDS().includes(profile)) state.profile = profile;
 
+  const requestedPlan = params.get('plan') || localStorage.getItem('admiscible-pending-plan');
+  if (requestedPlan) {
+    state.plan = requestedPlan;
+    localStorage.setItem('admiscible-pending-plan', requestedPlan);
+  }
+
   const requestedLevel = params.get('level') || params.get('niveau');
   if (requestedLevel && niveaux.some(n => n.id === requestedLevel)) {
     state.niveau = requestedLevel;
@@ -190,11 +203,26 @@ function back() {
 function destination() {
   if (state.profile === 'parent') return 'parents.html';
   if (state.profile === 'enseignant') return 'enseignants.html';
+  if (state.profile === 'prof_particulier') return 'prof-particulier.html';
   if (state.profile === 'etablissement') return 'etablissements.html';
   if (state.goal === 'train') return 'ressources.html';
   if (state.goal === 'learn') return `cours.html?filiere=${encodeURIComponent(state.filiere)}`;
   if (state.goal === 'follow') return 'dashboard.html';
   return 'priorites-eleve.html';
+}
+
+function nextActionLabel() {
+  if (state.plan === 'famille') return 'Après la création, vous serez envoyé vers l’activation Famille.';
+  if (state.plan === 'eleve_plus') return 'Après la création, vous pourrez activer le suivi Élève Plus.';
+  if (state.plan === 'enseignant_pro') return 'Après la création, vous pourrez activer l’espace Enseignant Pro.';
+  if (state.plan === 'prof_particulier_pro') return 'Après la création, vous pourrez activer l’espace Prof particulier Pro.';
+  if (state.profile === 'parent') return 'Après la création, vous verrez d’abord ce qui est gratuit et ce que l’espace famille ajoute.';
+  if (state.profile === 'enseignant') return 'Après la création, vous commencerez par préparer une séquence ou recommander une ressource.';
+  if (state.profile === 'prof_particulier') return 'Après la création, vous pourrez créer un premier élève et préparer la prochaine séance.';
+  if (state.goal === 'learn') return 'Après la création, vous arriverez directement sur le cours adapté.';
+  if (state.goal === 'train') return 'Après la création, vous commencerez par une ressource d’entraînement.';
+  if (state.goal === 'follow') return 'Après la création, vous ouvrirez votre tableau de bord.';
+  return 'Après la création, vous aurez une première priorité claire pour aujourd’hui.';
 }
 
 function renderForm() {
@@ -205,6 +233,10 @@ function renderForm() {
       <h1>Dernière étape</h1>
       <p>${esc(profile?.title)} · ${esc(selectedFiliere?.nom || 'Niveau choisi')} · objectif enregistré.</p>
     </header>
+    <aside class="signup-next-action">
+      <strong>Votre première action</strong>
+      <span>${esc(nextActionLabel())}</span>
+    </aside>
     <form class="signup-form" id="signup-form">
       <label>Prénom ou nom affiché<input id="signup-name" required autocomplete="given-name"></label>
       <label>Nom d’utilisateur<input id="signup-username" required autocomplete="username"></label>
@@ -247,6 +279,14 @@ async function submit(event) {
     }));
     msg.textContent = 'Compte créé. Redirection...';
     msg.className = 'login-message success';
+    const requestedPlan = state.plan || localStorage.getItem('admiscible-pending-plan');
+    if (requestedPlan) {
+      localStorage.removeItem('admiscible-pending-plan');
+      setTimeout(() => {
+        window.location.href = `abonnement.html?checkout=${encodeURIComponent(requestedPlan)}`;
+      }, 550);
+      return;
+    }
     setTimeout(() => { window.location.href = destination(); }, 550);
   } catch (error) {
     msg.textContent = error.message;

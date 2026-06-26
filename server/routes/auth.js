@@ -86,7 +86,7 @@ router.post('/register', (req, res) => {
     return res.status(429).json({ error: 'Trop de tentatives. Réessayez dans 15 minutes.' });
   }
   const { username, password, nom, filiere_id, email, adult_confirmed } = req.body;
-  const allowedRoles = new Set(['eleve', 'parent', 'enseignant', 'etablissement']);
+  const allowedRoles = new Set(['eleve', 'parent', 'enseignant', 'prof_particulier', 'etablissement']);
   const role = allowedRoles.has(req.body.role) ? req.body.role : 'eleve';
   if (!username || !password || !nom) {
     return res.status(400).json({ error: 'Champs requis: username, password, nom' });
@@ -230,7 +230,7 @@ router.put('/password', authenticateToken, (req, res) => {
 });
 
 router.get('/me', authenticateToken, (req, res) => {
-  const user = getOne(req.db, 'SELECT id, username, nom, role, plan, filiere_id FROM users WHERE id = ?', [req.user.id]);
+  const user = getOne(req.db, 'SELECT id, username, nom, email, role, plan, filiere_id, plan_status, plan_current_period_end FROM users WHERE id = ?', [req.user.id]);
   if (!user) return res.status(404).json({ error: 'Utilisateur non trouvé' });
   updateStreak(req.db, user.id);
   const streak = getOne(req.db, 'SELECT current, longest FROM streaks WHERE user_id = ?', [user.id]);

@@ -195,6 +195,7 @@
   margin-bottom: 0.55rem;
 }
 
+.resource-gateway h1,
 .resource-gateway h2 {
   color: var(--text-0);
   font-size: clamp(2.1rem, 4vw, 3.45rem);
@@ -914,6 +915,208 @@
   color: var(--text-0);
   background: color-mix(in srgb, var(--caution) 14%, var(--bg-card));
 }
+
+.methode-card {
+  --method-color: var(--accent);
+  margin-bottom: 1.35rem;
+  border: 1px solid color-mix(in srgb, var(--method-color) 26%, var(--border-1)) !important;
+  border-left: 0 !important;
+  border-radius: var(--r-lg);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--method-color) 9%, transparent), transparent 42%),
+    color-mix(in srgb, var(--bg-card) 94%, transparent);
+  box-shadow: 0 16px 38px rgba(18,59,122,0.08);
+}
+
+[data-theme="dark"] .methode-card {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--method-color) 14%, transparent), transparent 44%),
+    color-mix(in srgb, var(--bg-card) 94%, transparent);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.22);
+}
+
+.methode-card:hover {
+  border-color: color-mix(in srgb, var(--method-color) 54%, var(--border-0)) !important;
+  box-shadow: 0 22px 58px rgba(18,59,122,0.13);
+}
+
+[data-theme="dark"] .methode-card:hover {
+  box-shadow: 0 26px 70px rgba(0,0,0,0.34), 0 0 42px color-mix(in srgb, var(--method-color) 15%, transparent);
+}
+
+.methode-card::before {
+  background:
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--method-color) 20%, transparent), transparent 36%),
+    linear-gradient(120deg, color-mix(in srgb, var(--method-color) 11%, transparent), transparent 62%);
+}
+
+.methode-card-head {
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.05rem 1.15rem;
+  text-transform: none;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--method-color) 8%, var(--bg-card)), color-mix(in srgb, var(--bg-card) 86%, transparent)) !important;
+}
+
+.methode-title-block {
+  display: grid;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.methode-title-block strong {
+  color: var(--text-0);
+  font-size: clamp(1.02rem, 1.5vw, 1.22rem);
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: none;
+}
+
+.methode-title-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.method-type-pill,
+.methode-read-cue {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border-radius: var(--r-full);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.method-type-pill {
+  color: #fff;
+  background: var(--method-color);
+  padding: 0 0.62rem;
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--method-color) 28%, transparent);
+}
+
+.methode-read-cue {
+  flex-shrink: 0;
+  border: 1px solid color-mix(in srgb, var(--method-color) 35%, var(--border-1));
+  color: color-mix(in srgb, var(--method-color) 82%, var(--text-0));
+  background: color-mix(in srgb, var(--method-color) 9%, var(--bg-card));
+  padding: 0 0.58rem;
+}
+
+.methode-card-body {
+  color: var(--text-1);
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+.methode-card-body > p:first-child {
+  margin-top: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--method-color, var(--info)) 32%, var(--border-1));
+  border-radius: var(--r-md);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--method-color, var(--info)) 14%, transparent), transparent 70%),
+    color-mix(in srgb, var(--method-color, var(--info)) 8%, var(--bg-card));
+  color: var(--text-0);
+}
+
+.methode-card-body p strong {
+  color: var(--text-0);
+}
+
+.methode-card-body .step {
+  --local-step-color: var(--method-color, var(--info));
+  position: relative;
+  margin: 0.62rem 0;
+  padding: 0.82rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--local-step-color) 34%, var(--border-1));
+  border-radius: var(--r-md);
+  background:
+    radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--local-step-color) 18%, transparent), transparent 42%),
+    linear-gradient(90deg, color-mix(in srgb, var(--local-step-color) 10%, transparent), transparent 72%),
+    color-mix(in srgb, var(--bg-card) 84%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.38), 0 10px 24px rgba(18,59,122,0.055);
+}
+
+.methode-card-body .step:nth-of-type(4n + 1) { --local-step-color: var(--accent); }
+.methode-card-body .step:nth-of-type(4n + 2) { --local-step-color: var(--brand-cyan); }
+.methode-card-body .step:nth-of-type(4n + 3) { --local-step-color: var(--brand-purple); }
+.methode-card-body .step:nth-of-type(4n + 4) { --local-step-color: var(--brand-orange); }
+
+.methode-card-body .step:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--local-step-color) 56%, var(--border-0));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 14px 32px color-mix(in srgb, var(--local-step-color) 14%, transparent);
+}
+
+[data-theme="dark"] .methode-card-body .step {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 12px 28px rgba(0,0,0,0.18);
+}
+
+.methode-card-body .step-n {
+  width: 1.65rem;
+  height: 1.65rem;
+  background: linear-gradient(135deg, var(--local-step-color), color-mix(in srgb, var(--local-step-color) 76%, #ffffff));
+  color: #fff;
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--local-step-color) 28%, transparent);
+}
+
+.methode-card-body .warn,
+.methode-card-body .tip {
+  margin-top: 0.9rem;
+  border-radius: var(--r-md);
+  padding: 0.9rem 1rem;
+  font-size: 0.92rem;
+  line-height: 1.62;
+}
+
+.methode-card-body .warn {
+  border: 1px solid color-mix(in srgb, var(--brand-orange) 46%, var(--border-1));
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--brand-orange) 16%, transparent), transparent 70%),
+    color-mix(in srgb, var(--brand-orange) 10%, var(--bg-card));
+  color: var(--text-0);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--brand-orange) 10%, transparent);
+}
+
+.methode-card-body .warn strong {
+  color: var(--text-0);
+}
+
+.methode-card-body .warn ul {
+  margin: 0.45rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.methode-card-body .warn li + li {
+  margin-top: 0.22rem;
+}
+
+.methode-card-body .tip {
+  border: 1px solid color-mix(in srgb, var(--brand-cyan) 42%, var(--border-1));
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--brand-cyan) 16%, transparent), transparent 72%),
+    color-mix(in srgb, var(--brand-cyan) 10%, var(--bg-card));
+  color: var(--text-0);
+  font-weight: 750;
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--brand-cyan) 10%, transparent);
+}
+
+.methode-card-body .tip::before {
+  content: "Repère";
+  display: inline-flex;
+  margin-right: 0.5rem;
+  color: color-mix(in srgb, var(--brand-cyan) 86%, var(--text-0));
+  font-size: 0.68rem;
+  font-weight: 950;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
 @media(max-width: 900px) {
   .methodes-controls {
     grid-template-columns: 1fr;
@@ -927,6 +1130,15 @@
     position: relative;
     top: auto;
     max-height: 220px;
+  }
+  .methode-card-head {
+    align-items: flex-start;
+  }
+  .methode-read-cue {
+    display: none;
+  }
+  .methode-card-body {
+    padding: 1.05rem;
   }
 }
 
@@ -945,7 +1157,7 @@
   border: 1px solid var(--border-1);
   border-radius: var(--r-md);
   margin-bottom: 1rem;
-  transition: box-shadow 0.28s var(--ease), border-color 0.28s var(--ease);
+  transition: box-shadow 0.28s var(--ease), border-color 0.28s var(--ease), transform 0.28s var(--ease);
   overflow: hidden;
 }
 .card.recommended-focus {
@@ -974,6 +1186,238 @@
 }
 .card > * { position: relative; z-index: 1; }
 .card:hover::before { opacity: 1; }
+
+.card:not(.fc-hidden):not(.reading-expanded):hover {
+  transform: translateY(-1px);
+}
+
+.reading-focus-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  border: 0;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(99,160,255,0.17), transparent 34rem),
+    rgba(4, 13, 31, 0.54);
+  opacity: 0;
+  backdrop-filter: blur(10px);
+  cursor: default;
+  transition: opacity 0.18s var(--ease);
+}
+
+.reading-focus-backdrop.is-visible {
+  opacity: 1;
+}
+
+body.reading-focus-active {
+  overflow: hidden;
+}
+
+.reading-focus-placeholder {
+  margin-bottom: 1rem;
+}
+
+.card.reading-expanded {
+  position: fixed !important;
+  inset: clamp(10px, 2.8vh, 26px) clamp(10px, 2.8vw, 38px) !important;
+  z-index: 1001;
+  margin: 0 !important;
+  max-width: none !important;
+  width: auto !important;
+  max-height: none !important;
+  overflow: auto;
+  border-radius: var(--r-xl);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border-0));
+  box-shadow: 0 38px 120px rgba(0,0,0,0.34), 0 0 0 1px rgba(255,255,255,0.12);
+  transform: translateY(10px) scale(0.985);
+  opacity: 0.96;
+}
+
+.card.reading-expanded-open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.card.reading-expanded::after {
+  content: "Cliquer hors de la carte, utiliser Fermer ou appuyer sur Échap";
+  position: sticky;
+  bottom: 1rem;
+  left: 50%;
+  display: block;
+  width: fit-content;
+  max-width: calc(100% - 2rem);
+  margin: 0 auto 1rem;
+  z-index: 5;
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-full);
+  background: color-mix(in srgb, var(--glass-strong, var(--bg-card)) 92%, transparent);
+  color: var(--text-1);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(14px);
+  padding: 0.46rem 0.76rem;
+  font-size: 0.74rem;
+  font-weight: 850;
+  text-align: center;
+  pointer-events: none;
+}
+
+.card.reading-expanded .card-head {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  padding: 1.25rem clamp(1.2rem, 3vw, 2.4rem);
+  padding-right: clamp(6.8rem, 12vw, 9rem);
+  font-size: 1.04rem;
+  backdrop-filter: blur(18px) saturate(1.16);
+}
+
+.reading-focus-close {
+  position: fixed;
+  top: clamp(18px, 4vh, 34px);
+  right: clamp(18px, 4vw, 52px);
+  z-index: 1003;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid color-mix(in srgb, var(--accent) 36%, rgba(255,255,255,0.28));
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 20%, rgba(255,255,255,0.48), transparent 44%),
+    color-mix(in srgb, var(--glass-strong, var(--bg-card)) 94%, transparent);
+  color: var(--text-0);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.28), 0 0 0 7px rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px) saturate(1.18);
+  padding: 0;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.16s var(--ease), border-color 0.16s var(--ease), background 0.16s var(--ease);
+}
+
+.reading-focus-close span:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-0);
+  font-size: 2rem;
+  font-weight: 650;
+  line-height: 1;
+}
+
+.reading-focus-close:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, var(--glass-strong, var(--bg-card)));
+  transform: translateY(-1px) scale(1.04);
+}
+
+.card.reading-expanded .card-body,
+.card.reading-expanded .elo-panel,
+.card.reading-expanded .methode-attach,
+.card.reading-expanded .methode-content {
+  width: min(100%, 1280px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card.reading-expanded.methode-card .card-body,
+.card.reading-expanded .methode-content.methode-card-body {
+  width: 100%;
+  max-width: none;
+}
+
+.card.reading-expanded .card-body,
+.card.reading-expanded .methode-content {
+  padding: clamp(1.6rem, 3.8vw, 3.2rem);
+  font-size: clamp(1.18rem, 1.45vw, 1.42rem);
+  line-height: 1.86;
+}
+
+.card.reading-expanded .methode-title-block strong {
+  font-size: clamp(1.55rem, 2.4vw, 2.25rem);
+  line-height: 1.08;
+}
+
+.card.reading-expanded .methode-title-meta {
+  margin-bottom: 0.15rem;
+}
+
+.card.reading-expanded .method-type-pill,
+.card.reading-expanded .program-badge,
+.card.reading-expanded .methode-read-cue {
+  min-height: 30px;
+  font-size: 0.72rem;
+  padding-left: 0.78rem;
+  padding-right: 0.78rem;
+}
+
+.card.reading-expanded .methode-card-body .step {
+  gap: 0.95rem;
+  width: 100%;
+  min-height: clamp(96px, 10vh, 150px);
+  margin: 1.05rem 0;
+  padding: clamp(1.25rem, 2vw, 1.8rem);
+  border-radius: var(--r-lg);
+  font-size: 1.12em;
+  align-items: center;
+}
+
+.card.reading-expanded .methode-card-body .step-n {
+  width: clamp(2.25rem, 3vw, 3.15rem);
+  height: clamp(2.25rem, 3vw, 3.15rem);
+  font-size: clamp(1rem, 1.35vw, 1.28rem);
+}
+
+.card.reading-expanded .methode-card-body > p:first-child,
+.card.reading-expanded .methode-card-body .warn,
+.card.reading-expanded .methode-card-body .tip {
+  width: 100%;
+  min-height: clamp(82px, 8vh, 130px);
+  padding: clamp(1.25rem, 2vw, 1.85rem);
+  border-radius: var(--r-lg);
+  font-size: 1.1em;
+}
+
+.card.reading-expanded .methode-card-body .warn ul {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.card.reading-expanded .methode-card-body .tip::before {
+  display: flex;
+  width: fit-content;
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+}
+
+@media (max-width: 760px), (hover: none) {
+  .card:not(.fc-hidden):not(.reading-expanded):hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .card.reading-expanded {
+    inset: 8px !important;
+    border-radius: var(--r-lg);
+  }
+  .reading-focus-close {
+    top: 14px;
+    right: 14px;
+    width: 40px;
+    height: 40px;
+  }
+  .card.reading-expanded::after {
+    content: "Fermer ou Échap";
+    bottom: 0.55rem;
+  }
+}
 
 /* — Type gradients (dark mode) — */
 .card.df::before, .card.def::before {
@@ -1014,6 +1458,32 @@
 
 .card-head { font-size: 0.82rem; font-weight: 800; padding: 0.85rem 1.5rem; letter-spacing: 0; text-transform: uppercase; border-bottom: 1px solid var(--border-1); display: flex; align-items: center; color: var(--text-1); background: var(--bg-1); }
 .card-body { padding: 1.5rem; font-size: 1.02rem; line-height: 1.75; color: var(--text-1); }
+
+.card.methode-card {
+  margin-bottom: 1.35rem;
+  border: 1px solid color-mix(in srgb, var(--method-color) 26%, var(--border-1)) !important;
+  border-left: 0 !important;
+  border-radius: var(--r-lg);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--method-color) 9%, transparent), transparent 42%),
+    color-mix(in srgb, var(--bg-card) 94%, transparent);
+}
+
+.card-head.methode-card-head {
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.05rem 1.15rem;
+  text-transform: none;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--method-color) 8%, var(--bg-card)), color-mix(in srgb, var(--bg-card) 86%, transparent)) !important;
+}
+
+.card-body.methode-card-body,
+.methode-content.methode-card-body {
+  color: var(--text-1);
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
 
 .df .card-head, .def .card-head  { color: var(--positive); }
 .th .card-head                    { color: var(--negative); font-weight: 700; }

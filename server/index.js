@@ -12,7 +12,9 @@ import { seedCollegeIfNeeded } from './db/seed-college-init.js';
 import { seedLyceeIfNeeded } from './db/seed-lycee-init.js';
 import { loadContentFiles } from './db/seed-content-loader.js';
 import { seedMethodeLinksIfNeeded } from './db/seed-methode-links.js';
+import { seedCuratedMethodes } from './db/seed-methodes-curated.js';
 import { seedMethodesQuality } from './db/seed-methodes-quality.js';
+import { seedCourseQuality } from './db/seed-course-quality.js';
 
 import filieresRouter from './routes/filieres.js';
 import coursRouter from './routes/cours.js';
@@ -28,6 +30,7 @@ import focusRouter from './routes/focus.js';
 import gradesRouter from './routes/grades.js';
 import erreursRouter from './routes/erreurs.js';
 import eloRouter from './routes/elo.js';
+import billingRouter from './routes/billing.js';
 
 const PORT    = process.env.PORT    || 3001;
 const IS_PROD = process.env.NODE_ENV === 'production';
@@ -51,6 +54,9 @@ app.use(cors({
   credentials: true,
 }));
 
+// Stripe exige le body brut pour vérifier la signature du webhook.
+app.use('/api/billing/webhook', express.raw({ type: 'application/json' }));
+
 // ── Body parsers ───────────────────────────────────────────────────────────
 app.use(express.json({ limit: '1mb' }));
 
@@ -60,6 +66,10 @@ const db = await getDb();
 // ── Migrations automatiques (ALTER TABLE idempotentes) ────────────────────
 try { db.run("ALTER TABLE users ADD COLUMN email TEXT"); } catch {} // ignoré si déjà présent
 try { db.run("ALTER TABLE users ADD COLUMN plan TEXT NOT NULL DEFAULT 'free'"); } catch {}
+try { db.run("ALTER TABLE users ADD COLUMN stripe_customer_id TEXT"); } catch {}
+try { db.run("ALTER TABLE users ADD COLUMN stripe_subscription_id TEXT"); } catch {}
+try { db.run("ALTER TABLE users ADD COLUMN plan_status TEXT NOT NULL DEFAULT 'free'"); } catch {}
+try { db.run("ALTER TABLE users ADD COLUMN plan_current_period_end TEXT"); } catch {}
 try { db.run("ALTER TABLE grades ADD COLUMN coefficient REAL NOT NULL DEFAULT 1"); } catch {}
 
 // Consentements (RGPD + mineurs) — preuve horodatée
@@ -109,12 +119,19 @@ seedCollegeIfNeeded(db);
 seedLyceeIfNeeded(db);
 await loadContentFiles(db);   // contenu riche depuis server/db/content/*.js
 seedMethodeLinksIfNeeded(db); // rattache les méthodes aux théorèmes/propriétés
+seedCuratedMethodes(db);      // ajoute uniquement des méthodes éditoriales utiles
 seedMethodesQuality(db);      // signale les méthodes limites / hors programme
+seedCourseQuality(db);        // labels lisibles : Définition, Théorème, etc.
 saveDb();
 
 app.use((req, _res, next) => { req.db = db; next(); });
 
 // ── Routes ─────────────────────────────────────────────────────────────────
+app.get('/api/health', (_req, res) => res.json({
+  ok: true,
+  service: 'admiscible-api',
+  timestamp: new Date().toISOString(),
+}));
 app.use('/api', filieresRouter);
 app.use('/api', coursRouter);
 app.use('/api/auth', authRouter);
@@ -129,6 +146,7 @@ app.use('/api', focusRouter);
 app.use('/api', gradesRouter);
 app.use('/api', erreursRouter);
 app.use('/api', eloRouter);
+app.use('/api/billing', billingRouter);
 
 // ── 404 API ────────────────────────────────────────────────────────────────
 app.use('/api/*', (_req, res) => res.status(404).json({ error: 'Route introuvable' }));

@@ -34,6 +34,8 @@ const PAGES = [
   { ico: 'BP', label: 'Bilan parent',       href: 'bilan-parent.html' },
   { ico: 'EN', label: 'Enseignants',       href: 'enseignants.html' },
   { ico: 'EE', label: 'Espace enseignant', href: 'espace-enseignant.html' },
+  { ico: 'PP', label: 'Prof particulier', href: 'prof-particulier.html' },
+  { ico: 'EP', label: 'Espace prof particulier', href: 'espace-prof-particulier.html' },
   { ico: 'SQ', label: 'Séquences pédagogiques', href: 'sequences-pedagogiques.html' },
   { ico: 'ET', label: 'Établissements',    href: 'etablissements.html' },
   { ico: 'PI', label: 'Pilotage établissement', href: 'pilotage-etablissement.html' },

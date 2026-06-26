@@ -113,6 +113,39 @@ const FLOWS = {
       },
     ],
   },
+  prof_particulier: {
+    label: 'Prof particulier',
+    hint: 'Je veux piloter un ou plusieurs élèves.',
+    levels: ['Un élève', 'Plusieurs élèves', 'Groupe de soutien'],
+    needs: [
+      {
+        id: 'students',
+        label: 'Je suis plusieurs élèves',
+        desc: 'Objectifs, chapitres faibles et prochaines séances.',
+        result: {
+          title: 'Créer un portefeuille d’élèves',
+          text: 'Chaque élève garde ses objectifs, ses ressources recommandées, ses devoirs et son historique de séance.',
+          href: 'espace-prof-particulier.html',
+          cta: 'Ouvrir l’espace prof',
+          steps: ['Ajouter les élèves', 'Associer cours et exercices', 'Exporter un bilan'],
+          secondary: [{ href: 'prof-particulier.html', label: 'Comprendre l’espace' }],
+        },
+      },
+      {
+        id: 'homework',
+        label: 'Je donne du travail ciblé',
+        desc: 'Cours, méthodes, exercices ou annales à faire.',
+        result: {
+          title: 'Rattacher une ressource à un élève',
+          text: 'Le devoir donné reste visible avec son statut : à faire, en cours, à corriger ou validé.',
+          href: 'espace-prof-particulier.html',
+          cta: 'Créer un devoir',
+          steps: ['Choisir l’élève', 'Choisir le type de ressource', 'Préparer la correction'],
+          secondary: [{ href: 'recherche.html', label: 'Chercher une ressource' }],
+        },
+      },
+    ],
+  },
   etablissement: {
     label: 'Établissement',
     hint: 'Je veux cadrer un usage collectif.',
@@ -331,6 +364,7 @@ function levelHint(profile, level) {
   if (profile === 'eleve') return `Contenus et actions adaptés au niveau ${level.toLowerCase()}.`;
   if (profile === 'parent') return `Repères pour accompagner un élève de niveau ${level.toLowerCase()}.`;
   if (profile === 'enseignant') return `Préparation d'une action pour ${level.toLowerCase()}.`;
+  if (profile === 'prof_particulier') return `Suivi individualisé pour ${level.toLowerCase()}.`;
   return `Cadre de déploiement pour ${level.toLowerCase()}.`;
 }
 
@@ -339,6 +373,7 @@ function traceFor(profile, need) {
   if (profile === 'eleve') return 'Une notion comprise, un exercice court ou une priorité terminée.';
   if (profile === 'parent') return 'Une synthèse courte, volontaire et imprimable.';
   if (profile === 'enseignant') return 'Un objectif, une ressource et une trace demandée aux élèves.';
+  if (profile === 'prof_particulier') return 'Un devoir donné, une séance notée ou un bilan exporté.';
   return 'Un périmètre, des rôles, des garanties et une décision de déploiement.';
 }
 

@@ -128,6 +128,7 @@ nav.nav-is-guest .nav-espace {
 }
 
 .nav-links > li:hover .dd,
+.nav-links > li.nav-dd-open .dd,
 .nav-links > li.tuto-force-hover .dd,
 .dd-espace.open { display: block; animation: fadeIn 0.12s var(--ease); }
 

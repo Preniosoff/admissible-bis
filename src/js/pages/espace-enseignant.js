@@ -99,6 +99,20 @@ export function initEspaceEnseignant() {
         </div>
       </section>
 
+      <section class="role-offer-card role-offer-teacher">
+        <div>
+          <span class="offer-pill">Enseignant Pro</span>
+          <h2>14,99 € / mois pour transformer les ressources en séquences utilisables.</h2>
+          <p>L’offre finance les outils professionnels : espace classe local, recommandations, séquences, exports et bilan imprimable. Les contenus restent accessibles gratuitement.</p>
+        </div>
+        <div class="role-offer-metrics">
+          <span><strong>119 €</strong><small>par an</small></span>
+          <span><strong>${sequenceCount}</strong><small>séquences</small></span>
+          <span><strong>${state.students.length}</strong><small>entrées classe</small></span>
+        </div>
+        <a class="neo-cta" href="abonnement.html#enseignant" data-checkout-plan="enseignant_pro">Activer l’offre Pro</a>
+      </section>
+
       <section class="teacher-panel">
         <div class="teacher-panel-head">
           <h2>Paramètres de classe</h2>

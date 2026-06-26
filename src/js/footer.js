@@ -142,6 +142,7 @@ export function initFooter() {
           <a href="parents.html">Parents</a>
           <a href="famille.html">Famille</a>
           <a href="enseignants.html">Enseignants</a>
+          <a href="prof-particulier.html">Profs particuliers</a>
           <a href="etablissements.html">Établissements</a>
         </div>
         <div class="footer-col">

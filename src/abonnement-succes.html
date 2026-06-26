@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://www.admiscible.fr/abonnement-succes.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#06142f">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Abonnement activé — Admiscible</title>
+  <script type="module" src="js/pages/abonnement-succes-entry.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo"><div class="logo-icon" aria-hidden="true"></div> Admiscible</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="cours.html">Cours</a></li>
+      <li><a href="methodes.html">Méthodes</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-espace">
+        <button class="espace-btn" id="espace-btn">Mon espace <span class="caret">&#9662;</span></button>
+        <div class="dd-espace" id="espace-dd"></div>
+      </div>
+      <button class="theme-toggle" id="theme-btn" aria-label="Mode sombre">Clair</button>
+      <button class="login-btn" id="login-btn">Se connecter</button>
+    </div>
+  </nav>
+
+  <main class="checkout-success-page" id="contenu">
+    <section class="checkout-success-card" aria-labelledby="checkout-success-title">
+      <span class="offer-pill">Paiement sécurisé</span>
+      <h1 id="checkout-success-title">Votre espace est en cours d’activation.</h1>
+      <p id="checkout-status">Validation du paiement...</p>
+      <div class="checkout-success-actions">
+        <a class="neo-cta" id="checkout-action" href="dashboard.html">Entrer dans mon espace</a>
+        <a class="connected-btn connected-btn-secondary" href="abonnement.html">Voir les offres</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="login-modal" class="modal"><div class="modal-content"></div></div>
+</body>
+</html>

@@ -62,7 +62,13 @@ CREATE TABLE IF NOT EXISTS users (
   email         TEXT,
   role          TEXT NOT NULL DEFAULT 'eleve',
   plan          TEXT NOT NULL DEFAULT 'free',
+  stripe_customer_id TEXT,
+  stripe_subscription_id TEXT,
+  plan_status   TEXT NOT NULL DEFAULT 'free',
+  plan_current_period_end TEXT,
   filiere_id    TEXT REFERENCES filieres(id),
+  adult_confirmed INTEGER DEFAULT 0,
+  cgu_accepted_at TEXT,
   created_at    DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 

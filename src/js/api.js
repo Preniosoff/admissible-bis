@@ -205,6 +205,16 @@ async function localAuthRequest(path, options = {}, token = '') {
     throw new Error('La réinitialisation nécessite le serveur de production.');
   }
 
+  if (pathname === '/billing/checkout' && method === 'POST' && isLocalToken(token)) {
+    const plan = String(body.plan || '');
+    return { url: `abonnement-succes.html?demo=1&plan=${encodeURIComponent(plan)}` };
+  }
+
+  if (pathname.startsWith('/billing/checkout-session/') && method === 'GET' && isLocalToken(token)) {
+    const user = localUserFromToken(token);
+    return { ok: true, status: 'paid', user };
+  }
+
   return null;
 }
 
@@ -239,6 +249,7 @@ function localUserFromToken(token) {
 
 function localPlanForRole(role) {
   if (role === 'parent') return 'family';
+  if (role === 'prof_particulier') return 'tutor';
   if (role === 'enseignant' || role === 'etablissement') return 'pro';
   return 'personal';
 }
@@ -292,6 +303,8 @@ export const api = {
   getMe: () => request('/auth/me'),
   updateProfile: (data) => request('/auth/profile', { method: 'PUT', body: JSON.stringify(data) }),
   changePassword: (current, nouveau) => request('/auth/password', { method: 'PUT', body: JSON.stringify({ current, nouveau }) }),
+  createCheckoutSession: (plan) => request('/billing/checkout', { method: 'POST', body: JSON.stringify({ plan }) }),
+  verifyCheckoutSession: (id) => request(`/billing/checkout-session/${encodeURIComponent(id)}`),
   getFocusStats: () => request('/focus/stats'),
   saveFocusSession: (data) => request('/focus/sessions', { method: 'POST', body: JSON.stringify(data) }),
   getGrades: () => request('/grades'),

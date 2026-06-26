@@ -16,6 +16,8 @@ import { initCommandPalette } from './command-palette.js';
 import { initMobileDock } from './mobile-dock.js';
 import { initSideRail } from './side-rail.js';
 import { openCommandPalette } from './command-palette.js';
+import { initReadingFocus } from './reading-focus.js';
+import { initBilling } from './billing.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initSkipLink();
@@ -32,8 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initCommandPalette();
   initMobileDock();
   initSideRail();
+  initReadingFocus();
   initNavSearchButton();
   initFreemiumAccess();
+  initBilling();
   initConnectedHome();
   initHomeDecision();
   initResumeStrip();
@@ -142,6 +146,23 @@ const HOME_DECISIONS = {
       href: 'inscription.html?profile=enseignant&need=class',
     },
   },
+  prof_particulier: {
+    start: {
+      title: 'Portefeuille d’élèves',
+      text: 'Créer un suivi individuel avec objectifs, séances et devoirs.',
+      href: 'inscription.html?profile=prof_particulier&need=students',
+    },
+    train: {
+      title: 'Travail ciblé',
+      text: 'Associer un cours, une méthode ou un exercice à un élève.',
+      href: 'inscription.html?profile=prof_particulier&need=homework',
+    },
+    report: {
+      title: 'Bilan de séance',
+      text: 'Exporter une synthèse claire pour l’élève ou la famille.',
+      href: 'espace-prof-particulier.html',
+    },
+  },
   etablissement: {
     start: {
       title: 'Cadre de déploiement',
@@ -202,6 +223,16 @@ function initResumeStrip() {
   if (!nav || !main) return;
   const page = location.pathname.split('/').pop() || 'index.html';
   if (page === 'demarrer.html' || page === 'onboarding.html') return;
+  const presentationPages = new Set([
+    'abonnement.html',
+    'eleves.html',
+    'parents.html',
+    'famille.html',
+    'enseignants.html',
+    'prof-particulier.html',
+    'etablissements.html',
+  ]);
+  if (presentationPages.has(page)) return;
 
   const user = getUser();
   if (!user) return;
@@ -215,6 +246,7 @@ function initResumeStrip() {
     eleve: 'Élève',
     parent: 'Parent',
     enseignant: 'Enseignant',
+    prof_particulier: 'Prof particulier',
     etablissement: 'Établissement',
     college: 'Collège',
     lycee: 'Lycée',
@@ -334,6 +366,7 @@ function initNav() {
   initActiveNav(nav);
   initEspaceDropdown();
   initHamburger(nav);
+  initDesktopDropdowns(nav);
   initOutsideClose();
 }
 
@@ -345,37 +378,57 @@ function initPrimaryResourceNav(nav) {
     links.innerHTML = `
       <li><a href="index.html">Accueil</a></li>
       <li class="has-dd">
-        <a href="cours.html">Ressources gratuites <span class="caret">&#9662;</span></a>
+        <a href="cours.html">Travailler <span class="caret">&#9662;</span></a>
         <div class="dd">
           <a href="cours.html">Cours</a>
           <a href="methodes.html">Méthodes</a>
           <a href="ressources.html">Exercices</a>
-          <a href="annales.html">Annales</a>
-          <a href="orientation.html">Orientation</a>
         </div>
       </li>
-      <li><a href="parents.html">Parents</a></li>
-      <li><a href="presentation.html">Présentation</a></li>
-      <li><a href="recherche.html">Recherche</a></li>
+      <li class="has-dd">
+        <a href="annales.html">Annales <span class="caret">&#9662;</span></a>
+        <div class="dd">
+          <a href="annales.html">Concours</a>
+          <a href="annales-bac.html">Bac</a>
+          <a href="annales-brevet.html">Brevet</a>
+        </div>
+      </li>
+      <li><a href="orientation.html">Orientation</a></li>
+      <li class="has-dd">
+        <a href="eleves.html">Espaces <span class="caret">&#9662;</span></a>
+        <div class="dd">
+          <a href="eleves.html">Élèves</a>
+          <a href="parents.html">Parents</a>
+          <a href="enseignants.html">Enseignants</a>
+          <a href="prof-particulier.html">Profs particuliers</a>
+          <a href="etablissements.html">Établissements</a>
+        </div>
+      </li>
+      <li><a href="abonnement.html">Offres</a></li>
     `;
     return;
   }
 
   links.innerHTML = `
     <li><a href="index.html">Accueil</a></li>
-    <li><a href="cours.html">Cours</a></li>
-    <li><a href="methodes.html">Méthodes</a></li>
-    <li><a href="ressources.html">Exercices</a></li>
+    <li class="has-dd">
+      <a href="cours.html">Travailler <span class="caret">&#9662;</span></a>
+      <div class="dd">
+        <a href="cours.html">Cours</a>
+        <a href="methodes.html">Méthodes</a>
+        <a href="ressources.html">Exercices</a>
+        <a href="recherche.html">Recherche</a>
+      </div>
+    </li>
     <li class="has-dd">
       <a href="annales.html">Annales <span class="caret">&#9662;</span></a>
       <div class="dd">
-        <a href="annales.html">Annales concours</a>
-        <a href="annales-bac.html">Annales bac</a>
-        <a href="annales-brevet.html">Annales brevet</a>
+        <a href="annales.html">Concours</a>
+        <a href="annales-bac.html">Bac</a>
+        <a href="annales-brevet.html">Brevet</a>
       </div>
     </li>
     <li><a href="orientation.html">Orientation</a></li>
-    <li><a href="abonnement.html">Offres</a></li>
     <li class="has-dd">
       <a href="eleves.html">Espaces <span class="caret">&#9662;</span></a>
       <div class="dd">
@@ -383,21 +436,11 @@ function initPrimaryResourceNav(nav) {
         <a href="parents.html">Parents</a>
         <a href="famille.html">Famille</a>
         <a href="enseignants.html">Enseignants</a>
+        <a href="prof-particulier.html">Profs particuliers</a>
         <a href="etablissements.html">Établissements</a>
       </div>
     </li>
-    <li class="has-dd">
-      <a href="recherche.html">Ressources <span class="caret">&#9662;</span></a>
-      <div class="dd">
-        <a href="recherche.html">Recherche</a>
-        <a href="concours.html">Concours et écoles</a>
-        <a href="attendus-officiels.html">Attendus officiels</a>
-        <a href="sources-programmes.html">Sources et programmes</a>
-        <a href="notre-methode.html">Notre méthode</a>
-        <a href="aide.html">Aide</a>
-        <a href="plan-site.html">Plan du site</a>
-      </div>
-    </li>
+    <li><a href="abonnement.html">Offres</a></li>
   `;
 }
 
@@ -417,11 +460,9 @@ function initActiveNav(nav) {
     'abonnement.html': ['abonnement.html'],
     'presentation.html': ['presentation.html'],
     'orientation.html': ['orientation.html'],
-    'cours.html': ['cours.html'],
-    'methodes.html': ['methodes.html'],
-    'ressources.html': ['ressources.html'],
+    'cours.html': ['cours.html', 'methodes.html', 'ressources.html', 'recherche.html'],
     'annales.html': ['annales.html', 'annales-bac.html', 'annales-brevet.html'],
-    'eleves.html': ['eleves.html', 'parents.html', 'famille.html', 'enseignants.html', 'etablissements.html', 'priorites-eleve.html', 'bilan-parent.html', 'espace-enseignant.html', 'sequences-pedagogiques.html', 'pilotage-etablissement.html', 'deploiement-etablissement.html'],
+    'eleves.html': ['eleves.html', 'parents.html', 'famille.html', 'enseignants.html', 'prof-particulier.html', 'espace-prof-particulier.html', 'etablissements.html', 'priorites-eleve.html', 'bilan-parent.html', 'espace-enseignant.html', 'sequences-pedagogiques.html', 'pilotage-etablissement.html', 'deploiement-etablissement.html'],
     'recherche.html': ['recherche.html', 'concours.html', 'attendus-officiels.html', 'sources-programmes.html', 'notre-methode.html', 'etat-contenus.html', 'fiche-presentation.html', 'a-propos.html', 'transparence.html', 'conformite-dsfr.html', 'securite.html', 'connexion-institutionnelle.html', 'contact-signalement.html', 'statut-service.html', 'accessibilite.html', 'aide.html', 'plan-site.html', 'matrice-rgpd.html'],
   };
 
@@ -441,12 +482,52 @@ const PAID_ACCESS = {
     pages: ['dashboard.html', 'parcours.html', 'schedule.html', 'todos.html', 'focus.html', 'notes.html', 'erreurs.html', 'priorites-eleve.html'],
     title: 'Passez du contenu au vrai suivi de travail.',
     text: 'Les cours, méthodes, exercices et annales restent gratuits. L’abonnement ajoute le tableau de bord, les priorités, le planning, les notes, le timer et le cahier d’erreurs pour travailler avec méthode.',
+    plan: 'Élève Plus',
+    price: '7,99 €',
+    cadence: ' / mois',
+    yearly: '59,99 € / an',
+    href: 'abonnement.html#eleve',
+    checkoutPlan: 'eleve_plus',
+    proof: ['Priorités de la semaine', 'Planning et timer', 'Notes et cahier d’erreurs'],
   },
   parent: {
     label: 'Espace parent',
-    pages: ['parents.html', 'bilan-parent.html', 'famille.html'],
+    pages: ['bilan-parent.html', 'famille.html'],
     title: 'Un cadre clair pour accompagner sans surveiller.',
     text: 'Les contenus restent consultables gratuitement. L’accès famille ajoute les bilans volontaires, les priorités de plusieurs élèves et une lecture simple des traces de travail.',
+    plan: 'Famille',
+    price: '11,99 €',
+    cadence: ' / mois',
+    yearly: '89,99 € / an',
+    href: 'abonnement.html#famille',
+    checkoutPlan: 'famille',
+    proof: ['Plusieurs élèves', 'Bilans volontaires', 'Priorités lisibles'],
+  },
+  teacher: {
+    label: 'Espace enseignant',
+    pages: ['espace-enseignant.html'],
+    title: 'Préparez, recommandez et suivez sans disperser vos supports.',
+    text: 'Les contenus restent gratuits. L’offre Enseignant Pro ajoute les séquences, recommandations ciblées, exports et outils de suivi de classe.',
+    plan: 'Enseignant Pro',
+    price: '14,99 €',
+    cadence: ' / mois',
+    yearly: '119 € / an',
+    href: 'abonnement.html#enseignant',
+    checkoutPlan: 'enseignant_pro',
+    proof: ['Séquences prêtes', 'Exports de classe', 'Recommandations ciblées'],
+  },
+  tutor: {
+    label: 'Espace prof particulier',
+    pages: ['espace-prof-particulier.html'],
+    title: 'Un cockpit pour suivre chaque élève individuellement.',
+    text: 'Les contenus restent gratuits. L’offre Prof particulier Pro ajoute le portefeuille d’élèves, les séances, les devoirs, les ressources recommandées et les bilans exportables.',
+    plan: 'Prof particulier Pro',
+    price: '19,99 €',
+    cadence: ' / mois',
+    yearly: '159 € / an',
+    href: 'abonnement.html#prof-particulier',
+    checkoutPlan: 'prof_particulier_pro',
+    proof: ['Portefeuille élèves', 'Séances et devoirs', 'Bilans exportables'],
   },
 };
 
@@ -459,6 +540,8 @@ function hasPaidAccess(user, kind) {
   if (plan === 'premium' || plan === 'pro' || plan === 'admin') return true;
   if (kind?.label === 'Espace personnel') return ['personal', 'family'].includes(plan);
   if (kind?.label === 'Espace parent') return ['parent', 'family'].includes(plan);
+  if (kind?.label === 'Espace enseignant') return ['teacher', 'pro'].includes(plan);
+  if (kind?.label === 'Espace prof particulier') return ['tutor', 'pro'].includes(plan);
   return false;
 }
 
@@ -476,16 +559,26 @@ function initFreemiumAccess() {
         <div class="paywall-kicker">${kind.label}</div>
         <h1 id="paywall-title">${kind.title}</h1>
         <p>${kind.text}</p>
-        <div class="paywall-free">
-          <strong>Disponible gratuitement</strong>
-          <span>Cours, méthodes, exercices, annales, concours, orientation et recherche.</span>
+        <div class="paywall-offer-head">
+          <span>${kind.plan}</span>
+          <strong>${kind.price}<small>${kind.cadence}</small></strong>
+          <em>${kind.yearly}</em>
         </div>
-        <div class="paywall-premium">
-          <strong>Avec l’abonnement</strong>
-          <span>Un espace guidé pour organiser, suivre et reprendre le travail sans repartir de zéro.</span>
+        <div class="paywall-split">
+          <div class="paywall-free">
+            <strong>Ce qui reste gratuit</strong>
+            <span>Cours, méthodes, exercices, annales, concours, orientation et recherche.</span>
+          </div>
+          <div class="paywall-premium">
+            <strong>Ce que finance l’abonnement</strong>
+            <span>Un espace guidé, sauvegardé et utilisable au quotidien, sans repartir de zéro.</span>
+          </div>
+        </div>
+        <div class="paywall-proof" aria-label="Bénéfices inclus">
+          ${kind.proof.map(item => `<span>${item}</span>`).join('')}
         </div>
         <div class="paywall-actions">
-          <a class="neo-cta" href="abonnement.html">Voir l’abonnement</a>
+          <a class="neo-cta" href="${kind.href}" data-checkout-plan="${kind.checkoutPlan || ''}">Activer l’offre</a>
           <a class="connected-btn connected-btn-secondary" href="cours.html">Continuer gratuitement</a>
         </div>
       </div>
@@ -570,6 +663,84 @@ function initHamburger(nav) {
 
   window.addEventListener('resize', () => {
     if (window.innerWidth > 1140) setMenuOpen(false);
+  });
+}
+
+/* ── Stable desktop dropdowns ── */
+function initDesktopDropdowns(nav) {
+  const links = nav.querySelector('.nav-links');
+  if (!links) return;
+
+  const desktopQuery = window.matchMedia('(min-width: 1141px)');
+  let closeTimer = null;
+
+  const setExpanded = (item, expanded) => {
+    item.classList.toggle('nav-dd-open', expanded);
+    item.querySelector(':scope > a')?.setAttribute('aria-expanded', String(expanded));
+  };
+
+  const closeAll = (except = null) => {
+    links.querySelectorAll('.has-dd.nav-dd-open').forEach(item => {
+      if (item !== except) setExpanded(item, false);
+    });
+  };
+
+  links.querySelectorAll('.has-dd').forEach(item => {
+    const trigger = item.querySelector(':scope > a');
+    const dropdown = item.querySelector(':scope > .dd');
+    if (!trigger || !dropdown) return;
+
+    trigger.setAttribute('aria-haspopup', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+
+    const open = () => {
+      if (!desktopQuery.matches) return;
+      window.clearTimeout(closeTimer);
+      closeAll(item);
+      setExpanded(item, true);
+    };
+
+    const toggle = () => {
+      if (!desktopQuery.matches) return;
+      window.clearTimeout(closeTimer);
+      const isOpen = item.classList.contains('nav-dd-open');
+      closeAll(item);
+      setExpanded(item, !isOpen);
+    };
+
+    const scheduleClose = () => {
+      if (!desktopQuery.matches) return;
+      window.clearTimeout(closeTimer);
+      closeTimer = window.setTimeout(() => setExpanded(item, false), 320);
+    };
+
+    trigger.addEventListener('click', (e) => {
+      if (!desktopQuery.matches) return;
+      e.preventDefault();
+      toggle();
+    });
+
+    trigger.addEventListener('keydown', (e) => {
+      if (!desktopQuery.matches || !['Enter', ' '].includes(e.key)) return;
+      e.preventDefault();
+      toggle();
+    });
+
+    item.addEventListener('pointerenter', open);
+    item.addEventListener('pointerleave', scheduleClose);
+    item.addEventListener('focusin', open);
+    item.addEventListener('focusout', (e) => {
+      if (!item.contains(e.relatedTarget)) scheduleClose();
+    });
+  });
+
+  document.addEventListener('pointerdown', (e) => {
+    if (e.target.closest('.nav-links')) return;
+    closeAll();
+  });
+
+  window.addEventListener('resize', () => {
+    if (!desktopQuery.matches) closeAll();
   });
 }
 
@@ -746,6 +917,22 @@ const PAGE_HELP = {
     actions: [
       ['Séquences', 'sequences-pedagogiques.html'],
       ['Espace enseignant', 'espace-enseignant.html'],
+    ],
+  },
+  'prof-particulier.html': {
+    title: 'Espace prof particulier',
+    text: 'Suivez chaque élève séparément : objectif, chapitre, ressource donnée, séance et bilan.',
+    actions: [
+      ['Ouvrir l’espace prof', 'espace-prof-particulier.html'],
+      ['Chercher une ressource', 'recherche.html'],
+    ],
+  },
+  'espace-prof-particulier.html': {
+    title: 'Pilotage prof particulier',
+    text: 'Ajoutez un élève, donnez une ressource, notez une séance, puis exportez un bilan clair.',
+    actions: [
+      ['Cours', 'cours.html'],
+      ['Exercices', 'ressources.html'],
     ],
   },
   'etablissements.html': {

@@ -166,7 +166,7 @@ export function initMethodeListeners(container) {
 
     try {
       const m = await api.getMethode(bar.dataset.methode);
-      panel.innerHTML = `<div class="methode-content">${m.contenu || ''}</div>`;
+      panel.innerHTML = `<div class="methode-content methode-card-body">${m.contenu || ''}</div>`;
       if (window.MathJax?.typesetPromise) window.MathJax.typesetPromise([panel]).catch(() => {});
     } catch {
       panel.innerHTML = '<div class="methode-loading">Erreur de chargement de la méthode.</div>';
